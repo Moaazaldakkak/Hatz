@@ -510,7 +510,7 @@ input,textarea{font-family:inherit;font-size:inherit}
 }
 
 /* bg brighter 3 */
-.bg-b3{background:var(--pulse-b3)}
+.bg-b3{background:var(--pulse-b3);width:100%}
 .bg-gradient-overlay{
   background:linear-gradient(135deg,var(--pulse-primary),var(--pulse-secondary));
 }

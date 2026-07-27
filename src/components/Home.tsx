@@ -83,14 +83,14 @@ function AboutSection() {
         {/* Title + Description row */}
         <div className="about-row-title">
           <div className="about-title-col">
-            <div className="why-title" style={{ marginTop: '24px' }}>
-              <span className="titlebloc-cc" style={{ fontWeight: 100 }}>
-                <span className="titletext">ABOUT MY </span>
-              </span>
-              <span className="titlebloc-cc" style={{ fontWeight: 700 }}>
-                <span className="titletext">CAREER</span>
-              </span>
-            </div>
+          <div className="why-title" style={{ marginTop: '24px', fontWeight: 100 }}>
+            <span className="titlebloc-cc" style={{ fontWeight: 100 }}>
+              <span className="titletext">ABOUT MY </span>
+            </span>
+            <span className="titlebloc-cc" style={{ fontWeight: 700 }}>
+              <span className="titletext">CAREER</span>
+            </span>
+          </div>
           </div>
           <div className="about-desc-col">
             <div className="why-description">
@@ -159,7 +159,7 @@ function TimelineSection() {
               <path d="M11.2499 8.75L5.88379 14.1161C5.46711 14.5328 5.25879 14.7411 5.25879 15C5.25879 15.2589 5.46711 15.4672 5.88379 15.8839L11.2499 21.25" stroke="#FEFEFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <div ref={scrollRef} style={{ display: 'flex', overflow: 'hidden', flex: 1, gap: '12px' }}>
+          <div ref={scrollRef} style={{ display: 'flex', overflowX: 'auto', flex: 1, gap: '12px' }}>
             {timelineData.map((item, i) => (
               <div
                 key={i}
