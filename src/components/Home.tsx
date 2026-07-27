@@ -44,8 +44,9 @@ export default function Home({ onContact }: { onContact: () => void }) {
 /* Hero */
 function HeroSection() {
   return (
-    <div className="hero-wrapper">
-      <div className="hero-bg-column" />
+    <div className="hero-section">
+      <div className="hero-bg-left" />
+      <div className="hero-bg-right" />
       <div className="hero-content">
         <div className="hero-inner">
           <div className="hero-subtitle">PHD STUDENT / DEVELOPER</div>
