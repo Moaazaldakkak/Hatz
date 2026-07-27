@@ -177,7 +177,7 @@ function TimelineSection() {
             <button className="timeline-btn" onClick={() => scroll(1)} style={{ marginLeft: '16px' }}>
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M23.75 15H5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M18.75 8.75L24.1161 14.1161C24.5328 24.5328 24.7411 24.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M18.75 8.75L24.1161 14.1161C24.5328 14.5328 24.7411 14.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
           </div>
@@ -198,54 +198,65 @@ function ProjectsSection() {
   const p = projects[current];
 
   return (
-    <section>
-      <div style={{ padding: '40px 30px' }}>
-        <div className="section-inner">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div className="w-full lg:w-1/3">
-              <div className="project-title" style={{ marginBottom: '24px' }}>
-                <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
+    <section className="project-section">
+      <div className="project-container">
+        <div className="project-inner">
+          <div className="project-layout">
+            <div className="project-left">
+              <div className="project-title">
+                <span className="titlebloc-cc" style={{ fontWeight: 100, marginLeft: '-4px' }}>
                   <span className="titletext">LATEST</span>
                 </span>
-                <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
+                <span className="titlebloc-cc" style={{ fontWeight: 700, marginLeft: '-3px' }}>
                   <span className="titletext">PROJECTS</span>
                 </span>
               </div>
-              <div className="project-desc" style={{ marginBottom: '24px' }}>
+              <div className="project-desc">
                 These are my latest projects, where I've applied my expertise to deliver cutting-edge digital solutions.
               </div>
-              <div style={{ display: 'flex', gap: '12px', marginBottom: '16px' }}>
-                <button className="timeline-btn" style={{ background: 'var(--pulse-primary)' }} onClick={() => setCurrent(Math.max(0, current - 1))}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M15 18l-6-6 6-6" />
-                  </svg>
-                </button>
-                <button className="timeline-btn" style={{ background: 'var(--pulse-primary)' }} onClick={() => setCurrent(Math.min(projects.length - 1, current + 1))}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M9 18l6-6-6-6" />
-                  </svg>
-                </button>
-              </div>
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                {projects.map((proj, i) => (
-                  <div key={proj.id} style={{
-                    width: 50, height: 50, cursor: 'pointer', flexShrink: 0,
-                    backgroundImage: `url(${proj.image})`,
-                    backgroundSize: 'cover', backgroundPosition: 'center',
-                    border: i === current ? '2px solid var(--pulse-primary)' : '2px solid transparent',
-                  }} onClick={() => setCurrent(i)} />
-                ))}
-              </div>
             </div>
-            <div className="w-full lg:w-2/3">
-              <div className="project-card" style={{ backgroundImage: `url(${p.image})` }}>
-                <div className="project-card-overlay" />
-                <div className="project-card-content">
-                  <div className="category">{p.category}</div>
-                  <h3>{p.title}</h3>
+            <div className="project-right">
+              <div className="project-card-wrap">
+                <div className="project-card" style={{ backgroundImage: `url(${p.image})` }}>
+                  <div className="project-card-gradient" />
+                  <div className="project-card-content">
+                    <div className="project-category">{p.category}</div>
+                    <h3>{p.title}</h3>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Navigation arrows below slider */}
+          <div className="project-nav-row">
+            <button className="project-btn" onClick={() => setCurrent(Math.max(0, current - 1))}>
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.25 15L25 14.9998" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M11.2499 8.75L5.88379 14.1161C5.46711 14.5328 5.25879 14.7411 5.25879 15C5.25879 15.2589 5.46711 15.4672 5.88379 15.8839L11.2499 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button className="project-btn" onClick={() => setCurrent(Math.min(projects.length - 1, current + 1))}>
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.75 15H5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M18.75 8.75L24.1161 14.1161C24.5328 14.5328 24.7411 14.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          {/* Thumbnails below */}
+          <div className="project-thumb-row">
+            {projects.map((proj, i) => (
+              <div
+                key={proj.id}
+                className="project-thumb"
+                style={{
+                  backgroundImage: `url(${proj.image})`,
+                  border: i === current ? '2px solid var(--pulse-primary)' : '2px solid transparent',
+                }}
+                onClick={() => setCurrent(i)}
+              />
+            ))}
           </div>
         </div>
       </div>
