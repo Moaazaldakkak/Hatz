@@ -250,10 +250,10 @@ input,textarea{font-family:inherit;font-size:inherit}
 
 /* About */
 .about-section{
-  background:#fff;margin-top:-40px;position:relative;z-index:2;
+  margin-top:-40px;position:relative;z-index:2;
 }
 .about-container{
-  max-width:1140px;margin:0 auto;padding:40px 0;
+  max-width:1140px;margin:0 auto;background:white;
 }
 .why-title{font-size:clamp(28px,4vw,48px);line-height:1.25}
 .why-description{font-size:clamp(15px,1.5vw,17px);font-weight:300;line-height:2}

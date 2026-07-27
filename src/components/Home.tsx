@@ -140,51 +140,53 @@ function TimelineSection() {
 
   return (
     <section>
-      <div className="timeline-wrapper">
-        <div className="timeline-header">
-          <div className="why-title" style={{ marginBottom: '50px' }}>
-            <span className="titlebloc-white" style={{ color: 'white' }}>
-              <span>EXPERIENCE </span>
-            </span>
-            <span className="titlebloc-white" style={{ color: 'white' }}>
-              <span>& STUDIES</span>
-            </span>
+      <div className="timeline-section" style={{ maxWidth: '1140px', margin: '0 auto' }}>
+        <div className="timeline-wrapper">
+          <div className="timeline-header">
+            <div className="why-title" style={{ marginBottom: '50px' }}>
+              <span className="titlebloc-white" style={{ color: 'white' }}>
+                <span>EXPERIENCE </span>
+              </span>
+              <span className="titlebloc-white" style={{ color: 'white' }}>
+                <span>& STUDIES</span>
+              </span>
+            </div>
+          </div>
+
+          <div className="timeline-slider-row">
+            <button className="timeline-btn" onClick={() => scroll(-1)} style={{ marginRight: '16px' }}>
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.25 15L25 14.9998" stroke="#FEFEFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M11.2499 8.75L5.88379 14.1161C5.46711 14.5328 5.25879 14.7411 5.25879 15C5.25879 15.2589 5.46711 15.4672 5.88379 15.8839L11.2499 21.25" stroke="#FEFEFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <div ref={scrollRef} style={{ display: 'flex', overflowX: 'auto', flex: 1, gap: '12px' }}>
+              {timelineData.map((item, i) => (
+                <div
+                  key={i}
+                  className="timeline-item"
+                  onClick={() => setActive(i)}
+                  style={{ opacity: i === active ? 1 : 0.6, minWidth: '200px' }}
+                >
+                  <div className="date">{item.date}</div>
+                  <div className="label">{item.label}</div>
+                  <div className="type">{item.type}</div>
+                </div>
+              ))}
+            </div>
+            <button className="timeline-btn" onClick={() => scroll(1)} style={{ marginLeft: '16px' }}>
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.75 15H5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M18.75 8.75L24.1161 14.1161C24.5328 24.5328 24.7411 24.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
           </div>
         </div>
 
-        <div className="timeline-slider-row">
-          <button className="timeline-btn" onClick={() => scroll(-1)} style={{ marginRight: '16px' }}>
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.25 15L25 14.9998" stroke="#FEFEFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M11.2499 8.75L5.88379 14.1161C5.46711 14.5328 5.25879 14.7411 5.25879 15C5.25879 15.2589 5.46711 15.4672 5.88379 15.8839L11.2499 21.25" stroke="#FEFEFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-          <div ref={scrollRef} style={{ display: 'flex', overflowX: 'auto', flex: 1, gap: '12px' }}>
-            {timelineData.map((item, i) => (
-              <div
-                key={i}
-                className="timeline-item"
-                onClick={() => setActive(i)}
-                style={{ opacity: i === active ? 1 : 0.6, minWidth: '200px' }}
-              >
-                <div className="date">{item.date}</div>
-                <div className="label">{item.label}</div>
-                <div className="type">{item.type}</div>
-              </div>
-            ))}
-          </div>
-          <button className="timeline-btn" onClick={() => scroll(1)} style={{ marginLeft: '16px' }}>
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M23.75 15H5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M18.75 8.75L24.1161 14.1161C24.5328 14.5328 24.7411 14.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+        <div className="timeline-desc-row" style={{ paddingTop: '32px', paddingBottom: '32px' }}>
+          <h3 className="hidden lg:inline-block">{timelineData[active].title}</h3>
+          <p>{timelineData[active].description}</p>
         </div>
-      </div>
-
-      <div className="timeline-desc-row" style={{ paddingTop: '32px', paddingBottom: '32px' }}>
-        <h3 className="hidden lg:inline-block">{timelineData[active].title}</h3>
-        <p>{timelineData[active].description}</p>
       </div>
     </section>
   );
