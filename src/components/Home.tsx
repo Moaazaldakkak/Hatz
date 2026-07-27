@@ -62,61 +62,60 @@ function HeroSection() {
 
 /* About */
 function AboutSection() {
+  const items = [
+    { title: 'EXPERIENCE', text: 'My extensive experience in the field is a testament to my expertise and dedication, consistently delivering outstanding results in the digital landscape. I\'m a seasoned professional who excels in the world of development.' },
+    { title: 'AUTONOMY', text: 'I excel in my work with a strong sense of autonomy, making me a self-reliant and efficient developer. My ability to take initiative and drive projects forward independently has consistently proven to be a valuable asset in delivering successful digital solutions.' },
+    { title: 'INVOLVMENT', text: 'I actively engage in every aspect of the development process, fostering collaboration and synergy within teams. My dedication to active involvement ensures that I contribute effectively to projects, creating seamless and innovative digital solutions.' },
+  ];
   return (
-    <section className="bg-b3" style={{ padding: '40px 0' }}>
-      <div className="section-inner" style={{ padding: '0 30px' }}>
-        <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-pulse-secondary hover:bg-gray-800 transition ease-in-out float-right cursor-pointer mb-4">
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 23.75V5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M8.75 18.75L14.1161 24.1161C14.5328 24.5328 14.7411 24.7411 15 24.7411C15.2589 24.7411 15.4672 24.5328 15.8839 24.1161L21.25 18.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </div>
-      </div>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '0 30px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {/* Title row */}
-          <div className="why-title" style={{ marginTop: '24px' }}>
-            <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-              <span className="titletext">ABOUT MY </span>
-            </span>
-            <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-              <span className="titletext">CAREER</span>
-            </span>
-          </div>
-          <div className="why-description">
-            I'm a passionate developer driven by a relentless pursuit of digital solutions. With a love for coding and innovation, I thrive on transforming ideas into impactful software. My dedication to crafting cutting-edge technology fuels my ongoing journey in the world of development.
+    <section className="bg-b3">
+      <div className="why-container">
+        {/* Scroll to why button - desktop only */}
+        <div className="hidden lg:block" style={{ height: '64px', marginBottom: '16px' }}>
+          <div className="scrolltowhy">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 23.75V5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M8.75 18.75L14.1161 24.1161C14.5328 24.5328 14.7411 24.7411 15 24.7411C15.2589 24.7411 15.4672 24.5328 15.8839 24.1161L21.25 18.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
         </div>
-      </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '30px 30px 0' }}>
-        <div style={{ display: 'flex', gap: '16px' }}>
-          <div className="hidden md:flex" style={{ flex: '0 0 33.333%', position: 'relative' }}>
-            <div className="hidden lg:block relative" style={{ width: '66.667%' }}>
+        {/* Title + Description row */}
+        <div className="about-row-title">
+          <div className="about-title-col">
+            <div className="why-title" style={{ marginTop: '24px' }}>
+              <span className="titlebloc-cc" style={{ fontWeight: 100 }}>
+                <span className="titletext">ABOUT MY </span>
+              </span>
+              <span className="titlebloc-cc" style={{ fontWeight: 700 }}>
+                <span className="titletext">CAREER</span>
+              </span>
+            </div>
+          </div>
+          <div className="about-desc-col">
+            <div className="why-description">
+              I'm a passionate developer driven by a relentless pursuit of digital solutions. With a love for coding and innovation, I thrive on transforming ideas into impactful software. My dedication to crafting cutting-edge technology fuels my ongoing journey in the world of development.
+            </div>
+          </div>
+        </div>
+
+        {/* Image + Items row */}
+        <div className="about-row-content">
+          <div className="about-image-col">
+            <div className="about-image-wrap">
               <img
-                className="img-offset h-img-full"
+                className="img-offset"
                 src="https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2022/11/workspace.jpg"
                 alt=""
-                style={{ position: 'absolute', objectFit: 'cover', height: '100%' }}
               />
             </div>
-            <div className="w-full lg:w-1/3 relative" style={{ position: 'relative' }}>
-              <h1 className="moving-text font-normal" style={{
-                position: 'absolute', right: 0, fontSize: 'clamp(25px,3vw,30px)',
-                color: 'var(--pulse-primary)', lineHeight: 1.25
-              }}>
-                GREAT
-              </h1>
+            <div className="about-moving-text-wrap">
+              <h1 className="about-moving-text">GREAT</h1>
             </div>
           </div>
-          <div style={{ flex: '1 1 auto' }}>
+          <div className="about-items-col">
             <div className="why-items">
-              {[
-                { title: 'EXPERIENCE', text: 'My extensive experience in the field is a testament to my expertise and dedication, consistently delivering outstanding results in the digital landscape. I\'m a seasoned professional who excels in the world of development.' },
-                { title: 'AUTONOMY', text: 'I excel in my work with a strong sense of autonomy, making me a self-reliant and efficient developer. My ability to take initiative and drive projects forward independently has consistently proven to be a valuable asset in delivering successful digital solutions.' },
-                { title: 'INVOLVMENT', text: 'I actively engage in every aspect of the development process, fostering collaboration and synergy within teams. My dedication to active involvement ensures that I contribute effectively to projects, creating seamless and innovative digital solutions.' },
-              ].map((item, i) => (
+              {items.map((item, i) => (
                 <div key={i} className="why-item" style={{ marginBottom: '24px' }}>
                   <h2>{item.title}</h2>
                   <p>{item.text}</p>
