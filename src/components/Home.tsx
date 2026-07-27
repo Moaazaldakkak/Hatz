@@ -68,8 +68,8 @@ function AboutSection() {
     { title: 'INVOLVMENT', text: 'I actively engage in every aspect of the development process, fostering collaboration and synergy within teams. My dedication to active involvement ensures that I contribute effectively to projects, creating seamless and innovative digital solutions.' },
   ];
   return (
-    <section className="bg-b3">
-      <div className="why-container">
+    <section className="about-section">
+      <div className="about-container">
         {/* Scroll to why button - desktop only */}
         <div className="hidden lg:block" style={{ height: '64px', marginBottom: '16px' }}>
           <div className="scrolltowhy">

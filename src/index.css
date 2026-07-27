@@ -249,7 +249,12 @@ input,textarea{font-family:inherit;font-size:inherit}
 @media(min-width:768px){.titlebloc-cc:after{display:inline-block}}
 
 /* About */
-.why-container{padding:0}
+.about-section{
+  background:#fff;margin-top:-40px;position:relative;z-index:2;
+}
+.about-container{
+  max-width:1140px;margin:0 auto;padding:40px 0;
+}
 .why-title{font-size:clamp(28px,4vw,48px);line-height:1.25}
 .why-description{font-size:clamp(15px,1.5vw,17px);font-weight:300;line-height:2}
 .why-item h2{font-size:clamp(22px,3vw,30px);line-height:1.25;margin-bottom:8px;font-weight:400}
