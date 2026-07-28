@@ -5,22 +5,22 @@ export default function Navigation({ activePage, onChange, onContact }: {
 }) {
   const pages = [
     { id: 'home', label: 'HOME' },
-    { id: 'academic', label: 'ACADEMIC' },
-    { id: 'blog', label: 'BLOG & NEWS' },
+    { id: 'academic', label: 'ABOUT' },
+    { id: 'blog', label: 'INSIGHTS' },
   ];
 
   return (
     <aside className="sidebar">
       <div className="sidebar-toggle social-bar-toggle" onClick={() => {}}>
-        <svg width="50" height="50" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="50" height="50" viewBox="0 0 500 499.1" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g fill="#fff">
-            <rect x="60.65" y="60.99" width="12.53" height="163.03"/>
-            <rect x="182.7" y="60.99" width="12.53" height="163.03"/>
-            <polygon points="439.35 224.02 426.82 224.02 426.82 73.52 317.28 73.52 317.28 224.02 304.76 224.02 304.76 60.99 439.35 60.99 439.35 224.02"/>
-            <rect x="66.91" y="139.37" width="364.37" height="12.53"/>
-            <rect x="366.02" y="224.02" width="12.53" height="75.89"/>
-            <rect x="131.43" y="282.12" width="12.53" height="156.77"/>
-            <polygon points="439.35 439.01 278.94 439.01 411.62 288.38 61.35 288.38 61.35 275.85 439.35 275.85 306.68 426.48 439.35 426.48 439.35 439.01"/>
+            <rect x="0" y="0" width="16.55" height="215.24"/>
+            <rect x="161.15" y="0" width="16.55" height="215.24"/>
+            <polygon points="500,215.24 483.45,215.24 483.45,16.55 338.83,16.55 338.83,215.24 322.29,215.24 322.29,0 500,0 500,215.24"/>
+            <rect x="8.27" y="103.48" width="481.07" height="16.55"/>
+            <rect x="403.18" y="215.24" width="16.55" height="100.2"/>
+            <rect x="93.45" y="291.95" width="16.55" height="206.98"/>
+            <polygon points="500,499.1 288.21,499.1 463.39,300.22 0.93,300.22 0.93,283.68 500,283.68 324.83,482.55 500,482.55 500,499.1"/>
           </g>
         </svg>
       </div>

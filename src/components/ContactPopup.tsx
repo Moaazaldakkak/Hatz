@@ -1,7 +1,7 @@
 export default function ContactPopup({ onClose }: { onClose: () => void }) {
   return (
     <>
-      <div className="contact-popup-header">We'd love to hear from you! Whether you have a question, a comment, or a suggestion, please don't hesitate to reach out. We're here to help, and we value your feedback.</div>
+      <div className="contact-popup-header">Ready to bridge your brand with emerging markets? Let's discuss how HATZ can help you expand into promising new territories through strategic local partnerships.</div>
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="form-group">
           <label>Your name</label>

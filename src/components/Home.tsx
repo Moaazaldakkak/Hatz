@@ -49,10 +49,10 @@ function HeroSection() {
       <div className="hero-bg-right" />
       <div className="hero-content">
         <div className="hero-inner">
-          <div className="hero-subtitle">PHD STUDENT / DEVELOPER</div>
-          <h1 className="hero-name">Christopher doe</h1>
+          <div className="hero-subtitle">STRATEGIC PARTNERSHIPS / MARKET EXPANSION</div>
+          <h1 className="hero-name">HATZ</h1>
           <p className="hero-tagline">
-            I am a developer and passionate <br />about digital solutions.
+            Bridging global innovations to flourish <br />within promising local environments.
           </p>
         </div>
       </div>
@@ -67,9 +67,9 @@ function AboutSection() {
   const h2Refs = useRef<(HTMLHeadingElement | null)[]>([]);
   const wrapRef = useRef<HTMLDivElement>(null);
   const items = [
-    { title: 'EXPERIENCE', text: 'My extensive experience in the field is a testament to my expertise and dedication, consistently delivering outstanding results in the digital landscape. I\'m a seasoned professional who excels in the world of development.', moving: 'GREAT' },
-    { title: 'AUTONOMY', text: 'I excel in my work with a strong sense of autonomy, making me a self-reliant and efficient developer. My ability to take initiative and drive projects forward independently has consistently proven to be a valuable asset in delivering successful digital solutions.', moving: 'STRONG' },
-    { title: 'INVOLVMENT', text: 'I actively engage in every aspect of the development process, fostering collaboration and synergy within teams. My dedication to active involvement ensures that I contribute effectively to projects, creating seamless and innovative digital solutions.', moving: 'ACTIVE' },
+    { title: 'CONNECTIVITY', text: 'We construct the bridges through which global innovations cross to flourish within promising local environments. Our network spans continents, connecting international brands with emerging markets through robust strategic partnerships.', moving: 'BRIDGE' },
+    { title: 'INTEGRITY', text: 'Clean, perpendicular geometry defines our approach — built on stability, trust, and precision. Every partnership is forged with architectural integrity, ensuring seamless knowledge and commercial exchange between franchisor and franchisee.', moving: 'TRUST' },
+    { title: 'EXPANSION', text: 'Guided by an ambitious vision, we position the Syrian market as a pivotal hub for future growth and regional expansion. We do more than transfer brands; we create lasting commercial ecosystems that drive mutual success.', moving: 'GROWTH' },
   ];
 
   useEffect(() => {
@@ -122,16 +122,16 @@ function AboutSection() {
           <div className="about-title-col">
           <div className="why-title" style={{ marginTop: '24px', fontWeight: 100 }}>
             <span className="titlebloc-cc" style={{ fontWeight: 100 }}>
-              <span className="titletext">ABOUT MY </span>
+              <span className="titletext">ABOUT </span>
             </span>
             <span className="titlebloc-cc" style={{ fontWeight: 700 }}>
-              <span className="titletext">CAREER</span>
+              <span className="titletext">HATZ</span>
             </span>
           </div>
           </div>
           <div className="about-desc-col">
             <div className="why-description">
-              I'm a passionate developer driven by a relentless pursuit of digital solutions. With a love for coding and innovation, I thrive on transforming ideas into impactful software. My dedication to crafting cutting-edge technology fuels my ongoing journey in the world of development.
+              HATZ is dedicated to redefining the retail landscape in emerging markets by forging robust strategic partnerships. We bridge international brands with local expertise, positioning the Syrian market as a pivotal hub for future growth and regional expansion.
             </div>
           </div>
         </div>
@@ -182,10 +182,10 @@ function TimelineSection() {
           <div className="timeline-header">
             <div className="why-title" style={{ marginBottom: '50px' }}>
               <span className="titlebloc-white" style={{ color: 'white' }}>
-                <span>EXPERIENCE </span>
+                <span>MILESTONES </span>
               </span>
               <span className="titlebloc-white" style={{ color: 'white' }}>
-                <span>& STUDIES</span>
+                <span>& GROWTH</span>
               </span>
             </div>
           </div>
@@ -267,14 +267,14 @@ function ProjectsSection() {
             <div className="project-left">
               <div className="project-title">
                 <span className="titlebloc-cc" style={{ fontWeight: 100, marginLeft: '-4px' }}>
-                  <span className="titletext">LATEST</span>
+                  <span className="titletext">STRATEGIC</span>
                 </span>
                 <span className="titlebloc-cc" style={{ fontWeight: 700, marginLeft: '-3px' }}>
-                  <span className="titletext">PROJECTS</span>
+                  <span className="titletext">PARTNERSHIPS</span>
                 </span>
               </div>
               <div className="project-desc">
-                These are my latest projects, where I've applied my expertise to deliver cutting-edge digital solutions.
+                Connecting international brands with emerging markets through strategic collaboration and local expertise.
               </div>
             </div>
             <div className="project-right">
@@ -316,7 +316,7 @@ function ProjectsSection() {
                   <span className="project-count-total">{total}</span>
                   <div className="project-status">
                     <span className="project-pulsing-dot" />
-                    <span className="project-status-text">NOW PROUDLY WORKING WITH <strong>GOOGLE</strong></span>
+                    <span className="project-status-text">CONNECTING <strong>MARKETS</strong> WORLDWIDE</span>
                   </div>
                 </div>
               </div>
@@ -337,10 +337,10 @@ function SkillsSection() {
       <div className="section-inner">
         <div className="why-title" style={{ marginBottom: '24px' }}>
           <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-            <span className="titletext">EXPERTISE </span>
+            <span className="titletext">CAPABILITIES </span>
           </span>
           <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-            <span className="titletext">& SKILLS</span>
+            <span className="titletext">& EXPERTISE</span>
           </span>
         </div>
 

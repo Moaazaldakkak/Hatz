@@ -12,7 +12,7 @@ export default function Blog() {
 
         <div className="page-title-container">
           <span className="chevron">&rsaquo;</span>
-          <h1>Blog &amp; News</h1>
+          <h1>Insights</h1>
         </div>
 
         <section style={{ padding: '40px 30px' }}>
@@ -22,7 +22,7 @@ export default function Blog() {
                 <span className="titletext">Latest</span>
               </span>
               <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-                <span className="titletext">Articles</span>
+                <span className="titletext">Insights</span>
               </span>
             </div>
 
