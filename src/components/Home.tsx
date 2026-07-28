@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { timelineData, projects, skillGroups } from '../data';
+import { timelineData, projects } from '../data';
 
 export default function Home({ onContact }: { onContact: () => void }) {
   return (
@@ -26,16 +26,6 @@ export default function Home({ onContact }: { onContact: () => void }) {
 
         {/* Skills */}
         <SkillsSection />
-
-        {/* Contact trigger at bottom */}
-        <div style={{ textAlign: 'center', padding: '40px 30px', borderTop: '1px solid var(--border-line)' }}>
-          <button className="btn-primary" onClick={onContact}>
-            Get in Touch
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
       </div>
     </div>
   );
@@ -330,40 +320,223 @@ function ProjectsSection() {
 
 /* Skills */
 function SkillsSection() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [activeTab, setActiveTab] = useState(0);
+
+  const skillTabs = [
+    {
+      name: 'WEB DEVELOPMENT',
+      percent: 80,
+      level: 'INTERMEDIATE',
+      experience: '3 YEARS',
+      tags: ['PHP', 'ASP', 'ROR'],
+      description: 'In web development, my skills shine through with proficiency in front-end technologies like HTML, CSS, and JavaScript. I also excel in back-end frameworks such as Node.js and databases. My expertise allows me to create seamless, responsive web applications with a strong user-focused approach.',
+    },
+    {
+      name: 'MOBILE DEVELOPMENT',
+      percent: 70,
+      level: 'INTERMEDIATE',
+      experience: '4 YEARS',
+      tags: ['ANDROID', 'IOS', 'QT SDK'],
+      description: 'In mobile development, I demonstrate prowess in crafting robust, user-friendly apps for both iOS and Android platforms. With proficiency in programming languages such as Swift and Kotlin, I deliver seamless mobile solutions, ensuring an optimal user experience.',
+    },
+    {
+      name: 'UI/UX DESIGN',
+      percent: 95,
+      level: 'ADVANCED',
+      experience: '5 YEARS',
+      tags: ['FIGMA', 'SKETCH'],
+      description: 'In UI/UX design, my creativity and user-centered approach result in captivating and intuitive interfaces. With a strong foundation in user research and wireframing, I transform ideas into visually appealing and highly functional digital experiences that engage and delight users.',
+    },
+  ];
+
+  const tab = skillTabs[activeTab];
 
   return (
-    <section className="bg-b3" style={{ padding: '40px 30px' }}>
-      <div className="section-inner">
-        <div className="why-title" style={{ marginBottom: '24px' }}>
-          <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-            <span className="titletext">CAPABILITIES </span>
-          </span>
-          <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-            <span className="titletext">& EXPERTISE</span>
-          </span>
-        </div>
+    <section style={{ background: 'var(--pulse-primary)', padding: '80px 0' }}>
+      <div className="section-inner" style={{ padding: '0 30px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }} className="lg:flex-row">
+          {/* Left column */}
+          <div style={{ width: '100%', paddingRight: 0 }} className="lg:w-1/3 lg:pr-10 min-[1200px]:pr-20">
+            <div className="boxtoanimatetotop lg:mb-14" style={{
+              fontSize: 'clamp(28px,4vw,48px)', lineHeight: 1.25,
+              marginBottom: '32px', marginTop: 0
+            }}>
+              <div style={{ display: 'flex', color: 'white', fontWeight: 100 }}>
+                <span>EXPERTISE</span>
+              </div>
+              <div style={{ display: 'flex', color: 'white', fontWeight: 700 }}>
+                <span>& SKILLS</span>
+              </div>
+            </div>
+            <div style={{
+              fontSize: 'clamp(18px,2vw,24px)', fontWeight: 300,
+              marginBottom: 0, color: 'white'
+            }} className="lg:mb-6">
+              I possess coding mastery, adept problem-solving, ideal for complex development challenges.
+            </div>
+          </div>
 
-        {skillGroups.map((group, i) => (
-          <div key={group.name}>
-            <input type="checkbox" id={`skill-${i}`} className="skills-toggle"
-              checked={open === i} onChange={() => setOpen(open === i ? null : i)} />
-            <label htmlFor={`skill-${i}`} className="skills-title">{group.name}</label>
-            <div className="skills-content">
-              {group.skills.map((s) => (
-                <div key={s.name} className="skill-bar">
-                  <div className="skill-bar-label">
-                    <span>{s.name}</span>
-                    <span>{s.level}%</span>
+          {/* Right column */}
+          <div style={{ width: '100%', display: 'flex', alignItems: 'flex-start' }} className="lg:w-2/3">
+            {/* Desktop tabs */}
+            <div className="hidden min-[1130px]:flex" style={{ width: '100%' }}>
+              {/* Tab navigation */}
+              <ul style={{
+                width: '300px', background: 'var(--pulse-d3)', flexShrink: 0,
+                listStyle: 'none', margin: 0, padding: 0
+              }}>
+                {skillTabs.map((t, i) => (
+                  <li key={i} style={{ float: 'none', width: 'auto' }}>
+                    <button
+                      onClick={() => setActiveTab(i)}
+                      style={{
+                        display: 'block', width: '100%', textAlign: 'left',
+                        fontSize: '13px', fontWeight: 400,
+                        background: i === activeTab ? 'var(--pulse-primary)' : 'var(--pulse-d3)',
+                        color: 'white', padding: '20px 24px',
+                        border: 'none', borderBottom: '1px solid var(--pulse-d1)',
+                        cursor: 'pointer', transition: 'background .15s',
+                        fontFamily: 'inherit', letterSpacing: '1px'
+                      }}
+                    >
+                      {t.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Tab content */}
+              <div style={{ flex: 1, background: 'var(--pulse-d2)', padding: '32px' }}>
+                {/* Percent + Level + Experience row */}
+                <div style={{ display: 'flex', background: 'var(--pulse-d1)', padding: '12px', marginBottom: '24px' }}>
+                  <div style={{
+                    width: '56px', height: '56px', display: 'flex', flexShrink: 0,
+                    alignItems: 'center', justifyContent: 'center',
+                    fontSize: '19px', fontWeight: 400, color: 'white',
+                    background: 'var(--pulse-d3)'
+                  }}>
+                    {tab.percent} %
                   </div>
-                  <div className="skill-bar-track">
-                    <div className="skill-bar-fill" style={{ width: `${s.level}%` }} />
+                  <div style={{ marginLeft: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>LEVEL</span>
+                        <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{tab.level}</span>
+                      </span>
+                      <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>EXPERIENCE</span>
+                        <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{tab.experience}</span>
+                      </span>
+                    </div>
+                    {/* Progress bar */}
+                    <div style={{ background: 'var(--pulse-d3)', height: '4px', width: '100%' }}>
+                      <div style={{ height: '100%', background: 'white', width: `${tab.percent}%` }} />
+                    </div>
+                    {/* Tags */}
+                    <div style={{ display: 'flex', marginTop: '4px' }}>
+                      {tab.tags.map((tag) => (
+                        <span key={tag} style={{
+                          background: 'var(--pulse-d3)', fontSize: '9px',
+                          padding: '1px 8px', marginRight: '8px', color: 'white'
+                        }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                {/* Description */}
+                <p style={{
+                  color: 'white', lineHeight: 1.8, fontWeight: 300,
+                  fontSize: 'clamp(15px,1.5vw,17px)'
+                }}>
+                  {tab.description}
+                </p>
+              </div>
+            </div>
+
+            {/* Mobile accordion */}
+            <div className="w-full block min-[1130px]:hidden">
+              {skillTabs.map((t, i) => (
+                <div key={i} style={{ marginBottom: '4px' }}>
+                  <input
+                    type="radio" name="skills-mobile"
+                    id={`skills-mob-${i}`}
+                    className="skills-toggle" hidden
+                    checked={activeTab === i}
+                    onChange={() => setActiveTab(i)}
+                  />
+                  <label
+                    htmlFor={`skills-mob-${i}`}
+                    className="skills-title"
+                    style={{
+                      background: activeTab === i ? 'var(--pulse-d1)' : 'var(--pulse-d3)',
+                      color: activeTab === i ? 'white' : 'rgba(255,255,255,.7)',
+                    }}
+                  >
+                    {t.name}
+                  </label>
+                  <div className="skills-content" style={{
+                    maxHeight: activeTab === i ? '600px' : '0',
+                    padding: activeTab === i ? '32px' : '0',
+                    background: 'var(--pulse-d2)',
+                  }}>
+                    <div style={{
+                      display: 'flex', background: 'var(--pulse-d1)', padding: '12px',
+                      flexDirection: 'column'
+                    }} className="min-[700px]:flex-row">
+                      <div style={{
+                        width: '100%', height: '56px', display: 'flex', flexShrink: 0,
+                        alignItems: 'center', justifyContent: 'center',
+                        fontSize: '19px', fontWeight: 400, color: 'white',
+                        background: 'var(--pulse-d3)'
+                      }} className="min-[700px]:w-14">
+                        {t.percent} %
+                      </div>
+                      <div style={{
+                        marginLeft: 0, display: 'flex', flexDirection: 'column',
+                        justifyContent: 'space-between', width: '100%', paddingTop: '12px'
+                      }} className="min-[700px]:ml-3 min-[700px]:pt-0">
+                        <div style={{
+                          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+                          gap: '10px'
+                        }} className="min-[530px]:flex-row min-[530px]:gap-0">
+                          <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }} className="md:w-auto">
+                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>LEVEL</span>
+                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{t.level}</span>
+                          </span>
+                          <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }} className="md:w-auto">
+                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>EXPERIENCE</span>
+                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{t.experience}</span>
+                          </span>
+                        </div>
+                        <div className="hidden min-[400px]:block min-[700px]:my-0" style={{ background: 'var(--pulse-d3)', height: '4px', width: '100%', marginTop: '12px' }}>
+                          <div style={{ height: '100%', background: 'white', width: `${t.percent}%` }} />
+                        </div>
+                        <div className="hidden min-[400px]:flex" style={{ marginTop: '12px' }}>
+                          {t.tags.map((tag) => (
+                            <span key={tag} style={{
+                              background: 'var(--pulse-d3)', fontSize: '9px',
+                              padding: '1px 8px', marginRight: '8px', color: 'white'
+                            }}>
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <p style={{
+                      color: 'white', lineHeight: 1.8, fontWeight: 300, marginTop: '24px',
+                      fontSize: 'clamp(15px,1.5vw,17px)'
+                    }}>
+                      {t.description}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
