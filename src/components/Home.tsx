@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { timelineData, projects, skillGroups } from '../data';
 
 export default function Home({ onContact }: { onContact: () => void }) {
@@ -62,17 +62,54 @@ function HeroSection() {
 
 /* About */
 function AboutSection() {
+  const [movingText, setMovingText] = useState('GREAT');
+  const [movingTop, setMovingTop] = useState(0);
+  const h2Refs = useRef<(HTMLHeadingElement | null)[]>([]);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const items = [
-    { title: 'EXPERIENCE', text: 'My extensive experience in the field is a testament to my expertise and dedication, consistently delivering outstanding results in the digital landscape. I\'m a seasoned professional who excels in the world of development.' },
-    { title: 'AUTONOMY', text: 'I excel in my work with a strong sense of autonomy, making me a self-reliant and efficient developer. My ability to take initiative and drive projects forward independently has consistently proven to be a valuable asset in delivering successful digital solutions.' },
-    { title: 'INVOLVMENT', text: 'I actively engage in every aspect of the development process, fostering collaboration and synergy within teams. My dedication to active involvement ensures that I contribute effectively to projects, creating seamless and innovative digital solutions.' },
+    { title: 'EXPERIENCE', text: 'My extensive experience in the field is a testament to my expertise and dedication, consistently delivering outstanding results in the digital landscape. I\'m a seasoned professional who excels in the world of development.', moving: 'GREAT' },
+    { title: 'AUTONOMY', text: 'I excel in my work with a strong sense of autonomy, making me a self-reliant and efficient developer. My ability to take initiative and drive projects forward independently has consistently proven to be a valuable asset in delivering successful digital solutions.', moving: 'STRONG' },
+    { title: 'INVOLVMENT', text: 'I actively engage in every aspect of the development process, fostering collaboration and synergy within teams. My dedication to active involvement ensures that I contribute effectively to projects, creating seamless and innovative digital solutions.', moving: 'ACTIVE' },
   ];
+
+  useEffect(() => {
+    const onScroll = () => {
+      const wrap = wrapRef.current;
+      if (!wrap) return;
+      const wrapTop = wrap.getBoundingClientRect().top + window.scrollY;
+      let found = -1;
+      h2Refs.current.forEach((el, i) => {
+        if (!el) return;
+        if (el.getBoundingClientRect().top < 60) found = i;
+      });
+      if (found >= 0) {
+        const next = h2Refs.current[found + 1];
+        if (next) {
+          setMovingTop(next.getBoundingClientRect().top + window.scrollY - wrapTop);
+          const nextItem = items[found + 1];
+          if (nextItem) setMovingText(nextItem.moving);
+        }
+      } else {
+        const first = h2Refs.current[0];
+        if (first) {
+          setMovingTop(first.getBoundingClientRect().top + window.scrollY - wrapTop);
+          setMovingText(items[0].moving);
+        }
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   return (
     <section className="about-section">
       <div className="about-container">
         {/* Scroll to why button - desktop only */}
         <div className="hidden lg:block" style={{ height: '64px', marginBottom: '16px' }}>
-          <div className="scrolltowhy">
+          <div className="scrolltowhy" onClick={() => {
+            const el = document.querySelector('.about-section');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}>
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15 23.75V5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M8.75 18.75L14.1161 24.1161C14.5328 24.5328 14.7411 24.7411 15 24.7411C15.2589 24.7411 15.4672 24.5328 15.8839 24.1161L21.25 18.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -109,15 +146,15 @@ function AboutSection() {
                 alt=""
               />
             </div>
-            <div className="about-moving-text-wrap">
-              <h1 className="about-moving-text">GREAT</h1>
+            <div className="about-moving-text-wrap" ref={wrapRef}>
+              <h1 className="about-moving-text" style={{ top: movingTop }}>{movingText}</h1>
             </div>
           </div>
           <div className="about-items-col">
             <div className="why-items">
               {items.map((item, i) => (
-                <div key={i} className="why-item" style={{ marginBottom: '24px' }}>
-                  <h2>{item.title}</h2>
+                <div key={i} data-movingtext={item.moving} className="why-item" style={{ marginBottom: '24px' }}>
+                  <h2 ref={el => { h2Refs.current[i] = el; }}>{item.title}</h2>
                   <p>{item.text}</p>
                 </div>
               ))}
@@ -195,7 +232,32 @@ function TimelineSection() {
 /* Projects */
 function ProjectsSection() {
   const [current, setCurrent] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [hovering, setHovering] = useState(false);
+  const total = projects.length;
+  const nextIdx = (current + 1) % total;
   const p = projects[current];
+  const next = projects[nextIdx];
+
+  useEffect(() => {
+    if (hovering) return;
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        const next = prev + 0.2;
+        if (next >= 100) {
+          setCurrent(c => (c + 1) % total);
+          return 0;
+        }
+        return next;
+      });
+    }, 10);
+    return () => clearInterval(interval);
+  }, [hovering, total]);
+
+  const goNext = () => {
+    setCurrent(c => (c + 1) % total);
+    setProgress(0);
+  };
 
   return (
     <section className="project-section">
@@ -216,7 +278,9 @@ function ProjectsSection() {
               </div>
             </div>
             <div className="project-right">
-              <div className="project-card-wrap">
+              <div className="project-card-wrap"
+                onMouseEnter={() => setHovering(true)}
+                onMouseLeave={() => setHovering(false)}>
                 <div className="project-card" style={{ backgroundImage: `url(${p.image})` }}>
                   <div className="project-card-gradient" />
                   <div className="project-card-content">
@@ -228,35 +292,37 @@ function ProjectsSection() {
             </div>
           </div>
 
-          {/* Navigation arrows below slider */}
-          <div className="project-nav-row">
-            <button className="project-btn" onClick={() => setCurrent(Math.max(0, current - 1))}>
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.25 15L25 14.9998" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M11.2499 8.75L5.88379 14.1161C5.46711 14.5328 5.25879 14.7411 5.25879 15C5.25879 15.2589 5.46711 15.4672 5.88379 15.8839L11.2499 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            <button className="project-btn" onClick={() => setCurrent(Math.min(projects.length - 1, current + 1))}>
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23.75 15H5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M18.75 8.75L24.1161 14.1161C24.5328 14.5328 24.7411 14.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
+          {/* Thumbnail preview + next button */}
+          <div className="project-thumb-row">
+            <div className="project-thumb-container">
+              <div className="project-thumb-slide" style={{ backgroundImage: `url(${next.image})` }}>
+                <div className="project-thumb-overlay">
+                  <div className="project-thumb-next">Next</div>
+                  <div className="project-thumb-title">{next.title}</div>
+                </div>
+              </div>
+              <button className="project-btn" onClick={goNext}>
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.75 15H5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M18.75 8.75L24.1161 14.1161C24.5328 14.5328 24.7411 14.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
           </div>
 
-          {/* Thumbnails below */}
-          <div className="project-thumb-row">
-            {projects.map((proj, i) => (
-              <div
-                key={proj.id}
-                className="project-thumb"
-                style={{
-                  backgroundImage: `url(${proj.image})`,
-                  border: i === current ? '2px solid var(--pulse-primary)' : '2px solid transparent',
-                }}
-                onClick={() => setCurrent(i)}
-              />
-            ))}
+          {/* Bottom bar */}
+          <div className="project-bottom-bar">
+            <div className="project-bottom-inner">
+              <span className="project-count-current">{current + 1}</span>
+              <div className="project-progress-track">
+                <div className="project-progress-fill" style={{ width: `${progress}%` }} />
+              </div>
+              <span className="project-count-total">{total}</span>
+              <div className="project-status">
+                <span className="project-pulsing-dot" />
+                <span className="project-status-text">NOW PROUDLY WORKING WITH <strong>GOOGLE</strong></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

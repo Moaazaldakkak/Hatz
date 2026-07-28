@@ -45,10 +45,9 @@ export const timelineData: TimelineItem[] = [
 ];
 
 export const projects: Project[] = [
-  { id: 1, title: 'Project Alpha', category: 'Web Development', image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80', description: 'A cutting-edge web application built with React and Node.js.' },
-  { id: 2, title: 'Project Beta', category: 'Mobile App', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80', description: 'Cross-platform mobile application for task management.' },
-  { id: 3, title: 'Project Gamma', category: 'AI/ML', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80', description: 'Machine learning model for predictive analytics.' },
-  { id: 4, title: 'Project Delta', category: 'Design', image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80', description: 'UI/UX design system for enterprise applications.' },
+  { id: 1, title: 'NFT App Development', category: 'Web application', image: 'https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2022/11/javier-esteban-8zcp9L0zNhg-unsplash-1.jpg', description: 'NFT App Development project description.' },
+  { id: 2, title: 'Travel Mobile App Design', category: 'Mobile application', image: 'https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2022/11/travelapp.png', description: 'Travel Mobile App Design project description.' },
+  { id: 3, title: 'Restaurant Web Application', category: 'UI / UX', image: 'https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2022/11/abillion-F0e3AdcwVbM-unsplash-1.jpg', description: 'Restaurant Web Application project description.' },
 ];
 
 export const skillGroups: SkillGroup[] = [
