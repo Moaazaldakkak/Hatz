@@ -239,12 +239,12 @@ input,textarea{font-family:inherit;font-size:inherit}
 @media(min-width:768px){.titlebloc-cc,.titlebloc-white{margin-bottom:16px}}
 .titlebloc-white:after{
   content:'';display:none;flex-grow:1;margin-left:12px;
-  background:#fff;height:1px;
+  background:#fff;line-height:36px;
 }
 @media(min-width:768px){.titlebloc-white:after{display:inline-block}}
 .titlebloc-cc:after{
   content:'';display:none;flex-grow:1;margin-left:12px;
-  background:var(--pulse-secondary);height:1px;
+  background:var(--pulse-secondary);line-height:36px;
 }
 @media(min-width:768px){.titlebloc-cc:after{display:inline-block}}
 
