@@ -58,7 +58,7 @@ function AboutSection() {
   const items = [
     { title: 'رؤيتنا', text: 'أن تصبح HATZ الشركة الرائدة والأكثر تأثيراً في قطاع التجزئة (Retail) في سورية.', moving: 'رؤية' },
     { title: 'مهمتنا', text: 'نربط بين الخبرة العالمية واحتياجات السوق السوري، لنقدم تجارب تجزئة حديثة، ترفع مستوى الخدمة، وتوفر فرصاً للنمو والتطوير للأفراد والشركاء والمجتمع.', moving: 'مهمة' },
-    { title: 'قيمنا', text: 'المسؤولية • الإنسان محور النجاح • الاحترافية • الشراكة طويلة الأمد • الابتكار المستمر', moving: 'قيم' },
+    { title: 'قيمنا', text: '● المسؤولية\n● الإنسان محور النجاح\n● الاحترافية\n● الشراكة طويلة الأمد\n● الابتكار المستمر', moving: 'قيم' },
   ];
 
   useEffect(() => {
@@ -144,7 +144,7 @@ function AboutSection() {
               {items.map((item, i) => (
                 <div key={i} data-movingtext={item.moving} className="why-item" style={{ marginBottom: '24px' }}>
                   <h2 ref={el => { h2Refs.current[i] = el; }}>{item.title}</h2>
-                  <p>{item.text}</p>
+                  <p style={item.moving === 'قيم' ? { whiteSpace: 'pre-line' } : {}}>{item.text}</p>
                 </div>
               ))}
             </div>
@@ -396,7 +396,7 @@ function SkillsSection() {
                     <button
                       onClick={() => setActiveTab(i)}
                       style={{
-                        display: 'block', width: '100%', textAlign: 'left',
+                        display: 'block', width: '100%', textAlign: 'right',
                         fontSize: '13px', fontWeight: 400,
                         background: i === activeTab ? 'var(--pulse-primary)' : 'var(--pulse-d3)',
                         color: 'white', padding: '20px 24px',
@@ -423,7 +423,7 @@ function SkillsSection() {
                   }}>
                     {tab.percent} %
                   </div>
-                  <div style={{ marginLeft: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%' }}>
+                  <div style={{ marginRight: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px' }}>
                           <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>المستوى</span>
