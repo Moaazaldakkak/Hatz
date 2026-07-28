@@ -1,3 +1,67 @@
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/fonts/ArbFONTS-Montserrat-Arabic-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/fonts/ArbFONTS-Montserrat-Arabic-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/fonts/ArbFONTS-Montserrat-Arabic-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/fonts/ArbFONTS-Montserrat-Arabic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/fonts/ArbFONTS-Montserrat-Arabic-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/fonts/ArbFONTS-Montserrat-Arabic-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/fonts/ArbFONTS-Montserrat-Arabic-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/fonts/ArbFONTS-Montserrat-Arabic-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/fonts/ArbFONTS-Montserrat-Arabic-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --pulse-primary: rgb(19,84,74);
   --pulse-primary-code: 19,84,74;
@@ -12,7 +76,7 @@
   --pulse-secondary: #191919;
   --pulse-accent: #a87143;
   --body-bg: #ffffff;
-  --font: 'Montserrat', system-ui, sans-serif;
+  --font: 'Montserrat Arabic', 'Montserrat', system-ui, sans-serif;
   --border-line: #e4e8f2;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -185,13 +249,13 @@ input,textarea{font-family:inherit;font-size:inherit}
 }
 @media(min-width:1024px){
   .hero-bg-left{
-    display:block;position:absolute;top:0;left:0;
+    display:block;position:absolute;top:0;right:0;
     width:50%;height:100%;
     background:var(--pulse-b3);
     z-index:0;
   }
   .hero-bg-right{
-    display:block;position:absolute;top:0;left:50%;
+    display:block;position:absolute;top:0;right:50%;
     width:50%;height:100%;
     background-image:url('https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2022/11/workspace.jpg');
     background-size:cover;background-position:center;
@@ -235,16 +299,16 @@ input,textarea{font-family:inherit;font-size:inherit}
   background-clip:text;
 }
 .titlebloc-cc,.titlebloc-white{
-  display:flex;line-height:36px;margin-bottom:0;
+  display:flex;line-height:44px;margin-bottom:0;
 }
 @media(min-width:768px){.titlebloc-cc,.titlebloc-white{margin-bottom:16px}}
 .titlebloc-white:after{
-  content:'';display:none;flex-grow:1;margin-left:12px;
+  content:'';display:none;flex-grow:1;margin-right:12px;
   background:#fff;line-height:36px;
 }
 @media(min-width:768px){.titlebloc-white:after{display:inline-block}}
 .titlebloc-cc:after{
-  content:'';display:none;flex-grow:1;margin-left:12px;
+  content:'';display:none;flex-grow:1;margin-right:12px;
   background:var(--pulse-d3);line-height:36px;
 }
 @media(min-width:768px){.titlebloc-cc:after{display:inline-block}}
@@ -310,7 +374,7 @@ input,textarea{font-family:inherit;font-size:inherit}
   .about-moving-text-wrap{width:33.333%}
 }
 .about-moving-text{
-  position:absolute;right:0;top:0;font-size:clamp(25px,3vw,30px);
+  position:absolute;left:0;top:0;font-size:clamp(25px,3vw,30px);
   line-height:1.25;font-weight:400;
   color:var(--pulse-primary);
   transition:top .5s cubic-bezier(0,0,.2,1);
@@ -371,7 +435,7 @@ input,textarea{font-family:inherit;font-size:inherit}
 .project-inner{position:relative}
 @media(min-width:768px){.project-inner{padding:0 50px}}
 @media(min-width:1024px){.project-inner{padding:0}}
-.project-title{font-size:clamp(28px,4vw,48px);line-height:1.25;margin-bottom:32px}
+.project-title{font-size:clamp(28px,4vw,36px);line-height:1.25;margin-bottom:32px}
 @media(min-width:1024px){.project-title{margin-bottom:56px}}
 .project-desc{font-size:clamp(18px,2vw,24px);font-weight:300;margin-bottom:50px}
 @media(min-width:1024px){.project-desc{margin-bottom:24px}}
@@ -683,4 +747,75 @@ input,textarea{font-family:inherit;font-size:inherit}
 /* md (≥768px) */
 @media(min-width:768px){
   .md\:w-auto{width:auto!important}
+}
+
+/* ========== RTL Overrides ========== */
+[dir="rtl"] .social-bar{
+  left:auto;right:48px;
+}
+@media(min-width:1024px){
+  [dir="rtl"] .social-bar{right:64px}
+}
+[dir="rtl"] .background-lines-container{
+  left:auto;right:0;
+}
+[dir="rtl"] .scrolltowhy{
+  float:left;
+}
+[dir="rtl"] .img-offset{
+  margin-left:0;margin-right:-6rem;
+}
+[dir="rtl"] .timeline-slider-row{
+  right:auto;left:0;
+}
+[dir="rtl"] .timeline-desc-row{
+  margin-left:0;margin-right:30px;
+}
+@media(min-width:768px){
+  [dir="rtl"] .timeline-desc-row{margin-right:50px}
+}
+@media(min-width:1024px){
+  [dir="rtl"] .timeline-desc-row{margin-right:64px}
+}
+[dir="rtl"] .nav-label{
+  margin-bottom:0;margin-top:16px;
+}
+[dir="rtl"] .project-thumb-container{
+  right:auto;left:0;
+}
+[dir="rtl"] .project-bottom-bar{
+  margin-left:0;margin-right:80px;
+}
+[dir="rtl"] .project-bottom-inner{
+  padding:0 16px;
+}
+[dir="rtl"] .project-thumb-slide{
+  float:right;
+}
+[dir="rtl"] .project-status{
+  margin-left:80px;margin-right:auto;
+}
+[dir="rtl"] .popup-close{
+  left:0;right:auto;
+}
+[dir="rtl"] .pub-tag{
+  margin-right:0;margin-left:8px;
+}
+@media(max-width:639px){
+  [dir="rtl"] .social-bar{
+    left:auto;right:0;top:48px;width:100%;
+  }
+}
+[dir="rtl"] .timeline-btn svg{
+  transform:scaleX(-1);
+}
+[dir="rtl"] .project-btn svg{
+  transform:scaleX(-1);
+}
+[dir="rtl"] .project-card-wrap{
+  padding-right:0;padding-left:0;
+  margin-right:0;margin-left:80px;
+}
+[dir="rtl"] .project-pulsing-dot{
+  margin-right:0;margin-left:8px;
 }

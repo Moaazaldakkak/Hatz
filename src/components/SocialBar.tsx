@@ -10,11 +10,11 @@ export default function SocialBar({ open, onContact }: SocialBarProps) {
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 12H7.5L9 6L13 18L15 9L16.5 12H21" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-        <span>HATZ UPDATE</span>
+        <span>آخر أخبار هاتز</span>
       </div>
       <div className="marquee-container">
         <div className="marquee-text">
-          <p>HATZ is redefining retail in emerging markets — forging strategic partnerships that bridge global innovation with local opportunity. Discover how we are constructing the bridges for cross-border connectivity and regional expansion.</p>
+           <p>هاتز تعيد تعريف التجزئة في الأسواق الناشئة — من خلال شراكات استراتيجية تربط الابتكار العالمي بالفرص المحلية. اكتشف كيف نبني جسور الاتصال عبر الحدود والتوسع الإقليمي.</p>
         </div>
       </div>
       <div className="social-icons">

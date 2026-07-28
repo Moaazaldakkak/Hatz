@@ -20,17 +20,17 @@ export default function Academic({ onOpenPub }: AcademicProps) {
 
         <div className="page-title-container">
           <span className="chevron">&rsaquo;</span>
-          <h1>About HATZ</h1>
+          <h1>عن هاتز</h1>
         </div>
 
         <section style={{ padding: '40px 30px' }}>
           <div className="section-inner">
             <div className="why-title" style={{ marginBottom: '32px' }}>
               <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-                <span className="titletext">Research</span>
+                <span className="titletext">أبحاث</span>
               </span>
               <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-                <span className="titletext">& Publications</span>
+                <span className="titletext">ومنشورات</span>
               </span>
             </div>
 

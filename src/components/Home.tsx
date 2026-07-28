@@ -39,10 +39,10 @@ function HeroSection() {
       <div className="hero-bg-right" />
       <div className="hero-content">
         <div className="hero-inner">
-          <div className="hero-subtitle">STRATEGIC PARTNERSHIPS / MARKET EXPANSION</div>
-          <h1 className="hero-name">HATZ</h1>
+          <div className="hero-subtitle">شـــركـــات اســـتـــراتـــيـــجـــيـــة / تـــوســـع ســـوقـــي</div>
+          <h1 className="hero-name">هـــاتـــز</h1>
           <p className="hero-tagline">
-            Bridging global innovations to flourish <br />within promising local environments.
+            HATZ — نـــبـــني جـــســـوراً لـــلابـــتـــكـــارات الـــعـــالـــمـــيـــة لـــتـــزدهـــر <br />فـــي بـــيـــئـــات مـــحـــلـــيـــة واعـــدة.
           </p>
         </div>
       </div>
@@ -57,9 +57,9 @@ function AboutSection() {
   const h2Refs = useRef<(HTMLHeadingElement | null)[]>([]);
   const wrapRef = useRef<HTMLDivElement>(null);
   const items = [
-    { title: 'CONNECTIVITY', text: 'We construct the bridges through which global innovations cross to flourish within promising local environments. Our network spans continents, connecting international brands with emerging markets through robust strategic partnerships.', moving: 'BRIDGE' },
-    { title: 'INTEGRITY', text: 'Clean, perpendicular geometry defines our approach — built on stability, trust, and precision. Every partnership is forged with architectural integrity, ensuring seamless knowledge and commercial exchange between franchisor and franchisee.', moving: 'TRUST' },
-    { title: 'EXPANSION', text: 'Guided by an ambitious vision, we position the Syrian market as a pivotal hub for future growth and regional expansion. We do more than transfer brands; we create lasting commercial ecosystems that drive mutual success.', moving: 'GROWTH' },
+    { title: 'الربط', text: 'نبني الجسور التي تعبر بها الابتكارات العالمية لتزدهر في بيئات محلية واعدة. تمتد شبكتنا عبر القارات، وتربط العلامات التجارية الدولية بالأسواق الناشئة من خلال شراكات استراتيجية قوية.', moving: 'جسر' },
+    { title: 'النزاهة', text: 'الهندسة النظيفة المتعامدة تحدد نهجنا — المبني على الاستقرار والثقة والدقة. كل شراكة تصاغ بنزاهة معمارية، تضمن تبادلاً سلساً للمعرفة والتجارة بين مانح الامتياز والحاصل عليه.', moving: 'ثقة' },
+    { title: 'التوسع', text: 'بتوجيه من رؤية طموحة، نضع السوق السوري كمركز محوري للنمو المستقبلي والتوسع الإقليمي. نحن لا ننقل العلامات التجارية فحسب؛ بل نخلق أنظمة بيئية تجارية دائمة تدفع النجاح المتبادل.', moving: 'نمو' },
   ];
 
   useEffect(() => {
@@ -112,16 +112,16 @@ function AboutSection() {
           <div className="about-title-col">
           <div className="why-title" style={{ marginTop: '24px', fontWeight: 100 }}>
             <span className="titlebloc-cc" style={{ fontWeight: 100 }}>
-              <span className="titletext">ABOUT </span>
+              <span className="titletext">عن </span>
             </span>
             <span className="titlebloc-cc" style={{ fontWeight: 700 }}>
-              <span className="titletext">HATZ</span>
+              <span className="titletext">هاتز</span>
             </span>
           </div>
           </div>
           <div className="about-desc-col">
             <div className="why-description">
-              HATZ is dedicated to redefining the retail landscape in emerging markets by forging robust strategic partnerships. We bridge international brands with local expertise, positioning the Syrian market as a pivotal hub for future growth and regional expansion.
+              هاتز مكرسة لإعادة تعريف مشهد التجزئة في الأسواق الناشئة من خلال صياغة شراكات استراتيجية قوية. نسد الفجوة بين العلامات التجارية الدولية والخبرات المحلية، واضعين السوق السوري كمركز محوري للنمو المستقبلي والتوسع الإقليمي.
             </div>
           </div>
         </div>
@@ -162,7 +162,8 @@ function TimelineSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: number) => {
-    if (scrollRef.current) scrollRef.current.scrollBy({ left: dir * 250, behavior: 'smooth' });
+    const isRtl = document.dir === 'rtl';
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: (isRtl ? -dir : dir) * 250, behavior: 'smooth' });
   };
 
   return (
@@ -172,10 +173,10 @@ function TimelineSection() {
           <div className="timeline-header">
             <div className="why-title" style={{ marginBottom: '50px' }}>
               <span className="titlebloc-white" style={{ color: 'white' }}>
-                <span>MILESTONES </span>
+                <span>محطات </span>
               </span>
               <span className="titlebloc-white" style={{ color: 'white' }}>
-                <span>& GROWTH</span>
+                <span>ونمو</span>
               </span>
             </div>
           </div>
@@ -256,15 +257,15 @@ function ProjectsSection() {
           <div className="project-layout">
             <div className="project-left">
               <div className="project-title">
-                <span className="titlebloc-cc" style={{ fontWeight: 100, marginLeft: '-4px' }}>
-                  <span className="titletext">STRATEGIC</span>
-                </span>
-                <span className="titlebloc-cc" style={{ fontWeight: 700, marginLeft: '-3px' }}>
-                  <span className="titletext">PARTNERSHIPS</span>
-                </span>
+                  <span className="titlebloc-cc" style={{ fontWeight: 100 }}>
+                    <span className="titletext">شراكات</span>
+                  </span>
+                  <span className="titlebloc-cc" style={{ fontWeight: 700 }}>
+                    <span className="titletext">استراتيجية</span>
+                  </span>
               </div>
               <div className="project-desc">
-                Connecting international brands with emerging markets through strategic collaboration and local expertise.
+                ربط العلامات التجارية الدولية بالأسواق الناشئة من خلال التعاون الاستراتيجي والخبرات المحلية.
               </div>
             </div>
             <div className="project-right">
@@ -283,7 +284,7 @@ function ProjectsSection() {
                 <div className="project-thumb-container">
                   <div className="project-thumb-slide" style={{ backgroundImage: `url(${next.image})` }}>
                     <div className="project-thumb-overlay">
-                      <div className="project-thumb-next">Next</div>
+                      <div className="project-thumb-next">التالي</div>
                       <div className="project-thumb-title">{next.title}</div>
                     </div>
                   </div>
@@ -306,7 +307,7 @@ function ProjectsSection() {
                   <span className="project-count-total">{total}</span>
                   <div className="project-status">
                     <span className="project-pulsing-dot" />
-                    <span className="project-status-text">CONNECTING <strong>MARKETS</strong> WORLDWIDE</span>
+                    <span className="project-status-text">ربط <strong>الأسواق</strong> عالمياً</span>
                   </div>
                 </div>
               </div>
@@ -324,28 +325,28 @@ function SkillsSection() {
 
   const skillTabs = [
     {
-      name: 'WEB DEVELOPMENT',
+      name: 'الشراكات الاستراتيجية',
       percent: 80,
-      level: 'INTERMEDIATE',
-      experience: '3 YEARS',
-      tags: ['PHP', 'ASP', 'ROR'],
-      description: 'In web development, my skills shine through with proficiency in front-end technologies like HTML, CSS, and JavaScript. I also excel in back-end frameworks such as Node.js and databases. My expertise allows me to create seamless, responsive web applications with a strong user-focused approach.',
+      level: 'متقدم',
+      experience: '٣ سنوات',
+      tags: ['تحالف', 'توسع', 'دخول سوق'],
+      description: 'نبني شراكات استراتيجية قوية تربط العلامات التجارية الدولية بالأسواق الناشئة، مع التركيز على نماذج التعاون المتينة والتكامل المحلي.',
     },
     {
-      name: 'MOBILE DEVELOPMENT',
+      name: 'توسع السوق',
       percent: 70,
-      level: 'INTERMEDIATE',
-      experience: '4 YEARS',
-      tags: ['ANDROID', 'IOS', 'QT SDK'],
-      description: 'In mobile development, I demonstrate prowess in crafting robust, user-friendly apps for both iOS and Android platforms. With proficiency in programming languages such as Swift and Kotlin, I deliver seamless mobile solutions, ensuring an optimal user experience.',
+      level: 'متوسط',
+      experience: '٤ سنوات',
+      tags: ['تحليل سوق', 'توسع إقليمي'],
+      description: 'نحدد ونتابع فرص التوسع في الأسواق الناشئة من خلال تحليل شامل لمشهد التجزئة، وتطوير استراتيجيات دخول مخصصة لكل سوق.',
     },
     {
-      name: 'UI/UX DESIGN',
+      name: 'تطوير الأعمال',
       percent: 95,
-      level: 'ADVANCED',
-      experience: '5 YEARS',
-      tags: ['FIGMA', 'SKETCH'],
-      description: 'In UI/UX design, my creativity and user-centered approach result in captivating and intuitive interfaces. With a strong foundation in user research and wireframing, I transform ideas into visually appealing and highly functional digital experiences that engage and delight users.',
+      level: 'متقدم',
+      experience: '٥ سنوات',
+      tags: ['علاقات شركاء', 'تفاوض'],
+      description: 'نطور علاقات شراكة دائمة مع الموزعين المحليين وأصحاب الامتياز، مما يخلق منظومات تجارية مستدامة تدفع النمو المتبادل للجميع.',
     },
   ];
 
@@ -362,17 +363,17 @@ function SkillsSection() {
               marginBottom: '32px', marginTop: 0
             }}>
               <div style={{ display: 'flex', color: 'white', fontWeight: 100 }}>
-                <span>EXPERTISE</span>
+                <span>خبرات</span>
               </div>
               <div style={{ display: 'flex', color: 'white', fontWeight: 700 }}>
-                <span>& SKILLS</span>
+                <span>ومهارات</span>
               </div>
             </div>
             <div style={{
               fontSize: 'clamp(18px,2vw,24px)', fontWeight: 300,
               marginBottom: 0, color: 'white'
             }} className="lg:mb-6">
-              I possess coding mastery, adept problem-solving, ideal for complex development challenges.
+              نمتلك خبرة عميقة في الشراكات الاستراتيجية، وحل المشكلات بكفاءة، مثالية لتحديات التوسع المعقدة.
             </div>
           </div>
 
@@ -419,14 +420,14 @@ function SkillsSection() {
                   </div>
                   <div style={{ marginLeft: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>LEVEL</span>
-                        <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{tab.level}</span>
-                      </span>
-                      <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>EXPERIENCE</span>
-                        <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{tab.experience}</span>
-                      </span>
+                        <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                          <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>المستوى</span>
+                          <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{tab.level}</span>
+                        </span>
+                        <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                          <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>الخبرة</span>
+                          <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{tab.experience}</span>
+                        </span>
                     </div>
                     {/* Progress bar */}
                     <div style={{ background: 'var(--pulse-d3)', height: '4px', width: '100%' }}>
@@ -502,11 +503,11 @@ function SkillsSection() {
                           gap: '10px'
                         }} className="min-[530px]:flex-row min-[530px]:gap-0">
                           <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }} className="md:w-auto">
-                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>LEVEL</span>
+                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>المستوى</span>
                             <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{t.level}</span>
                           </span>
                           <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }} className="md:w-auto">
-                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>EXPERIENCE</span>
+                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>الخبرة</span>
                             <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{t.experience}</span>
                           </span>
                         </div>

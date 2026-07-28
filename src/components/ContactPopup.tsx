@@ -1,26 +1,26 @@
 export default function ContactPopup({ onClose }: { onClose: () => void }) {
   return (
     <>
-      <div className="contact-popup-header">Ready to bridge your brand with emerging markets? Let's discuss how HATZ can help you expand into promising new territories through strategic local partnerships.</div>
+      <div className="contact-popup-header">مستعد لربط علامتك التجارية بالأسواق الناشئة؟ دعنا نناقش كيف يمكن لهاتز مساعدتك في التوسع إلى أسواق جديدة واعدة من خلال شراكات محلية استراتيجية.</div>
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="form-group">
-          <label>Your name</label>
-          <input type="text" placeholder="John Doe" />
+          <label>الاسم</label>
+          <input type="text" placeholder="اسمك الكريم" />
         </div>
         <div className="form-group">
-          <label>Your email</label>
-          <input type="email" placeholder="john@example.com" />
+          <label>البريد الإلكتروني</label>
+          <input type="email" placeholder="example@domain.com" />
         </div>
         <div className="form-group">
-          <label>Subject</label>
-          <input type="text" placeholder="Collaboration inquiry" />
+          <label>الموضوع</label>
+          <input type="text" placeholder="استفسار عن شراكة" />
         </div>
         <div className="form-group">
-          <label>Your message</label>
-          <textarea placeholder="Tell me about your project..." />
+          <label>الرسالة</label>
+          <textarea placeholder="أخبرنا عن مشروعك..." />
         </div>
         <button type="submit" className="btn-primary">
-          Submit
+          إرسال
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>

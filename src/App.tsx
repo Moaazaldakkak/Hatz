@@ -63,7 +63,7 @@ export default function App() {
       <Popup
         open={popupType === 'contact'}
         onClose={closePopup}
-        title="Contact"
+        title="اتصل بنا"
         imageUrl="https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2023/09/markus-winkler-q3QPw37J6Xs-unsplash-1-scaled.jpg"
       >
         <ContactPopup onClose={closePopup} />

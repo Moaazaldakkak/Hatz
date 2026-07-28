@@ -33,7 +33,7 @@ export default function PageLoader() {
             ))}
           </span>
           <br />
-          <span id="sub-title">CROSS-BORDER CONNECTIVITY</span>
+          <span id="sub-title">اتصال عبر الحدود</span>
         </h1>
       </div>
     </div>

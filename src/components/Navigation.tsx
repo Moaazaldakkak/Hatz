@@ -4,9 +4,9 @@ export default function Navigation({ activePage, onChange, onContact }: {
   onContact: () => void;
 }) {
   const pages = [
-    { id: 'home', label: 'HOME' },
-    { id: 'academic', label: 'ABOUT' },
-    { id: 'blog', label: 'INSIGHTS' },
+    { id: 'home', label: 'الرئيسية' },
+    { id: 'academic', label: 'عن هاتز' },
+    { id: 'blog', label: 'رؤى' },
   ];
 
   return (
@@ -40,7 +40,7 @@ export default function Navigation({ activePage, onChange, onContact }: {
             ))}
           </nav>
           <div className="nav-link" onClick={onContact}>
-            <span className="nav-label">CONTACT</span>
+            <span className="nav-label">اتصل بنا</span>
           </div>
         </div>
         <div className="dividerstyle" />
