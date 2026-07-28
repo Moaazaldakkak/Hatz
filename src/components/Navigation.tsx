@@ -12,10 +12,16 @@ export default function Navigation({ activePage, onChange, onContact }: {
   return (
     <aside className="sidebar">
       <div className="sidebar-toggle social-bar-toggle" onClick={() => {}}>
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19.375 8.125C19.375 10.5412 17.4162 12.5 15 12.5C12.5838 12.5 10.625 10.5412 10.625 8.125C10.625 5.70875 12.5838 3.75 15 3.75C17.4162 3.75 19.375 5.70875 19.375 8.125Z" stroke="white" strokeWidth="1.5"/>
-          <path d="M27.5 21.875C27.5 24.2912 25.5412 26.25 23.125 26.25C20.7088 26.25 18.75 24.2912 18.75 21.875C18.75 19.4588 20.7088 17.5 23.125 17.5C25.5412 17.5 27.5 19.4588 27.5 21.875Z" stroke="white" strokeWidth="1.5"/>
-          <path d="M11.25 21.875C11.25 24.2912 9.29125 26.25 6.875 26.25C4.45875 26.25 2.5 24.2912 2.5 21.875C2.5 19.4588 4.45875 17.5 6.875 17.5C9.29125 17.5 11.25 19.4588 11.25 21.875Z" stroke="white" strokeWidth="1.5"/>
+        <svg width="50" height="50" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g fill="#fff">
+            <rect x="60.65" y="60.99" width="12.53" height="163.03"/>
+            <rect x="182.7" y="60.99" width="12.53" height="163.03"/>
+            <polygon points="439.35 224.02 426.82 224.02 426.82 73.52 317.28 73.52 317.28 224.02 304.76 224.02 304.76 60.99 439.35 60.99 439.35 224.02"/>
+            <rect x="66.91" y="139.37" width="364.37" height="12.53"/>
+            <rect x="366.02" y="224.02" width="12.53" height="75.89"/>
+            <rect x="131.43" y="282.12" width="12.53" height="156.77"/>
+            <polygon points="439.35 439.01 278.94 439.01 411.62 288.38 61.35 288.38 61.35 275.85 439.35 275.85 306.68 426.48 439.35 426.48 439.35 439.01"/>
+          </g>
         </svg>
       </div>
       <div className="nav-container">
