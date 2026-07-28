@@ -288,39 +288,37 @@ function ProjectsSection() {
                     <h3>{p.title}</h3>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Thumbnail preview + next button */}
-          <div className="project-thumb-row">
-            <div className="project-thumb-container">
-              <div className="project-thumb-slide" style={{ backgroundImage: `url(${next.image})` }}>
-                <div className="project-thumb-overlay">
-                  <div className="project-thumb-next">Next</div>
-                  <div className="project-thumb-title">{next.title}</div>
+                {/* Thumbnail preview + next button */}
+                <div className="project-thumb-container">
+                  <div className="project-thumb-slide" style={{ backgroundImage: `url(${next.image})` }}>
+                    <div className="project-thumb-overlay">
+                      <div className="project-thumb-next">Next</div>
+                      <div className="project-thumb-title">{next.title}</div>
+                    </div>
+                  </div>
+                  <button className="project-btn" onClick={goNext}>
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M23.75 15H5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M18.75 8.75L24.1161 14.1161C24.5328 14.5328 24.7411 14.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
               </div>
-              <button className="project-btn" onClick={goNext}>
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M23.75 15H5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M18.75 8.75L24.1161 14.1161C24.5328 14.5328 24.7411 14.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </div>
 
-          {/* Bottom bar */}
-          <div className="project-bottom-bar">
-            <div className="project-bottom-inner">
-              <span className="project-count-current">{current + 1}</span>
-              <div className="project-progress-track">
-                <div className="project-progress-fill" style={{ width: `${progress}%` }} />
-              </div>
-              <span className="project-count-total">{total}</span>
-              <div className="project-status">
-                <span className="project-pulsing-dot" />
-                <span className="project-status-text">NOW PROUDLY WORKING WITH <strong>GOOGLE</strong></span>
+              {/* Bottom bar - behind the card */}
+              <div className="project-bottom-bar">
+                <div className="project-bottom-inner">
+                  <span className="project-count-current">{current + 1}</span>
+                  <div className="project-progress-track">
+                    <div className="project-progress-fill" style={{ width: `${progress}%` }} />
+                  </div>
+                  <span className="project-count-total">{total}</span>
+                  <div className="project-status">
+                    <span className="project-pulsing-dot" />
+                    <span className="project-status-text">NOW PROUDLY WORKING WITH <strong>GOOGLE</strong></span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
