@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { timelineData, projects } from '../data';
+import { projects } from '../data';
 
 export default function Home({ onContact }: { onContact: () => void }) {
   return (
@@ -39,11 +39,10 @@ function HeroSection() {
       <div className="hero-bg-right" />
       <div className="hero-content">
         <div className="hero-inner">
-          <div className="hero-subtitle">شـــركـــات اســـتـــراتـــيـــجـــيـــة / تـــوســـع ســـوقـــي</div>
-          <h1 className="hero-name">هـــاتـــز</h1>
-          <p className="hero-tagline">
-            HATZ — نـــبـــني جـــســـوراً لـــلابـــتـــكـــارات الـــعـــالـــمـــيـــة لـــتـــزدهـــر <br />فـــي بـــيـــئـــات مـــحـــلـــيـــة واعـــدة.
-          </p>
+          <div className="hero-subtitle">Bringing Global Retail Home</div>
+          <h1 className="hero-name">HATZ</h1>
+          <p className="hero-tagline">نقود مستقبل قطاع التجزئة في سورية من خالل استقطاب العالمات التجارية العالمية، وتطوير تجارب تسوق بمعايير دولية، وبناء بيئة
+عمل تستقطب الكفاءات وتصنع المهارات وتخلق قيمة حقيقية للمستهلك والسوق السوري</p>
         </div>
       </div>
     </div>
@@ -57,9 +56,9 @@ function AboutSection() {
   const h2Refs = useRef<(HTMLHeadingElement | null)[]>([]);
   const wrapRef = useRef<HTMLDivElement>(null);
   const items = [
-    { title: 'الربط', text: 'نبني الجسور التي تعبر بها الابتكارات العالمية لتزدهر في بيئات محلية واعدة. تمتد شبكتنا عبر القارات، وتربط العلامات التجارية الدولية بالأسواق الناشئة من خلال شراكات استراتيجية قوية.', moving: 'جسر' },
-    { title: 'النزاهة', text: 'الهندسة النظيفة المتعامدة تحدد نهجنا — المبني على الاستقرار والثقة والدقة. كل شراكة تصاغ بنزاهة معمارية، تضمن تبادلاً سلساً للمعرفة والتجارة بين مانح الامتياز والحاصل عليه.', moving: 'ثقة' },
-    { title: 'التوسع', text: 'بتوجيه من رؤية طموحة، نضع السوق السوري كمركز محوري للنمو المستقبلي والتوسع الإقليمي. نحن لا ننقل العلامات التجارية فحسب؛ بل نخلق أنظمة بيئية تجارية دائمة تدفع النجاح المتبادل.', moving: 'نمو' },
+    { title: 'رؤيتنا', text: 'أن تصبح HATZ الشركة الرائدة والأكثر تأثيراً في قطاع التجزئة (Retail) في سورية.', moving: 'رؤية' },
+    { title: 'مهمتنا', text: 'نربط بين الخبرة العالمية واحتياجات السوق السوري، لنقدم تجارب تجزئة حديثة، ترفع مستوى الخدمة، وتوفر فرصاً للنمو والتطوير للأفراد والشركاء والمجتمع.', moving: 'مهمة' },
+    { title: 'قيمنا', text: 'المسؤولية • الإنسان محور النجاح • الاحترافية • الشراكة طويلة الأمد • الابتكار المستمر', moving: 'قيم' },
   ];
 
   useEffect(() => {
@@ -121,7 +120,7 @@ function AboutSection() {
           </div>
           <div className="about-desc-col">
             <div className="why-description">
-              هاتز مكرسة لإعادة تعريف مشهد التجزئة في الأسواق الناشئة من خلال صياغة شراكات استراتيجية قوية. نسد الفجوة بين العلامات التجارية الدولية والخبرات المحلية، واضعين السوق السوري كمركز محوري للنمو المستقبلي والتوسع الإقليمي.
+              وصلنا إلى HATZ بعد سنوات من الخبرة وقصص النجاح في الخليج، وتركيا، وشمال أفريقيا، والولايات المتحدة الأمريكية. واليوم نبدأ مرحلة جديدة، ننقل فيها هذه الخبرات إلى سورية، من خلال تطوير قطاع التجزئة واستقطاب علامات تجارية عالمية تضيف قيمة حقيقية للمستهلك السوري
             </div>
           </div>
         </div>
@@ -166,6 +165,14 @@ function TimelineSection() {
     if (scrollRef.current) scrollRef.current.scrollBy({ left: (isRtl ? -dir : dir) * 250, behavior: 'smooth' });
   };
 
+  const whatWeDo = [
+    { title: 'استقطاب العلامات التجارية', text: 'إدخال علامات عالمية تتناسب مع السوق السوري بهدف إرضاء احتياج الزبون والسوق إلخ.' },
+    { title: 'إدارة وتشغيل قطاع التجزئة', text: 'إدارة وتشغيل المتاجر وفق أفضل الممارسات والمعايير العالمية.' },
+    { title: 'تطوير تجربة العميل', text: 'بناء تجربة شراء متكاملة داخل المتاجر.' },
+    { title: 'تطوير الموارد البشرية', text: 'رفع مستوى بيئة العمل، وتطوير الكفاءات، وبناء فرق عمل احترافية.' },
+    { title: 'تطوير السوق', text: 'المساهمة في رفع معايير قطاع التجزئة في سورية.' },
+  ];
+
   return (
     <section>
       <div className="timeline-section" style={{ maxWidth: '1140px', margin: '0 auto' }}>
@@ -173,36 +180,34 @@ function TimelineSection() {
           <div className="timeline-header">
             <div className="why-title" style={{ marginBottom: '50px' }}>
               <span className="titlebloc-white" style={{ color: 'white' }}>
-                <span>محطات </span>
+                <span>ماذا </span>
               </span>
               <span className="titlebloc-white" style={{ color: 'white' }}>
-                <span>ونمو</span>
+                <span>نفعل</span>
               </span>
             </div>
           </div>
 
           <div className="timeline-slider-row">
-            <button className="timeline-btn" onClick={() => scroll(-1)} style={{ marginRight: '16px' }}>
+            <button className="timeline-btn" onClick={() => scroll(-1)} style={{ marginLeft: '16px' }}>
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.25 15L25 14.9998" stroke="#FEFEFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M11.2499 8.75L5.88379 14.1161C5.46711 14.5328 5.25879 14.7411 5.25879 15C5.25879 15.2589 5.46711 15.4672 5.88379 15.8839L11.2499 21.25" stroke="#FEFEFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
             <div ref={scrollRef} style={{ display: 'flex', overflowX: 'auto', flex: 1, gap: '12px' }}>
-              {timelineData.map((item, i) => (
+              {whatWeDo.map((item, i) => (
                 <div
                   key={i}
                   className="timeline-item"
                   onClick={() => setActive(i)}
                   style={{ opacity: i === active ? 1 : 0.6, minWidth: '200px' }}
                 >
-                  <div className="date">{item.date}</div>
-                  <div className="label">{item.label}</div>
-                  <div className="type">{item.type}</div>
+                  <div className="label" style={{ fontSize: '16px', textTransform: 'none', color: 'white' }}>{item.title}</div>
                 </div>
               ))}
             </div>
-            <button className="timeline-btn" onClick={() => scroll(1)} style={{ marginLeft: '16px' }}>
+            <button className="timeline-btn" onClick={() => scroll(1)} style={{ marginRight: '16px' }}>
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M23.75 15H5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M18.75 8.75L24.1161 14.1161C24.5328 14.5328 24.7411 14.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -212,8 +217,8 @@ function TimelineSection() {
         </div>
 
         <div className="timeline-desc-row" style={{ paddingTop: '32px', paddingBottom: '32px' }}>
-          <h3 className="hidden lg:inline-block">{timelineData[active].title}</h3>
-          <p>{timelineData[active].description}</p>
+          <h3 className="hidden lg:inline-block" style={{ fontSize: '20px', textTransform: 'none' }}>{whatWeDo[active].title}</h3>
+          <p>{whatWeDo[active].text}</p>
         </div>
       </div>
     </section>
@@ -357,7 +362,7 @@ function SkillsSection() {
       <div className="section-inner" style={{ padding: '0 30px' }}>
         <div style={{ display: 'flex', flexDirection: 'column' }} className="lg:flex-row">
           {/* Left column */}
-          <div style={{ width: '100%', paddingRight: 0 }} className="lg:w-1/3 lg:pr-10 min-[1200px]:pr-20">
+          <div style={{ width: '100%', paddingLeft: 0 }} className="lg:w-1/3 lg:pl-10 min-[1200px]:pl-20">
             <div className="boxtoanimatetotop lg:mb-14" style={{
               fontSize: 'clamp(28px,4vw,48px)', lineHeight: 1.25,
               marginBottom: '32px', marginTop: 0

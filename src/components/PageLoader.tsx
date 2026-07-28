@@ -33,7 +33,7 @@ export default function PageLoader() {
             ))}
           </span>
           <br />
-          <span id="sub-title">اتصال عبر الحدود</span>
+          <span id="sub-title">نكتب فصلاً جديداً في قطاع التجزئة السوري</span>
         </h1>
       </div>
     </div>
