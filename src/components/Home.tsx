@@ -593,22 +593,24 @@ function JobsSection() {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }} className="lg:flex-row">
           <div style={{ flex: 1 }}>
-            <h3 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 700, color: 'var(--pulse-primary)', marginBottom: '16px' }}>اعمل معنا</h3>
-            <p style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 300, color: '#555', lineHeight: 1.8 }}>
+            <h3 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 700, color: 'white', marginBottom: '16px' }}>اعمل معنا</h3>
+            <p style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 300, color: 'white', lineHeight: 1.8, opacity: 0.9 }}>
               ألنك في HATZ لا تعمل في شركة محلية فقط...<br />
               بل تعمل وفق معايير عالمية، في بيئة تؤمن بالتطوير المستمر، وتمكنك من بناء مستقبل مهني حقيقي
             </p>
           </div>
           <div style={{ flex: 1 }}>
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <input type="text" placeholder="الاسم" value={name} onChange={(e) => setName(e.target.value)}
-                style={{ padding: '12px 16px', border: '1px solid #ddd', borderRadius: '4px', fontSize: '16px', fontFamily: 'inherit' }} />
-              <input type="email" placeholder="البريد الإلكتروني" value={email} onChange={(e) => setEmail(e.target.value)}
-                style={{ padding: '12px 16px', border: '1px solid #ddd', borderRadius: '4px', fontSize: '16px', fontFamily: 'inherit' }} />
-              <textarea placeholder="رسالتك" value={message} onChange={(e) => setMessage(e.target.value)} rows={4}
-                style={{ padding: '12px 16px', border: '1px solid #ddd', borderRadius: '4px', fontSize: '16px', fontFamily: 'inherit', resize: 'vertical' }} />
-              <button type="submit"
-                style={{ padding: '12px 32px', background: 'var(--pulse-primary)', color: 'white', border: 'none', borderRadius: '4px', fontSize: '16px', cursor: 'pointer', fontFamily: 'inherit', alignSelf: 'flex-start' }}>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <input type="text" placeholder="الاسم" value={name} onChange={(e) => setName(e.target.value)} />
+              </div>
+              <div className="form-group">
+                <input type="email" placeholder="البريد الإلكتروني" value={email} onChange={(e) => setEmail(e.target.value)} />
+              </div>
+              <div className="form-group">
+                <textarea placeholder="رسالتك" value={message} onChange={(e) => setMessage(e.target.value)} rows={4} />
+              </div>
+              <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                 إرسال
               </button>
             </form>

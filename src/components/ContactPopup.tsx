@@ -2,6 +2,14 @@ export default function ContactPopup({ onClose }: { onClose: () => void }) {
   return (
     <>
       <div className="contact-popup-header">مستعد لربط علامتك التجارية بالأسواق الناشئة؟ دعنا نناقش كيف يمكن لهاتز مساعدتك في التوسع إلى أسواق جديدة واعدة من خلال شراكات محلية استراتيجية.</div>
+      <div style={{ marginBottom: '24px', padding: '16px', background: 'var(--pulse-b3)', borderRadius: 0 }}>
+        <div style={{ fontSize: '15px', fontWeight: 300, color: 'var(--pulse-primary)', marginBottom: '8px' }}>
+          <strong>البريد الإلكتروني:</strong> info@hatz.com
+        </div>
+        <div style={{ fontSize: '15px', fontWeight: 300, color: 'var(--pulse-primary)' }}>
+          <strong>الهاتف:</strong> +963 11 234 5678
+        </div>
+      </div>
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="form-group">
           <input type="text" placeholder="اسمك الكريم" />
