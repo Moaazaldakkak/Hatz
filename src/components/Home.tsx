@@ -25,6 +25,9 @@ export default function Home({ onContact, onOpenBlog }: { onContact: () => void;
 
         {/* Skills (hidden) */}
         <div style={{ display: 'none' }}><SkillsSection /></div>
+
+        {/* Footer */}
+        <FooterSection />
       </div>
     </div>
   );
@@ -586,16 +589,11 @@ function JobsSection() {
   return (
     <section style={{ padding: '80px 0', background: 'var(--pulse-b2)' }}>
       <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
-        <div className="why-title" style={{ marginBottom: '32px' }}>
-          <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-            <span className="titletext">الوظائف</span>
-          </span>
-        </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }} className="lg:flex-row">
           <div style={{ flex: 1 }}>
-            <h3 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 700, color: 'white', marginBottom: '16px' }}>اعمل معنا</h3>
-            <p style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 300, color: 'white', lineHeight: 1.8, opacity: 0.9 }}>
-              ألنك في HATZ لا تعمل في شركة محلية فقط...<br />
+            <h3 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 400, color: 'white', marginBottom: '16px' }}>اعمل معنا</h3>
+            <p style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 100, color: 'white', lineHeight: 1.8, opacity: 0.9 }}>
+              لأنك في HATZ لا تعمل في شركة محلية فقط...<br />
               بل تعمل وفق معايير عالمية، في بيئة تؤمن بالتطوير المستمر، وتمكنك من بناء مستقبل مهني حقيقي
             </p>
           </div>
@@ -618,5 +616,28 @@ function JobsSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* Footer */
+function FooterSection() {
+  return (
+    <footer style={{ background: 'var(--pulse-primary)', padding: '60px 30px', textAlign: 'center' }}>
+      <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
+        <h3 style={{ fontSize: 'clamp(12px,1.5vw,14px)', fontWeight: 400, color: 'rgba(255,255,255,0.6)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
+          الرسالة الختامية
+        </h3>
+        <p style={{ fontSize: 'clamp(20px,3vw,36px)', fontWeight: 700, color: 'white', lineHeight: 1.5, marginBottom: '32px' }}>
+          من أول خطوة... إلى مستقبل قطاع التجزئة في سورية.
+        </p>
+        <div style={{ width: '60px', height: '2px', background: 'var(--pulse-accent)', margin: '0 auto 32px' }} />
+        <p style={{ fontSize: 'clamp(16px,2vw,22px)', fontWeight: 300, color: 'rgba(255,255,255,0.8)' }}>
+          HATZ Retail
+        </p>
+        <p style={{ fontSize: 'clamp(12px,1.5vw,16px)', fontWeight: 400, color: 'rgba(255,255,255,0.5)', letterSpacing: '2px', textTransform: 'uppercase' }}>
+          Bringing Global Retail Home
+        </p>
+      </div>
+    </footer>
   );
 }
