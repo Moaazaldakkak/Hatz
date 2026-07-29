@@ -39,8 +39,8 @@ function HeroSection() {
       <div className="hero-bg-right" />
       <div className="hero-content">
         <div className="hero-inner">
-          <div className="hero-subtitle">Bringing Global Retail Home</div>
           <h1 className="hero-name">HATZ</h1>
+          <div className="hero-subtitle">Bringing Global Retail Home</div>
           <p className="hero-tagline">نقود مستقبل قطاع التجزئة في سورية من خالل استقطاب العالمات التجارية العالمية، وتطوير تجارب تسوق بمعايير دولية، وبناء بيئة
 عمل تستقطب الكفاءات وتصنع المهارات وتخلق قيمة حقيقية للمستهلك والسوق السوري</p>
         </div>
@@ -56,9 +56,9 @@ function AboutSection() {
   const h2Refs = useRef<(HTMLHeadingElement | null)[]>([]);
   const wrapRef = useRef<HTMLDivElement>(null);
   const items = [
-    { title: 'رؤيتنا', text: 'أن تصبح HATZ الشركة الرائدة والأكثر تأثيراً في قطاع التجزئة (Retail) في سورية.', moving: 'رؤية' },
-    { title: 'مهمتنا', text: 'نربط بين الخبرة العالمية واحتياجات السوق السوري، لنقدم تجارب تجزئة حديثة، ترفع مستوى الخدمة، وتوفر فرصاً للنمو والتطوير للأفراد والشركاء والمجتمع.', moving: 'مهمة' },
-    { title: 'قيمنا', text: '● المسؤولية\n● الإنسان محور النجاح\n● الاحترافية\n● الشراكة طويلة الأمد\n● الابتكار المستمر', moving: 'قيم' },
+    { title: 'رؤيتنا', text: 'أن تصبح HATZ الشركة الرائدة والأكثر تأثيراً في قطاع التجزئة (Retail) في سورية.', moving: 'رؤيتنا' },
+    { title: 'مهمتنا', text: 'نربط بين الخبرة العالمية واحتياجات السوق السوري، لنقدم تجارب تجزئة حديثة، ترفع مستوى الخدمة، وتوفر فرصاً للنمو والتطوير للأفراد والشركاء والمجتمع.', moving: 'مهمتنا' },
+    { title: 'قيمنا', text: '● المسؤولية\n● الإنسان محور النجاح\n● الاحترافية\n● الشراكة طويلة الأمد\n● الابتكار المستمر', moving: 'قيمنا' },
   ];
 
   useEffect(() => {
@@ -69,7 +69,7 @@ function AboutSection() {
       let found = -1;
       h2Refs.current.forEach((el, i) => {
         if (!el) return;
-        if (el.getBoundingClientRect().top < window.innerHeight * 0.5) found = i;
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.2) found = i;
       });
       if (found >= 0) {
         const next = h2Refs.current[found + 1];
@@ -142,9 +142,12 @@ function AboutSection() {
           <div className="about-items-col">
             <div className="why-items">
               {items.map((item, i) => (
-                <div key={i} data-movingtext={item.moving} className="why-item" style={{ marginBottom: '24px' }}>
-                  <h2 ref={el => { h2Refs.current[i] = el; }}>{item.title}</h2>
-                  <p style={item.moving === 'قيم' ? { whiteSpace: 'pre-line' } : {}}>{item.text}</p>
+                <div key={i}>
+                  <div className="about-item-divider" />
+                  <div data-movingtext={item.moving} className="why-item" style={{ marginBottom: '24px' }}>
+                    <h2 ref={el => { h2Refs.current[i] = el; }} style={{ visibility: 'hidden', height: 0, margin: 0 }}>{item.title}</h2>
+                    <p style={item.moving === 'قيمنا' ? { whiteSpace: 'pre-line' } : {}}>{item.text}</p>
+                  </div>
                 </div>
               ))}
             </div>

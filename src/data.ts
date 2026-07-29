@@ -1,3 +1,7 @@
+import img1 from './assets/hatz-1.webp';
+import img2 from './assets/hatz-2.webp';
+import img3 from './assets/hatz-3.webp';
+
 export interface TimelineItem {
   date: string;
   label: string;
@@ -45,9 +49,9 @@ export const timelineData: TimelineItem[] = [
 ];
 
 export const projects: Project[] = [
-  { id: 1, title: 'شبكة شراكات التجزئة', category: 'توسع سوقي', image: 'https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2022/11/javier-esteban-8zcp9L0zNhg-unsplash-1.jpg', description: 'بناء شبكة شراكات تجزئة شاملة تربط العلامات التجارية الدولية بموزعي الأسواق الناشئة وقنوات التجزئة المحلية.' },
-  { id: 2, title: 'برنامج العلامات عبر الحدود', category: 'تحالف استراتيجي', image: 'https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2022/11/travelapp.png', description: 'برنامج منظم لتسهيل دخول العلامات التجارية العالمية إلى الأسواق السورية والإقليمية والازدهار فيها من خلال الخبرات المحلية والبنية التحتية.' },
-  { id: 3, title: 'مركز الأسواق الناشئة', category: 'بنية تحتية', image: 'https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2022/11/abillion-F0e3AdcwVbM-unsplash-1.jpg', description: 'تطوير مركز موحد في سوريا ليكون بوابة للعلامات التجارية الدولية للوصول إلى فرص الأسواق الناشئة في جميع أنحاء المنطقة.' },
+  { id: 1, title: 'شبكة شراكات التجزئة', category: 'توسع سوقي', image: img1, description: 'بناء شبكة شراكات تجزئة شاملة تربط العلامات التجارية الدولية بموزعي الأسواق الناشئة وقنوات التجزئة المحلية.' },
+  { id: 2, title: 'برنامج العلامات عبر الحدود', category: 'تحالف استراتيجي', image: img2, description: 'برنامج منظم لتسهيل دخول العلامات التجارية العالمية إلى الأسواق السورية والإقليمية والازدهار فيها من خلال الخبرات المحلية والبنية التحتية.' },
+  { id: 3, title: 'مركز الأسواق الناشئة', category: 'بنية تحتية', image: img3, description: 'تطوير مركز موحد في سوريا ليكون بوابة للعلامات التجارية الدولية للوصول إلى فرص الأسواق الناشئة في جميع أنحاء المنطقة.' },
 ];
 
 export const skillGroups: SkillGroup[] = [

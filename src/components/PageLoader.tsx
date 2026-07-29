@@ -8,8 +8,6 @@ export default function PageLoader() {
     return () => clearTimeout(t);
   }, []);
 
-  const name = 'HATZ';
-
   return (
     <div id="pulse-spinner" className={visible ? '' : 'hidden'}>
       <div style={{ textAlign: 'center' }}>
@@ -24,15 +22,8 @@ export default function PageLoader() {
             <polygon points="500,499.1 288.21,499.1 463.39,300.22 0.93,300.22 0.93,283.68 500,283.68 324.83,482.55 500,482.55 500,499.1"/>
           </svg>
         </div>
+        <img src="/logo-hatz.svg" alt="HATZ" style={{ width: '600px', height: 'auto', display: 'block', margin: '0 auto 1rem' }} />
         <h1>
-          <span id="title-spinner">
-            {name.split('').map((ch, i) => (
-              <span key={i} className="title-letter" style={{ animationDelay: `${i * 0.08}s` }}>
-                {ch === ' ' ? '\u00A0' : ch}
-              </span>
-            ))}
-          </span>
-          <br />
           <span id="sub-title">نكتب فصلاً جديداً في قطاع التجزئة السوري</span>
         </h1>
       </div>
