@@ -550,7 +550,7 @@ function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
             <span className="titletext">أحدث</span>
           </span>
           <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-            <span className="titletext">الرؤى</span>
+            <span className="titletext">الأخبار</span>
           </span>
         </div>
 
