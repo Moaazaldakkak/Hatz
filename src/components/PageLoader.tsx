@@ -11,7 +11,7 @@ export default function PageLoader() {
   return (
     <div id="pulse-spinner" className={visible ? '' : 'hidden'}>
       <div style={{ textAlign: 'center' }}>
-        <div className="loading-pulse" style={{ margin: '0 auto 3rem' }}>
+        <div className="loading-pulse">
           <svg width="30" height="30" viewBox="0 0 500 499.1" fill="#fff" xmlns="http://www.w3.org/2000/svg">
             <rect x="0" y="0" width="16.55" height="215.24"/>
             <rect x="161.15" y="0" width="16.55" height="215.24"/>
