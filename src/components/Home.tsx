@@ -4,14 +4,7 @@ import { projects } from '../data';
 export default function Home({ onContact }: { onContact: () => void }) {
   return (
     <div className="home pagescroll pt-page pt-page-1">
-      <div className="relative">
-        {/* Background lines */}
-        <div className="background-lines-container">
-          {Array.from({ length: 7 }).map((_, i) => (
-            <div key={i} className={`backline${i === 0 || i === 6 ? ' edge' : ''}`} />
-          ))}
-        </div>
-
+      <div className="relative">       
         {/* Hero */}
         <HeroSection />
 
@@ -94,7 +87,7 @@ function AboutSection() {
     <section className="about-section">
       <div className="about-container">
         {/* Scroll to why button - desktop only */}
-        <div className="hidden lg:block" style={{ height: '64px', marginBottom: '16px' }}>
+        <div className="hidden lg:block" style={{ height: '64px', marginBottom: '16px', background: 'white',}}>
           <div className="scrolltowhy" onClick={() => {
             const el = document.querySelector('.about-section');
             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -109,14 +102,8 @@ function AboutSection() {
         {/* Title + Description row */}
         <div className="about-row-title">
           <div className="about-title-col">
-          <div className="why-title" style={{ marginTop: '24px', fontWeight: 100 }}>
-            <span className="titlebloc-cc" style={{ fontWeight: 100 }}>
-              <span className="titletext">عن </span>
-            </span>
-            <span className="titlebloc-cc" style={{ fontWeight: 700 }}>
-              <span className="titletext">هاتز</span>
-            </span>
-          </div>
+            <span className="titletext" style={{ fontSize: 'clamp(24px,4vw,40px)', fontWeight: 700, whiteSpace: 'nowrap' }}>عن هاتز</span>
+            <img src="/pattern-line.svg" alt="" style={{ height: 'clamp(20px,2.5vw,30px)', minWidth: '60px', objectFit: 'cover', objectPosition: 'center right' }} />
           </div>
           <div className="about-desc-col">
             <div className="why-description">
@@ -181,13 +168,11 @@ function TimelineSection() {
       <div className="timeline-section" style={{ maxWidth: '1140px', margin: '0 auto' }}>
         <div className="timeline-wrapper">
           <div className="timeline-header">
-            <div className="why-title" style={{ marginBottom: '50px' }}>
-              <span className="titlebloc-white" style={{ color: 'white' }}>
-                <span>ماذا </span>
+            <div className="why-title">
+              <span className="titlebloc-white">
+                <span>ماذا نفعل</span>
               </span>
-              <span className="titlebloc-white" style={{ color: 'white' }}>
-                <span>نفعل</span>
-              </span>
+              <img src="/pattern-line.svg" alt="" style={{ height: 'clamp(20px,2.5vw,36px)', minWidth: '60px', objectFit: 'cover', objectPosition: 'center right' }} />
             </div>
           </div>
 
@@ -198,7 +183,7 @@ function TimelineSection() {
                 <path d="M11.2499 8.75L5.88379 14.1161C5.46711 14.5328 5.25879 14.7411 5.25879 15C5.25879 15.2589 5.46711 15.4672 5.88379 15.8839L11.2499 21.25" stroke="#FEFEFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
-            <div ref={scrollRef} style={{ display: 'flex', overflowX: 'auto', flex: 1, gap: '12px' }}>
+            <div ref={scrollRef} style={{ display: 'flex', overflow: 'hidden', flex: 1, gap: '12px' }}>
               {whatWeDo.map((item, i) => (
                 <div
                   key={i}
@@ -266,13 +251,10 @@ function ProjectsSection() {
             <div className="project-left">
               <div className="project-title">
                   <span className="titlebloc-cc" style={{ fontWeight: 100 }}>
-                    <span className="titletext">شراكات</span>
-                  </span>
-                  <span className="titlebloc-cc" style={{ fontWeight: 700 }}>
-                    <span className="titletext">استراتيجية</span>
+                    <span className="titletext">قصتنا</span>
                   </span>
               </div>
-              <div className="project-desc">
+              <div className="project-desc hidden">
                 ربط العلامات التجارية الدولية بالأسواق الناشئة من خلال التعاون الاستراتيجي والخبرات المحلية.
               </div>
             </div>
@@ -285,6 +267,7 @@ function ProjectsSection() {
                   <div className="project-card-content">
                     <div className="project-category">{p.category}</div>
                     <h3>{p.title}</h3>
+                    <div className="project-description">{p.description}</div>
                   </div>
                 </div>
 
@@ -333,7 +316,7 @@ function SkillsSection() {
 
   const skillTabs = [
     {
-      name: 'الشراكات الاستراتيجية',
+      name: 'LC Waikiki',
       percent: 80,
       level: 'متقدم',
       experience: '٣ سنوات',
