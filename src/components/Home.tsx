@@ -622,19 +622,19 @@ function JobsSection() {
 /* Footer */
 function FooterSection() {
   return (
-    <footer style={{ background: 'var(--pulse-primary)', padding: '60px 30px', textAlign: 'center' }}>
+    <footer style={{ background: 'var(--pulse-primary)', padding: '80px 30px 60px', textAlign: 'center' }}>
       <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
-        <h3 style={{ fontSize: 'clamp(12px,1.5vw,14px)', fontWeight: 400, color: 'rgba(255,255,255,0.6)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
+        <p style={{ fontSize: 'clamp(11px,1vw,13px)', fontWeight: 400, color: 'rgba(255,255,255,0.4)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '24px' }}>
           الرسالة الختامية
-        </h3>
-        <p style={{ fontSize: 'clamp(20px,3vw,36px)', fontWeight: 700, color: 'white', lineHeight: 1.5, marginBottom: '32px' }}>
+        </p>
+        <p style={{ fontSize: 'clamp(24px,3.5vw,44px)', fontWeight: 700, color: 'white', lineHeight: 1.4, marginBottom: '40px', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
           من أول خطوة... إلى مستقبل قطاع التجزئة في سورية.
         </p>
-        <div style={{ width: '60px', height: '2px', background: 'var(--pulse-accent)', margin: '0 auto 32px' }} />
-        <p style={{ fontSize: 'clamp(16px,2vw,22px)', fontWeight: 300, color: 'rgba(255,255,255,0.8)' }}>
+        <div style={{ width: '80px', height: '2px', background: 'var(--pulse-accent)', margin: '0 auto 40px' }} />
+        <p style={{ fontSize: 'clamp(20px,2.5vw,28px)', fontWeight: 300, color: 'rgba(255,255,255,0.85)', marginBottom: '8px' }}>
           HATZ Retail
         </p>
-        <p style={{ fontSize: 'clamp(12px,1.5vw,16px)', fontWeight: 400, color: 'rgba(255,255,255,0.5)', letterSpacing: '2px', textTransform: 'uppercase' }}>
+        <p style={{ fontSize: 'clamp(12px,1.2vw,14px)', fontWeight: 400, color: 'rgba(255,255,255,0.4)', letterSpacing: '4px', textTransform: 'uppercase' }}>
           Bringing Global Retail Home
         </p>
       </div>
