@@ -5,8 +5,11 @@ export default function Navigation({ activePage, onChange, onContact }: {
 }) {
   const pages = [
     { id: 'home', label: 'الرئيسية' },
-    { id: 'academic', label: 'عن هاتز' },
-    { id: 'blog', label: 'رؤى' },
+    { id: 'about', label: 'من نحن' },
+    { id: 'whatwedo', label: 'ماذا نفعل' },
+    { id: 'story', label: 'قصتنا' },
+    { id: 'blog', label: 'الأخبار' },
+    { id: 'jobs', label: 'الوظائف' },
   ];
 
   return (
@@ -31,7 +34,17 @@ export default function Navigation({ activePage, onChange, onContact }: {
               <div
                 key={p.id}
                 className="nav-link"
-                onClick={() => onChange(p.id)}
+                onClick={() => {
+                  if (p.id === 'whatwedo' || p.id === 'story') {
+                    onChange('home');
+                    setTimeout(() => {
+                      const el = document.querySelector('.timeline-section');
+                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                  } else {
+                    onChange(p.id);
+                  }
+                }}
               >
                 <span className="nav-label"
                   style={activePage === p.id ? { color: 'white' } : {}}
@@ -40,7 +53,7 @@ export default function Navigation({ activePage, onChange, onContact }: {
             ))}
           </nav>
           <div className="nav-link" onClick={onContact}>
-            <span className="nav-label">اتصل بنا</span>
+            <span className="nav-label">تواصل معنا</span>
           </div>
         </div>
         <div className="dividerstyle" />

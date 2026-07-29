@@ -53,7 +53,7 @@ export default function App() {
             </div>
 
             {active === 'home' && <Home onContact={openContact} />}
-            {active === 'academic' && <Academic onOpenPub={openPub} />}
+            {active === 'about' && <Academic onOpenPub={openPub} />}
             {active === 'blog' && <Blog />}
           </div>
         </div>

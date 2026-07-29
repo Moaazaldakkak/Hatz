@@ -25,7 +25,7 @@ export default function Home({ onContact }: { onContact: () => void }) {
         <ProjectsSection />
 
         {/* Skills */}
-        <SkillsSection />
+        <div style={{ display: 'none' }}><SkillsSection /></div>
       </div>
     </div>
   );
@@ -69,7 +69,7 @@ function AboutSection() {
       let found = -1;
       h2Refs.current.forEach((el, i) => {
         if (!el) return;
-        if (el.getBoundingClientRect().top < 60) found = i;
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.5) found = i;
       });
       if (found >= 0) {
         const next = h2Refs.current[found + 1];
