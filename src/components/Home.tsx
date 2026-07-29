@@ -131,7 +131,7 @@ function AboutSection() {
               {items.map((item, i) => (
                 <div key={i}>
                   <div className="about-item-divider" />
-                  <div data-movingtext={item.moving} className="why-item" style={{ marginBottom: '24px' }}>
+                  <div data-movingtext={item.moving} className="why-item" style={{ marginBottom: '36px' }}>
                     <h2 ref={el => { h2Refs.current[i] = el; }} style={{ visibility: 'hidden', height: 0, margin: 0 }}>{item.title}</h2>
                     <p style={item.moving === 'قيمنا' ? { whiteSpace: 'pre-line' } : {}}>{item.text}</p>
                   </div>
@@ -172,7 +172,7 @@ function TimelineSection() {
               <span className="titlebloc-white">
                 <span>ماذا نفعل</span>
               </span>
-              <img src="/pattern-line.svg" alt="" style={{ height: 'clamp(20px,2.5vw,36px)', minWidth: '60px', objectFit: 'cover', objectPosition: 'center right' }} />
+              <div className="titlebloc-cc-pattern" />
             </div>
           </div>
 

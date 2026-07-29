@@ -648,6 +648,16 @@ textarea {
   line-height: 44px;
   margin-bottom: 0;
   color: var(--pulse-primary);
+  text-wrap: nowrap;
+}
+
+.titlebloc-cc-pattern {
+  background-image: url("/pattern-line.svg");
+  width: 100%;
+  padding: 25px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* About */
@@ -821,12 +831,12 @@ textarea {
 }
 @media (min-width: 768px) {
   .timeline-wrapper {
-    min-height: 335px;
+    min-height: 338px;
   }
 }
 @media (min-width: 1024px) {
   .timeline-wrapper {
-    min-height: 332px;
+    min-height: 338px;
   }
 }
 .timeline-header {
