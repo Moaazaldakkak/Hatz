@@ -1,9 +1,19 @@
+import { useState } from 'react';
+
 export default function Navigation({ onContact }: {
   onContact: () => void;
 }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
+    setMobileOpen(false);
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleContact = () => {
+    setMobileOpen(false);
+    onContact();
   };
 
   const pages = [
@@ -17,7 +27,7 @@ export default function Navigation({ onContact }: {
 
   return (
     <aside className="sidebar">
-      <div className="sidebar-toggle social-bar-toggle" onClick={() => {}}>
+      <div className="sidebar-toggle social-bar-toggle" onClick={() => setMobileOpen(!mobileOpen)}>
         <svg width="50" height="50" viewBox="0 0 500 499.1" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g fill="#fff">
             <rect x="0" y="0" width="16.55" height="215.24"/>
@@ -30,7 +40,9 @@ export default function Navigation({ onContact }: {
           </g>
         </svg>
       </div>
-      <div className="nav-container">
+
+      {/* Desktop nav */}
+      <div className="nav-container nav-desktop">
         <div>
           <nav>
             {pages.map((p) => (
@@ -43,11 +55,34 @@ export default function Navigation({ onContact }: {
               </div>
             ))}
           </nav>
-          <div className="nav-link" onClick={onContact}>
+          <div className="nav-link" onClick={handleContact}>
             <span className="nav-label">تواصل معنا</span>
           </div>
         </div>
         <div className="dividerstyle" />
+      </div>
+
+      {/* Mobile overlay */}
+      <div className={`mobile-nav-overlay${mobileOpen ? ' active' : ''}`} onClick={() => setMobileOpen(false)} />
+      <div className={`mobile-nav-drawer${mobileOpen ? ' active' : ''}`}>
+        <div className="mobile-nav-header">
+          <span className="mobile-nav-title">القائمة</span>
+          <button className="mobile-nav-close" onClick={() => setMobileOpen(false)}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav className="mobile-nav-items">
+          {pages.map((p) => (
+            <div key={p.id} className="mobile-nav-link" onClick={() => scrollToSection(p.id)}>
+              <span>{p.label}</span>
+            </div>
+          ))}
+          <div className="mobile-nav-link mobile-nav-contact" onClick={handleContact}>
+            <span>تواصل معنا</span>
+          </div>
+        </nav>
       </div>
     </aside>
   );
