@@ -11,7 +11,7 @@ export default function PageLoader() {
   return (
     <div id="pulse-spinner" className={visible ? '' : 'hidden'}>
       <div style={{ textAlign: 'center' }}>
-        <div className="loading-pulse" style={{ margin: '0 auto 1.5rem' }}>
+        <div className="loading-pulse" style={{ margin: '0 auto 3rem' }}>
           <svg width="30" height="30" viewBox="0 0 500 499.1" fill="#fff" xmlns="http://www.w3.org/2000/svg">
             <rect x="0" y="0" width="16.55" height="215.24"/>
             <rect x="161.15" y="0" width="16.55" height="215.24"/>
@@ -22,8 +22,8 @@ export default function PageLoader() {
             <polygon points="500,499.1 288.21,499.1 463.39,300.22 0.93,300.22 0.93,283.68 500,283.68 324.83,482.55 500,482.55 500,499.1"/>
           </svg>
         </div>
-        <img src="/logo-hatz.svg" alt="HATZ" style={{ width: '600px', height: 'auto', display: 'block', margin: '0 auto 1rem' }} />
-        <h1>
+        <img src="/logo-hatz.svg" alt="HATZ" style={{ width: '600px', height: 'auto', display: 'block', margin: '0 auto 3rem' }} />
+        <h1 style={{ marginTop: '2rem' }}>
           <span id="sub-title">نكتب فصلاً جديداً في قطاع التجزئة السوري</span>
         </h1>
       </div>
