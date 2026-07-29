@@ -543,12 +543,9 @@ function SkillsSection() {
 /* Blog */
 function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
   return (
-    <section style={{ padding: '80px 0', background: '#fff' }}>
-      <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
+    <section style={{ padding: '80px 0'}}>
+      <div className="section-inner" style={{ maxWidth: '1140px', margin: '0 auto' }}>
         <div className="why-title" style={{ marginBottom: '32px' }}>
-          <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-            <span className="titletext">أحدث</span>
-          </span>
           <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
             <span className="titletext">الأخبار</span>
           </span>
