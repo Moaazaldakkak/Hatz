@@ -5,14 +5,19 @@ import SocialBar from './components/SocialBar';
 import Home from './components/Home';
 import Popup from './components/Popup';
 import ContactPopup from './components/ContactPopup';
+import { BlogPost } from './data';
 
 export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [popupType, setPopupType] = useState<'contact' | null>(null);
+  const [blogPopup, setBlogPopup] = useState<BlogPost | null>(null);
 
   const openContact = () => setPopupType('contact');
-  const closePopup = () => setPopupType(null);
+  const closePopup = () => {
+    setPopupType(null);
+    setBlogPopup(null);
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Escape') closePopup();
@@ -35,12 +40,12 @@ export default function App() {
               ))}
             </div>
 
-            <Home onContact={openContact} />
+            <Home onContact={openContact} onOpenBlog={setBlogPopup} />
           </div>
         </div>
       </div>
 
-      {/* Popups */}
+      {/* Contact Popup */}
       <Popup
         open={popupType === 'contact'}
         onClose={closePopup}
@@ -48,6 +53,27 @@ export default function App() {
         imageUrl="https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2023/09/markus-winkler-q3QPw37J6Xs-unsplash-1-scaled.jpg"
       >
         <ContactPopup onClose={closePopup} />
+      </Popup>
+
+      {/* Blog Post Popup */}
+      <Popup
+        open={!!blogPopup}
+        onClose={closePopup}
+        title={blogPopup?.title}
+      >
+        {blogPopup && (
+          <>
+            <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--pulse-primary)', fontWeight: 600, marginBottom: 8 }}>
+              {blogPopup.date} — {blogPopup.category}
+            </div>
+            <h2 style={{ fontSize: 26, fontWeight: 300, marginBottom: 16, color: 'var(--pulse-secondary)' }}>
+              {blogPopup.title}
+            </h2>
+            <p style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.8, color: '#555', marginBottom: 24 }}>
+              {blogPopup.excerpt}
+            </p>
+          </>
+        )}
       </Popup>
 
     </div>

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { projects, blogPosts } from '../data';
 
-export default function Home({ onContact }: { onContact: () => void }) {
+export default function Home({ onContact, onOpenBlog }: { onContact: () => void; onOpenBlog: (post: any) => void }) {
   return (
     <div className="home">
       <div className="relative">
@@ -18,7 +18,7 @@ export default function Home({ onContact }: { onContact: () => void }) {
         <div id="section-story"><ProjectsSection /></div>
 
         {/* الأخبار */}
-        <div id="section-blog"><BlogSection /></div>
+        <div id="section-blog"><BlogSection onOpen={onOpenBlog} /></div>
 
         {/* الوظائف */}
         <div id="section-jobs"><JobsSection /></div>
@@ -541,7 +541,7 @@ function SkillsSection() {
 }
 
 /* Blog */
-function BlogSection() {
+function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
   return (
     <section style={{ padding: '80px 0', background: '#fff' }}>
       <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
@@ -556,7 +556,7 @@ function BlogSection() {
 
         <div className="blog-grid">
           {blogPosts.map((post) => (
-            <div key={post.id} className="blog-card">
+            <div key={post.id} className="blog-card" style={{ cursor: 'pointer' }} onClick={() => onOpen(post)}>
               <div className="meta">{post.date} — {post.category}</div>
               <h3>{post.title}</h3>
               <p>{post.excerpt}</p>
