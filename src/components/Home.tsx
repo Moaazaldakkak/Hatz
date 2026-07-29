@@ -575,6 +575,14 @@ function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
 
 /* Jobs */
 function JobsSection() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <section style={{ padding: '80px 0', background: 'var(--pulse-b2)' }}>
       <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
@@ -583,9 +591,29 @@ function JobsSection() {
             <span className="titletext">الوظائف</span>
           </span>
         </div>
-        <p style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 300, color: '#555', lineHeight: 1.8 }}>
-          لا توجد وظائف شاغرة حالياً. تابعونا لمعرفة الفرص القادمة.
-        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }} className="lg:flex-row">
+          <div style={{ flex: 1 }}>
+            <h3 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 700, color: 'var(--pulse-primary)', marginBottom: '16px' }}>اعمل معنا</h3>
+            <p style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 300, color: '#555', lineHeight: 1.8 }}>
+              ألنك في HATZ لا تعمل في شركة محلية فقط...<br />
+              بل تعمل وفق معايير عالمية، في بيئة تؤمن بالتطوير المستمر، وتمكنك من بناء مستقبل مهني حقيقي
+            </p>
+          </div>
+          <div style={{ flex: 1 }}>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <input type="text" placeholder="الاسم" value={name} onChange={(e) => setName(e.target.value)}
+                style={{ padding: '12px 16px', border: '1px solid #ddd', borderRadius: '4px', fontSize: '16px', fontFamily: 'inherit' }} />
+              <input type="email" placeholder="البريد الإلكتروني" value={email} onChange={(e) => setEmail(e.target.value)}
+                style={{ padding: '12px 16px', border: '1px solid #ddd', borderRadius: '4px', fontSize: '16px', fontFamily: 'inherit' }} />
+              <textarea placeholder="رسالتك" value={message} onChange={(e) => setMessage(e.target.value)} rows={4}
+                style={{ padding: '12px 16px', border: '1px solid #ddd', borderRadius: '4px', fontSize: '16px', fontFamily: 'inherit', resize: 'vertical' }} />
+              <button type="submit"
+                style={{ padding: '12px 32px', background: 'var(--pulse-primary)', color: 'white', border: 'none', borderRadius: '4px', fontSize: '16px', cursor: 'pointer', fontFamily: 'inherit', alignSelf: 'flex-start' }}>
+                إرسال
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   );
