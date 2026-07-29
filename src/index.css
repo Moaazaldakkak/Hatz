@@ -956,28 +956,14 @@ textarea {
 /* Projects */
 .project-section {
   position: relative;
-  margin: 80px 0;
+  padding: 80px 0;
 }
-@media (min-width: 1024px) {
-  .project-section {
-    padding: 0 64px;
-  }
-}
+
 .project-container {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 40px 30px;
 }
-@media (min-width: 768px) {
-  .project-container {
-    padding: 40px 50px;
-  }
-}
-@media (min-width: 1024px) {
-  .project-container {
-    padding: 40px 0;
-  }
-}
+
 .project-inner {
   position: relative;
 }
@@ -1549,6 +1535,7 @@ textarea {
 .form-group textarea::placeholder {
   color: #999;
   font-family: inherit;
+  font-weight: 400;
 }
 .form-group input:focus,
 .form-group textarea:focus {

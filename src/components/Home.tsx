@@ -174,7 +174,7 @@ function TimelineSection() {
 
   return (
     <section>
-      <div className="timeline-section" style={{ maxWidth: '1140px', margin: '0 auto' }}>
+      <div className="timeline-section" style={{ maxWidth: '1140px', margin: 'auto', paddingBottom: '80px' }}>
         <div className="timeline-wrapper">
           <div className="timeline-header">
             <div className="why-title">
@@ -564,7 +564,7 @@ function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
                 <span style={{ fontSize: 12, fontWeight: 500 }}>اقرأ المزيد</span>
                 <div style={{ width: 45, height: 45, background: 'var(--pulse-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" width="18" height="18">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
+                    <path d="M19 12H5M12 5l-7 7 7 7" />
                   </svg>
                 </div>
               </div>
@@ -587,12 +587,12 @@ function JobsSection() {
   };
 
   return (
-    <section style={{ padding: '80px 0', background: 'var(--pulse-b2)' }}>
+    <section style={{ padding: '80px 0', background: 'var(--pulse-b1)' }}>
       <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }} className="lg:flex-row">
           <div style={{ flex: 1 }}>
-            <h3 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 400, color: 'white', marginBottom: '16px' }}>اعمل معنا</h3>
-            <p style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 100, color: 'white', lineHeight: 1.8, opacity: 0.9 }}>
+            <h3 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 400, color: 'var(--pulse-primary)', marginBottom: '16px' }}>اعمل معنا</h3>
+            <p style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 300, lineHeight: 1.8, opacity: 0.9 }}>
               لأنك في HATZ لا تعمل في شركة محلية فقط...<br />
               بل تعمل وفق معايير عالمية، في بيئة تؤمن بالتطوير المستمر، وتمكنك من بناء مستقبل مهني حقيقي
             </p>

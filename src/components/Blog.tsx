@@ -36,7 +36,7 @@ export default function Blog() {
                     <span style={{ fontSize: 12, fontWeight: 500 }}>اقرأ المزيد</span>
                     <div style={{ width: 45, height: 45, background: 'var(--pulse-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" width="18" height="18">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
+                        <path d="M19 12H5M12 5l-7 7 7 7" />
                       </svg>
                     </div>
                   </div>
