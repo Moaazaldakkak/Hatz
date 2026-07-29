@@ -60,6 +60,7 @@ export default function App() {
         open={!!blogPopup}
         onClose={closePopup}
         title={blogPopup?.title}
+        imageUrl={blogPopup?.imageUrl}
       >
         {blogPopup && (
           <>
