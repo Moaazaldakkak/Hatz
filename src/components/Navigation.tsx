@@ -1,15 +1,18 @@
-export default function Navigation({ activePage, onChange, onContact }: {
-  activePage: string;
-  onChange: (id: string) => void;
+export default function Navigation({ onContact }: {
   onContact: () => void;
 }) {
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   const pages = [
-    { id: 'home', label: 'الرئيسية' },
-    { id: 'about', label: 'من نحن' },
-    { id: 'whatwedo', label: 'ماذا نفعل' },
-    { id: 'story', label: 'قصتنا' },
-    { id: 'blog', label: 'الأخبار' },
-    { id: 'jobs', label: 'الوظائف' },
+    { id: 'section-home', label: 'الرئيسية' },
+    { id: 'section-about', label: 'من نحن' },
+    { id: 'section-whatwedo', label: 'ماذا نفعل' },
+    { id: 'section-story', label: 'قصتنا' },
+    { id: 'section-blog', label: 'الأخبار' },
+    { id: 'section-jobs', label: 'الوظائف' },
   ];
 
   return (
@@ -31,24 +34,12 @@ export default function Navigation({ activePage, onChange, onContact }: {
         <div>
           <nav>
             {pages.map((p) => (
-              <div
-                key={p.id}
-                className="nav-link"
-                onClick={() => {
-                  if (p.id === 'whatwedo' || p.id === 'story') {
-                    onChange('home');
-                    setTimeout(() => {
-                      const el = document.querySelector('.timeline-section');
-                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
-                  } else {
-                    onChange(p.id);
-                  }
-                }}
-              >
-                <span className="nav-label"
-                  style={activePage === p.id ? { color: 'white' } : {}}
-                >{p.label}</span>
+                <div
+                  key={p.id}
+                  className="nav-link"
+                  onClick={() => scrollToSection(p.id)}
+                >
+                  <span className="nav-label">{p.label}</span>
               </div>
             ))}
           </nav>

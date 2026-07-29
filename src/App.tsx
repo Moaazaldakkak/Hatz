@@ -3,33 +3,16 @@ import PageLoader from './components/PageLoader';
 import Navigation from './components/Navigation';
 import SocialBar from './components/SocialBar';
 import Home from './components/Home';
-import Academic from './components/Academic';
-import Blog from './components/Blog';
 import Popup from './components/Popup';
 import ContactPopup from './components/ContactPopup';
-import { Publication } from './data';
 
 export default function App() {
-  const [active, setActive] = useState('home');
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const [popupType, setPopupType] = useState<'contact' | 'publication' | null>(null);
-  const [popupItem, setPopupItem] = useState<Publication | null>(null);
+  const [popupType, setPopupType] = useState<'contact' | null>(null);
 
   const openContact = () => setPopupType('contact');
-  const openPub = (pub: Publication) => {
-    setPopupItem(pub);
-    setPopupType('publication');
-  };
-  const closePopup = () => {
-    setPopupType(null);
-    setPopupItem(null);
-  };
-
-  const handleNavChange = (id: string) => {
-    setActive(id);
-    setSidebarOpen(false);
-  };
+  const closePopup = () => setPopupType(null);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Escape') closePopup();
@@ -41,7 +24,7 @@ export default function App() {
 
       <div id="page" className="pt-wrapper">
         <div className="main-layout">
-          <Navigation activePage={active} onChange={handleNavChange} onContact={openContact} />
+          <Navigation onContact={openContact} />
           <div className="main-content">
             <SocialBar open={sidebarOpen} onContact={openContact} />
 
@@ -52,9 +35,7 @@ export default function App() {
               ))}
             </div>
 
-            {active === 'home' && <Home onContact={openContact} />}
-            {active === 'about' && <Academic onOpenPub={openPub} />}
-            {active === 'blog' && <Blog />}
+            <Home onContact={openContact} />
           </div>
         </div>
       </div>
@@ -69,31 +50,6 @@ export default function App() {
         <ContactPopup onClose={closePopup} />
       </Popup>
 
-      <Popup
-        open={popupType === 'publication'}
-        onClose={closePopup}
-        title={popupItem?.title}
-        imageUrl={popupItem?.imageUrl}
-      >
-        {popupItem && (
-          <>
-            <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--pulse-primary)', fontWeight: 600, marginBottom: 8 }}>
-              {popupItem.type}
-            </div>
-            <h2 style={{ fontSize: 26, fontWeight: 300, marginBottom: 16, color: 'var(--pulse-secondary)' }}>
-              {popupItem.title}
-            </h2>
-            <p style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.8, color: '#555', marginBottom: 24 }}>
-              {popupItem.excerpt}
-            </p>
-            <div>
-              {popupItem.tags.map((t) => (
-                <span key={t} className="pub-tag" style={{ marginRight: 8 }}>{t}</span>
-              ))}
-            </div>
-          </>
-        )}
-      </Popup>
     </div>
   );
 }

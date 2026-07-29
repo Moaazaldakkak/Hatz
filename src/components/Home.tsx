@@ -1,23 +1,29 @@
 import { useState, useRef, useEffect } from 'react';
-import { projects } from '../data';
+import { projects, blogPosts } from '../data';
 
 export default function Home({ onContact }: { onContact: () => void }) {
   return (
-    <div className="home pagescroll pt-page pt-page-1">
-      <div className="relative">       
-        {/* Hero */}
-        <HeroSection />
+    <div className="home">
+      <div className="relative">
+        {/* الرئيسية */}
+        <div id="section-home"><HeroSection /></div>
 
-        {/* About */}
-        <AboutSection />
+        {/* من نحن */}
+        <div id="section-about"><AboutSection /></div>
 
-        {/* Timeline */}
-        <TimelineSection />
+        {/* ماذا نفعل */}
+        <div id="section-whatwedo"><TimelineSection /></div>
 
-        {/* Projects */}
-        <ProjectsSection />
+        {/* قصتنا */}
+        <div id="section-story"><ProjectsSection /></div>
 
-        {/* Skills */}
+        {/* الأخبار */}
+        <div id="section-blog"><BlogSection /></div>
+
+        {/* الوظائف */}
+        <div id="section-jobs"><JobsSection /></div>
+
+        {/* Skills (hidden) */}
         <div style={{ display: 'none' }}><SkillsSection /></div>
       </div>
     </div>
@@ -529,6 +535,60 @@ function SkillsSection() {
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* Blog */
+function BlogSection() {
+  return (
+    <section style={{ padding: '80px 0', background: '#fff' }}>
+      <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
+        <div className="why-title" style={{ marginBottom: '32px' }}>
+          <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
+            <span className="titletext">أحدث</span>
+          </span>
+          <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
+            <span className="titletext">الرؤى</span>
+          </span>
+        </div>
+
+        <div className="blog-grid">
+          {blogPosts.map((post) => (
+            <div key={post.id} className="blog-card">
+              <div className="meta">{post.date} — {post.category}</div>
+              <h3>{post.title}</h3>
+              <p>{post.excerpt}</p>
+              <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(0,0,0,0.05)', height: '45px', padding: '0 12px' }}>
+                <span style={{ fontSize: 12, fontWeight: 500 }}>اقرأ المزيد</span>
+                <div style={{ width: 45, height: 45, background: 'var(--pulse-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" width="18" height="18">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* Jobs */
+function JobsSection() {
+  return (
+    <section style={{ padding: '80px 0', background: 'var(--pulse-b2)' }}>
+      <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
+        <div className="why-title" style={{ marginBottom: '32px' }}>
+          <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
+            <span className="titletext">الوظائف</span>
+          </span>
+        </div>
+        <p style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 300, color: '#555', lineHeight: 1.8 }}>
+          لا توجد وظائف شاغرة حالياً. تابعونا لمعرفة الفرص القادمة.
+        </p>
       </div>
     </section>
   );
