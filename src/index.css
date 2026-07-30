@@ -720,6 +720,12 @@ textarea {
   position: relative;
   z-index: 2;
 }
+
+@media (max-width: 1024px) {
+  .about-section {
+    margin-top: 24px;
+  }
+}
 @media (max-width: 639px) {
   .about-section {
     margin-top: 24px;
@@ -750,7 +756,7 @@ textarea {
   line-height: 1.25;
   font-weight: 400;
 }
-@media (max-width: 639px) {
+@media (max-width: 1023px) {
   .about-item-title-hidden {
     visibility: visible;
     height: auto;
@@ -882,6 +888,11 @@ textarea {
 @media (min-width: 1024px) {
   .about-moving-text-wrap {
     width: 33.333%;
+  }
+}
+@media (max-width: 1023px) {
+  .about-moving-text-wrap {
+    display: none;
   }
 }
 .about-moving-text {
@@ -1166,7 +1177,6 @@ textarea {
 
 /* Project thumbnail + next button */
 .project-thumb-container {
-  display: none;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -1232,7 +1242,13 @@ textarea {
 
 /* Project bottom bar */
 .project-bottom-bar {
-  display: none;
+      display: block;
+    background: var(--pulse-d3);
+    height: 320px;
+    margin-left: 80px;
+    margin-top: -240px;
+    position: relative;
+    z-index: 1;
 }
 @media (min-width: 1024px) {
   .project-bottom-bar {
