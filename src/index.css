@@ -689,6 +689,13 @@ textarea {
 .titletext {
   color: var(--pulse-primary);
 }
+.section-title {
+  font-size: clamp(28px, 4vw, 36px);
+  line-height: 1.25;
+  font-weight: 400;
+  text-wrap: nowrap;
+  color: var(--pulse-primary);
+}
 .titlebloc-cc,
 .titlebloc-white {
   display: flex;

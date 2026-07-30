@@ -116,7 +116,7 @@ function AboutSection() {
         <div className="about-row-title">
           <div className="about-title-col">
             
-            <span className="titlebloc-cc"><span className="titletext">عن هاتز</span></span>
+            <span className="section-title">عن هاتز</span>
           </div>
           <div className="about-desc-col">
             <div className="why-description">
@@ -182,9 +182,7 @@ function TimelineSection() {
         <div className="timeline-wrapper">
           <div className="timeline-header">
             <div className="why-title">
-              <span className="titlebloc-white">
-                <span>ماذا نفعل</span>
-              </span>
+              <span className="section-title">ماذا نفعل</span>
               <div className="titlebloc-cc-pattern" />
             </div>
           </div>
@@ -263,9 +261,7 @@ function ProjectsSection() {
           <div className="project-layout">
             <div className="project-left">
               <div className="project-title">
-                  <span className="titlebloc-cc" style={{ fontWeight: 100 }}>
-                    <span className="titletext">قصتنا</span>
-                  </span>
+              <span className="section-title">قصتنا</span>
               </div>
               <div className="project-desc">
                 <p>
@@ -368,12 +364,7 @@ function SkillsSection() {
               fontSize: 'clamp(28px,4vw,48px)', lineHeight: 1.25,
               marginBottom: '32px', marginTop: 0
             }}>
-              <div style={{ display: 'flex', color: 'white', fontWeight: 100 }}>
-                <span>خبرات</span>
-              </div>
-              <div style={{ display: 'flex', color: 'white', fontWeight: 700 }}>
-                <span>ومهارات</span>
-              </div>
+              <span className="section-title" style={{ color: 'white' }}>خبرات ومهارات</span>
             </div>
             <div style={{
               fontSize: 'clamp(18px,2vw,24px)', fontWeight: 300,
@@ -563,9 +554,7 @@ function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
     <section style={{ padding: '80px 0'}}>
       <div className="section-inner" style={{ maxWidth: '1140px', margin: '0 auto' }}>
         <div className="why-title" style={{ marginBottom: '32px' }}>
-          <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-            <span className="titletext">مقالات</span>
-          </span>
+          <span className="section-title">مقالات</span>
         </div>
 
         <div className="blog-grid">
@@ -606,7 +595,7 @@ function JobsSection() {
       <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }} className="lg:flex-row">
           <div style={{ flex: 1 }}>
-            <h3 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 400, color: 'var(--pulse-primary)', marginBottom: '16px' }}>اعمل معنا</h3>
+            <span className="section-title" style={{ marginBottom: '16px', display: 'inline-block' }}>اعمل معنا</span>
             <p style={{ fontSize: 'clamp(16px,2vw,18px)', fontWeight: 300, lineHeight: 1.8, opacity: 0.9 }}>
               لأنك في HATZ لا تعمل في شركة محلية فقط...<br />
               بل تعمل وفق معايير عالمية، في بيئة تؤمن بالتطوير المستمر، وتمكنك من بناء مستقبل مهني حقيقي
