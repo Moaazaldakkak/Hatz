@@ -388,8 +388,9 @@ textarea {
     padding: 8px 16px;
   }
 }
-.nav-link:hover .nav-label {
-  color: var(--pulse-b2);
+.nav-link:hover .nav-label,
+.nav-link.active .nav-label {
+  color: var(--pulse-accent);
 }
 .nav-label {
   font-size: 13px;
@@ -499,6 +500,10 @@ textarea {
   .mobile-nav-link:hover {
     background: var(--pulse-d2);
     color: white;
+  }
+  .mobile-nav-link.active {
+    color: var(--pulse-accent);
+    background: var(--pulse-d2);
   }
   .mobile-nav-contact {
     margin-top: auto;
@@ -656,6 +661,16 @@ textarea {
     background-image: url("./assets/hatz_hero.webp");
     background-size: cover;
     background-position: center;
+    position: relative;
+  }
+  .hero-image-mobile::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, var(--pulse-b3), transparent);
   }
 }
 @media (min-width: 1024px) {
@@ -794,6 +809,11 @@ textarea {
   position: relative;
   z-index: 2;
 }
+@media (max-width: 639px) {
+  .about-section {
+    margin-top: 24px;
+  }
+}
 .about-container {
   max-width: 1140px;
   margin: 0 auto;
@@ -810,6 +830,22 @@ textarea {
   font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 300;
   line-height: 2;
+}
+.about-item-title-hidden {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.25;
+  font-weight: 400;
+}
+@media (max-width: 639px) {
+  .about-item-title-hidden {
+    visibility: visible;
+    height: auto;
+    margin-bottom: 8px;
+    color: var(--pulse-primary);
+  }
 }
 .why-item h2 {
   font-size: clamp(22px, 3vw, 30px);

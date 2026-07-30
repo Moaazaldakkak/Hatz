@@ -1,9 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navigation({ onContact }: {
   onContact: () => void;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('section-home');
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('[id^="section-"]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' });
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToSection = (id: string) => {
     setMobileOpen(false);
@@ -48,7 +63,7 @@ export default function Navigation({ onContact }: {
             {pages.map((p) => (
                 <div
                   key={p.id}
-                  className="nav-link"
+                  className={`nav-link${activeSection === p.id ? ' active' : ''}`}
                   onClick={() => scrollToSection(p.id)}
                 >
                   <span className="nav-label">{p.label}</span>
@@ -75,7 +90,7 @@ export default function Navigation({ onContact }: {
         </div>
         <nav className="mobile-nav-items">
           {pages.map((p) => (
-            <div key={p.id} className="mobile-nav-link" onClick={() => scrollToSection(p.id)}>
+            <div key={p.id} className={`mobile-nav-link${activeSection === p.id ? ' active' : ''}`} onClick={() => scrollToSection(p.id)}>
               <span>{p.label}</span>
             </div>
           ))}

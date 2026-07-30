@@ -142,7 +142,7 @@ function AboutSection() {
                 <div key={i}>
                   <div className="about-item-divider" />
                   <div data-movingtext={item.moving} className="why-item" style={{ marginBottom: '36px' }}>
-                    <h2 ref={el => { h2Refs.current[i] = el; }} style={{ visibility: 'hidden', height: 0, margin: 0 }}>{item.title}</h2>
+                    <h2 ref={el => { h2Refs.current[i] = el; }} className="about-item-title-hidden">{item.title}</h2>
                     <p style={item.moving === 'قيمنا' ? { whiteSpace: 'pre-line' } : {}}>{item.text}</p>
                   </div>
                 </div>
