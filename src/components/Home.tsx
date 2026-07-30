@@ -42,7 +42,9 @@ function HeroSection() {
       <div className="hero-image-mobile" />
       <div className="hero-content">
         <div className="hero-inner">
-          <h1 className="hero-name">HATZ</h1>
+          <div className="hero-name">
+            <span>H</span><span>A</span><span>T</span><span>Z</span>
+          </div>
           <div className="hero-subtitle">Bringing Global Retail Home</div>
           <p className="hero-tagline">نقود مستقبل قطاع التجزئة في سورية من خالل استقطاب العالمات التجارية العالمية، وتطوير تجارب تسوق بمعايير دولية، وبناء بيئة
 عمل تستقطب الكفاءات وتصنع المهارات وتخلق قيمة حقيقية للمستهلك والسوق السوري</p>
@@ -580,6 +582,8 @@ function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
 /* Jobs */
 function JobsSection() {
   const [name, setName] = useState('');
+  const [expertise, setExpertise] = useState('');
+  const [cvLink, setCvLink] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
@@ -588,7 +592,7 @@ function JobsSection() {
   };
 
   return (
-    <section style={{ padding: '80px 0', background: 'var(--pulse-b1)' }}>
+    <section style={{ padding: '80px 0' }}>
       <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }} className="lg:flex-row">
           <div style={{ flex: 1 }}>
@@ -604,10 +608,16 @@ function JobsSection() {
                 <input type="text" placeholder="الاسم" value={name} onChange={(e) => setName(e.target.value)} />
               </div>
               <div className="form-group">
+                <input type="text" placeholder="مجال خبرتي" value={expertise} onChange={(e) => setExpertise(e.target.value)} />
+              </div>
+              <div className="form-group">
+                <input type="url" placeholder="رابط سيرتي الذاتية" value={cvLink} onChange={(e) => setCvLink(e.target.value)} />
+              </div>
+              <div className="form-group">
                 <input type="email" placeholder="البريد الإلكتروني" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className="form-group">
-                <textarea placeholder="رسالتك" value={message} onChange={(e) => setMessage(e.target.value)} rows={4} />
+                <textarea placeholder="رسالتي لكم" value={message} onChange={(e) => setMessage(e.target.value)} rows={4} />
               </div>
               <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                 إرسال
@@ -623,22 +633,8 @@ function JobsSection() {
 /* Footer */
 function FooterSection() {
   return (
-    <footer style={{ background: 'var(--pulse-primary)', padding: '80px 30px 60px', textAlign: 'center' }}>
-      <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
-        <p style={{ fontSize: 'clamp(11px,1vw,13px)', fontWeight: 400, color: 'rgba(255,255,255,0.4)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '24px' }}>
-          الرسالة الختامية
-        </p>
-        <p style={{ fontSize: 'clamp(24px,3.5vw,44px)', fontWeight: 700, color: 'white', lineHeight: 1.4, marginBottom: '40px', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
-          من أول خطوة... إلى مستقبل قطاع التجزئة في سورية.
-        </p>
-        <div style={{ width: '80px', height: '2px', background: 'var(--pulse-accent)', margin: '0 auto 40px' }} />
-        <p style={{ fontSize: 'clamp(20px,2.5vw,28px)', fontWeight: 300, color: 'rgba(255,255,255,0.85)', marginBottom: '8px' }}>
-          HATZ Retail
-        </p>
-        <p style={{ fontSize: 'clamp(12px,1.2vw,14px)', fontWeight: 400, color: 'rgba(255,255,255,0.4)', letterSpacing: '4px', textTransform: 'uppercase' }}>
-          Bringing Global Retail Home
-        </p>
-      </div>
+    <footer style={{ background: 'var(--pulse-b1)', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '60px 30px' }}>
+      <img src="./asset-2.svg" alt="HATZ" style={{ width: 'clamp(200px, 30vw, 400px)', height: 'auto' }} />
     </footer>
   );
 }

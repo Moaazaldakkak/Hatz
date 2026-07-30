@@ -34,7 +34,7 @@ export default function App() {
             <SocialBar open={sidebarOpen} onContact={openContact} />
 
             {/* Background lines for the main view */}
-            <div className="background-lines-container" style={{ position: 'fixed', top: 0, right: '64px', width: 'calc(100% - 64px)' }}>
+            <div className="background-lines-container hidden" style={{ position: 'fixed', top: 0, right: '64px', width: 'calc(100% - 64px)' }}>
               {Array.from({ length: 7 }).map((_, i) => (
                 <div key={i} className={`backline${i === 0 || i === 6 ? ' edge' : ''}`} />
               ))}
