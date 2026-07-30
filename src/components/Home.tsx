@@ -39,6 +39,7 @@ function HeroSection() {
     <div className="hero-section">
       <div className="hero-bg-left" />
       <div className="hero-bg-right" />
+      <div className="hero-image-mobile" />
       <div className="hero-content">
         <div className="hero-inner">
           <h1 className="hero-name">HATZ</h1>
