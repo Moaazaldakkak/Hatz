@@ -1729,7 +1729,7 @@ textarea {
 /* Responsive */
 @media (max-width: 639px) {
   .sidebar {
-    width: 36px;
+    width: 44px;
     height: 100vh;
     flex-direction: column;
     position: fixed;
@@ -1738,25 +1738,26 @@ textarea {
     z-index: 100;
   }
   .sidebar-toggle {
-    width: 36px;
-    height: 44px;
+    width: 44px;
+    height: 48px;
     flex-shrink: 0;
-    padding: 8px 3px;
+    padding: 10px 4px;
   }
   .sidebar-toggle svg {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
   }
   .nav-container {
-    height: calc(100vh - 44px);
-    padding: 4px 0;
+    height: calc(100vh - 48px);
+    padding: 6px 0;
     flex-direction: column;
     overflow-y: auto;
+    display: flex;
   }
   .nav-link {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
-    padding: 6px 4px;
+    padding: 8px 6px;
     height: auto;
     white-space: nowrap;
   }
@@ -1767,17 +1768,17 @@ textarea {
   }
   .dividerstyle {
     width: 1px;
-    height: 24px;
-    margin: 8px 0;
-    flex-grow: 0;
+    flex-grow: 1;
+    margin: 12px 0 8px;
+    min-height: 20px;
   }
   .social-bar {
-    left: 36px;
+    left: 44px;
     top: 0;
-    width: calc(100% - 36px);
+    width: calc(100% - 44px);
   }
   .main-content {
-    margin-left: 36px;
+    margin-left: 44px;
     margin-top: 0;
   }
 }
@@ -1967,13 +1968,13 @@ textarea {
   }
   [dir="rtl"] .social-bar {
     left: auto;
-    right: 36px;
+    right: 44px;
     top: 0;
-    width: calc(100% - 36px);
+    width: calc(100% - 44px);
   }
   [dir="rtl"] .main-content {
     margin-left: 0;
-    margin-right: 36px;
+    margin-right: 44px;
   }
 }
 [dir="rtl"] .timeline-btn svg {
