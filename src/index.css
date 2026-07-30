@@ -634,9 +634,12 @@ textarea {
   }
 }
 .hero-inner {
-  max-width: 1140px;
-  margin: 0 auto;
-  width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 36px;
 }
 .hero-subtitle {
   display: flex;
@@ -818,6 +821,8 @@ textarea {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-size: clamp(28px, 4vw, 36px);
+  line-height: 1.25;
 }
 
 .about-title-col img {

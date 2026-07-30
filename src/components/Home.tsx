@@ -42,10 +42,11 @@ function HeroSection() {
       <div className="hero-image-mobile" />
       <div className="hero-content">
         <div className="hero-inner">
-          <div className="hero-name">
+          <div className="hero-name hidden">
             <span>H</span><span>A</span><span>T</span><span>Z</span>
           </div>
-          <div className="hero-subtitle"><span>Bringing</span><span>Global</span><span>Retail</span><span>Home</span></div>
+          <div className="hero-subtitle hidden"><span>B</span><span>r</span><span>i</span><span>n</span><span>g</span><span>i</span><span>n</span><span>g</span><span> </span><span> </span><span>G</span><span>l</span><span>o</span><span>b</span><span>a</span><span>l</span><span> </span><span> </span><span>R</span><span>e</span><span>t</span><span>a</span><span>i</span><span>l</span><span> </span><span> </span><span>H</span><span>o</span><span>m</span><span>e</span></div>
+          <img src="./asset-2.svg" alt="about-hatz" />
           <p className="hero-tagline">نقود مستقبل قطاع التجزئة في سورية من خالل استقطاب العالمات التجارية العالمية، وتطوير تجارب تسوق بمعايير دولية، وبناء بيئة
 عمل تستقطب الكفاءات وتصنع المهارات وتخلق قيمة حقيقية للمستهلك والسوق السوري</p>
         </div>
@@ -115,7 +116,7 @@ function AboutSection() {
         <div className="about-row-title">
           <div className="about-title-col">
             
-            <img src="./asset-2.svg" alt="about-hatz" />
+            <span className="titlebloc-cc"><span className="titletext">عن هاتز</span></span>
           </div>
           <div className="about-desc-col">
             <div className="why-description">
@@ -606,7 +607,7 @@ function JobsSection() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }} className="lg:flex-row">
           <div style={{ flex: 1 }}>
             <h3 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 400, color: 'var(--pulse-primary)', marginBottom: '16px' }}>اعمل معنا</h3>
-            <p style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 300, lineHeight: 1.8, opacity: 0.9 }}>
+            <p style={{ fontSize: 'clamp(16px,2vw,18px)', fontWeight: 300, lineHeight: 1.8, opacity: 0.9 }}>
               لأنك في HATZ لا تعمل في شركة محلية فقط...<br />
               بل تعمل وفق معايير عالمية، في بيئة تؤمن بالتطوير المستمر، وتمكنك من بناء مستقبل مهني حقيقي
             </p>
