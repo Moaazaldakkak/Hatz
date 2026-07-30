@@ -639,21 +639,26 @@ textarea {
   width: 100%;
 }
 .hero-subtitle {
-  font-size: clamp(16px, 2.5vw, 25px);
-  letter-spacing: clamp(2px, 0.5vw, 2px);
+  display: flex;
+  justify-content: space-between;
   text-transform: uppercase;
   color: var(--pulse-primary);
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 16px;
+  direction: ltr;
+}
+.hero-subtitle span {
+  font-size: clamp(12px, 2.5vw, 16px);
+  margin-right: clamp(-12px, -0.8vw, -4px);
+  letter-spacing: clamp(4px, 0.8vw, 12px);
 }
 .hero-name {
   display: flex;
   margin-bottom: 16px;
-  height: 100%;
+  justify-content: space-between;
   direction: ltr;
 }
 .hero-name span {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -663,9 +668,8 @@ textarea {
   color: var(--pulse-primary);
 }
 .hero-tagline {
-  font-size: clamp(16px, 3vw, 20px);
+  font-size: clamp(16px, 3vw, 18px);
   font-weight: 300;
-  max-width: 550px;
   color: #191919;
   text-align: justify;
 }

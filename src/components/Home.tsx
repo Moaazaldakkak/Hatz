@@ -45,7 +45,7 @@ function HeroSection() {
           <div className="hero-name">
             <span>H</span><span>A</span><span>T</span><span>Z</span>
           </div>
-          <div className="hero-subtitle">Bringing Global Retail Home</div>
+          <div className="hero-subtitle"><span>Bringing</span><span>Global</span><span>Retail</span><span>Home</span></div>
           <p className="hero-tagline">نقود مستقبل قطاع التجزئة في سورية من خالل استقطاب العالمات التجارية العالمية، وتطوير تجارب تسوق بمعايير دولية، وبناء بيئة
 عمل تستقطب الكفاءات وتصنع المهارات وتخلق قيمة حقيقية للمستهلك والسوق السوري</p>
         </div>
