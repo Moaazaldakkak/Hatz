@@ -12,7 +12,7 @@ export default function ContactPopup({ onClose }: { onClose: () => void }) {
       </div>
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="form-group">
-          <input type="text" placeholder="اسمك الكريم" />
+          <input type="text" placeholder="الاسم" />
         </div>
         <div className="form-group">
           <input type="email" placeholder="example@domain.com" />
