@@ -26,10 +26,10 @@ export default function Navigation({ onContact }: {
 
   const pages = [
     { id: 'section-home', label: 'الرئيسية' },
-    { id: 'section-about', label: 'من نحن' },
+    { id: 'section-about', label: 'عن هاتز' },
     { id: 'section-whatwedo', label: 'ماذا نفعل' },
     { id: 'section-story', label: 'قصتنا' },
-    { id: 'section-blog', label: 'الأخبار' },
+    { id: 'section-blog', label: 'مقالات' },
     { id: 'section-jobs', label: 'الوظائف' },
   ];
 

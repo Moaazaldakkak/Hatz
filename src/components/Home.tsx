@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { projects, blogPosts } from '../data';
+import { projects } from '../data';
 
 export default function Home({ onContact, onOpenBlog }: { onContact: () => void; onOpenBlog: (post: any) => void }) {
   return (
@@ -548,21 +548,28 @@ function SkillsSection() {
 
 /* Blog */
 function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
+  const articles = [
+    { id: 1, date: 'يوليو 2026', category: 'شراكات', title: 'توقيع اتفاق مع ال LCW في سورية', excerpt: 'تم اليوم توقيع اتفاقية شراكة استراتيجية بين HATZ وعلامة LC Waikiki العالمية، تمهيداً لافتتاح أول فرع رسمي في سورية. تأتي هذه الخطوة في إطار استراتيجية HATZ الهادفة إلى استقطاب أبرز العلامات التجارية الدولية وتوفير تجارب تسوق عالمية للمستهلك السوري.', imageUrl: 'https://picsum.photos/seed/lcw1/400/300' },
+    { id: 2, date: 'يوليو 2026', category: 'افتتاح', title: 'افتتاح اول فرع رسمي ل LCW في سورية', excerpt: 'بعد أشهر من التحضير والتجهيز، تم افتتاح أول فرع رسمي لعلامة LC Waikiki في سورية بحضور رسمي وإعلامي واسع. يمثل هذا الافتتاح بداية مرحلة جديدة لقطاع التجزئة في سورية، ويعكس التزام HATZ بتقديم علامات تجارية عالمية بمعايير دولية.', imageUrl: 'https://picsum.photos/seed/lcw2/400/300' },
+    { id: 3, date: 'يونيو 2026', category: 'محلي', title: 'شراكاتنا المحلية', excerpt: 'تؤمن HATZ بأهمية بناء شراكات محلية قوية تساهم في دعم الاقتصاد الوطني وتطوير بيئة الأعمال. نعمل مع شركائنا المحليين على خلق قيمة مضافة للمستهلك السوري، مع الحرص على تطبيق أعلى معايير الجودة والشفافية في جميع عملياتنا.', imageUrl: 'https://picsum.photos/seed/partners/400/300' },
+    { id: 4, date: 'يونيو 2026', category: 'فريق', title: 'كيف نختار فريقنا', excerpt: 'فريق HATZ هو جوهر نجاحنا. نعتمد في اختيار كوادرنا على معايير دقيقة تجمع بين الكفاءة المهنية والقيم الشخصية. نبحث عن الموهبة والطموح، ونؤمن بالاستثمار في تدريب وتطوير مهارات فريقنا ليصبحوا قادة المستقبل في قطاع التجزئة.', imageUrl: 'https://picsum.photos/seed/team/400/300' },
+    { id: 5, date: 'مايو 2026', category: 'رؤية', title: 'مستقبل قطاع التجزئة في سورية', excerpt: 'يشهد قطاع التجزئة في سورية تحولاً تدريجياً نحو مزيد من التنظيم والاحترافية. HATZ تقود هذا التغيير من خلال استقطاب علامات تجارية عالمية، وتطوير بنية تحتية متكاملة، وبناء كوادر محلية مؤهلة. المستقبل واعد، ونحن في بداية الطريق.', imageUrl: 'https://picsum.photos/seed/future/400/300' },
+  ];
+
   return (
     <section style={{ padding: '80px 0'}}>
       <div className="section-inner" style={{ maxWidth: '1140px', margin: '0 auto' }}>
         <div className="why-title" style={{ marginBottom: '32px' }}>
           <span className="titlebloc-cc" style={{ color: 'var(--pulse-secondary)' }}>
-            <span className="titletext">الأخبار</span>
+            <span className="titletext">مقالات</span>
           </span>
         </div>
 
         <div className="blog-grid">
-          {blogPosts.map((post) => (
+          {articles.map((post) => (
             <div key={post.id} className="blog-card" style={{ cursor: 'pointer' }} onClick={() => onOpen(post)}>
               <div className="meta">{post.date} — {post.category}</div>
               <h3>{post.title}</h3>
-              <p>{post.excerpt}</p>
               <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(0,0,0,0.05)', height: '45px', padding: '0 12px' }}>
                 <span style={{ fontSize: 12, fontWeight: 500 }}>اقرأ المزيد</span>
                 <div style={{ width: 45, height: 45, background: 'var(--pulse-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
