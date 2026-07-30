@@ -114,8 +114,8 @@ function AboutSection() {
         {/* Title + Description row */}
         <div className="about-row-title">
           <div className="about-title-col">
-            <span className="titletext" style={{ fontSize: 'clamp(24px,4vw,40px)', fontWeight: 700, whiteSpace: 'nowrap' }}>عن هاتز</span>
-            <img src="/pattern-line.svg" alt="" style={{ height: 'clamp(20px,2.5vw,30px)', minWidth: '60px', objectFit: 'cover', objectPosition: 'center right' }} />
+            
+            <img src="./asset-2.svg" alt="about-hatz" />
           </div>
           <div className="about-desc-col">
             <div className="why-description">
@@ -266,8 +266,10 @@ function ProjectsSection() {
                     <span className="titletext">قصتنا</span>
                   </span>
               </div>
-              <div className="project-desc hidden">
-                ربط العلامات التجارية الدولية بالأسواق الناشئة من خلال التعاون الاستراتيجي والخبرات المحلية.
+              <div className="project-desc">
+                <p>
+               افتتاح أول فرع رسمي لـ<strong>LC Waikiki</strong> في سورية شكّل البداية الفعلية لرحلة <strong>HATZ</strong>. <br /> نجاح هذه التجربة لم يكن مجرد اففتاح متجر، بل انطلاقة لرؤية طويلة الأمد تهدف إلى تطوير قطاع التجزئة في سورية وبناء شراكات مع علامات تجارية عالمية.
+               </p>
               </div>
             </div>
             <div className="project-right">
@@ -275,8 +277,8 @@ function ProjectsSection() {
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => setHovering(false)}>
                 <div className="project-card" style={{ backgroundImage: `url(${p.image})` }}>
-                  <div className="project-card-gradient" />
-                  <div className="project-card-content">
+                  <div className="project-card-gradient hidden" />
+                  <div className="project-card-content hidden">
                     <div className="project-category">{p.category}</div>
                     <h3>{p.title}</h3>
                     <div className="project-description">{p.description}</div>
@@ -288,7 +290,7 @@ function ProjectsSection() {
                   <div className="project-thumb-slide" style={{ backgroundImage: `url(${next.image})` }}>
                     <div className="project-thumb-overlay">
                       <div className="project-thumb-next">التالي</div>
-                      <div className="project-thumb-title">{next.title}</div>
+                      <div className="project-thumb-title hidden">{next.title}</div>
                     </div>
                   </div>
                   <button className="project-btn" onClick={goNext}>
@@ -310,7 +312,7 @@ function ProjectsSection() {
                   <span className="project-count-total">{total}</span>
                   <div className="project-status">
                     <span className="project-pulsing-dot" />
-                    <span className="project-status-text">ربط <strong>الأسواق</strong> عالمياً</span>
+                    <span className="project-status-text">افتتاح أول فرع رسمي لـ <strong style={{ fontFamily: 'Montserrat' }}>Waikiki LC</strong> في سورية</span>
                   </div>
                 </div>
               </div>
