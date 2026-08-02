@@ -714,16 +714,7 @@ textarea {
   width: 100%;
   padding: 0 16px;
 }
-@media (min-width: 768px) {
-  .section-inner {
-    padding: 0 50px;
-  }
-}
-@media (min-width: 1024px) {
-  .section-inner {
-    padding: 0;
-  }
-}
+
 .jobs-inner {
   padding: 0 16px;
 }
@@ -862,14 +853,7 @@ textarea {
   gap: 16px;
   padding: 30px 16px 0;
 }
-@media (min-width: 768px) {
-  .about-row-title {
-    padding: 0 50px;
-  }
-  .about-row-content {
-    padding: 50px 50px 0;
-  }
-}
+
 @media (min-width: 1024px) {
   .about-row-title {
     flex-direction: row;
@@ -1118,16 +1102,7 @@ textarea {
   position: relative;
   padding: 0 16px;
 }
-@media (min-width: 768px) {
-  .project-inner {
-    padding: 0 50px;
-  }
-}
-@media (min-width: 1024px) {
-  .project-inner {
-    padding: 0;
-  }
-}
+
 .project-title {
   font-size: clamp(28px, 4vw, 36px);
   line-height: 1.25;
@@ -1170,11 +1145,7 @@ textarea {
     padding-left: 40px;
   }
 }
-@media (min-width: 1200px) {
-  .project-left {
-    padding-left: 80px;
-  }
-}
+
 .project-right {
   width: 100%;
   position: relative;
@@ -1963,7 +1934,7 @@ textarea {
 }
 
 [dir="rtl"]  .titlebloc-cc-pattern {
-  background-position: center right;
+  background-position: center left;
 }
 
 [dir="rtl"] .timeline-btn.left {
@@ -2092,9 +2063,10 @@ textarea {
   padding-left: 0;
   padding-right: 40px;
 }
-@media (min-width: 1200px) {
+
+@media (max-width: 1024px) {
   [dir="ltr"] .project-left {
-    padding-right: 80px;
+    padding-right: 0px;
   }
 }
 

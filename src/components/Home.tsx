@@ -626,7 +626,7 @@ function JobsSection() {
 function FooterSection() {
   return (
     <footer style={{ background: 'var(--pulse-b1)', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '60px 30px' }}>
-      <img src="./asset-2.svg" alt="HATZ" style={{ width: 'clamp(200px, 30vw, 400px)', height: 'auto' }} />
+      <img src="./asset-2.svg" alt="HATZ" style={{ width: 'clamp(300px, 30vw, 400px)', height: 'auto' }} />
     </footer>
   );
 }
