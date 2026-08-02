@@ -1007,7 +1007,7 @@ textarea {
   bottom: 0;
   right: 16px;
   width: calc(100% - 32px);
-  padding: 24px;
+  padding: 12px;
 }
 @media (min-width: 768px) {
   .timeline-slider-row {
@@ -1029,13 +1029,15 @@ textarea {
   color: white;
   cursor: pointer;
   background: var(--pulse-d1);
-}
-.timeline-item .date {
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-.timeline-item .label {
   font-size: 14px;
+}
+@media (min-width: 768px) {
+  .timeline-item {
+    font-size: 16px;
+  }
+}
+
+.timeline-item .label {
   text-transform: uppercase;
   color: var(--pulse-b2);
 }
@@ -1966,10 +1968,12 @@ textarea {
 
 [dir="rtl"] .timeline-btn.left {
   margin-left: 16px;
+  margin-right: 0;
 }
 
 [dir="rtl"] .timeline-btn.right {
   margin-right: 16px;
+  margin-left: 0;
 }
 
 [dir="rtl"] .scrolltowhy {

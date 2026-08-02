@@ -195,7 +195,7 @@ function TimelineSection() {
                   onClick={() => setActive(i)}
                   style={{ opacity: i === active ? 1 : 0.6, minWidth: '200px' }}
                 >
-                  <div className="label" style={{ fontSize: '16px', textTransform: 'none', color: 'white' }}>{item.title}</div>
+                  <div className="label" style={{ textTransform: 'none', color: 'white' }}>{item.title}</div>
                 </div>
               ))}
             </div>
@@ -209,7 +209,7 @@ function TimelineSection() {
         </div>
 
         <div className="timeline-desc-row" style={{ paddingTop: '32px', paddingBottom: '32px' }}>
-          <h3 className="hidden lg:inline-block" style={{ fontSize: '20px', textTransform: 'none' }}>{whatWeDo[active].title}</h3>
+          <h3 style={{ fontSize: '20px', textTransform: 'none' }}>{whatWeDo[active].title}</h3>
           <p>{whatWeDo[active].text}</p>
         </div>
       </div>
