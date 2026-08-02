@@ -69,7 +69,7 @@ export default function Navigation({ onContact }: {
         </div>
         <div className="dividerstyle" />
         <div className="nav-link lang-toggle" onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')} title={lang === 'ar' ? 'English' : 'العربية'}>
-          <span className="nav-label">{lang === 'ar' ? 'EN' : 'عربي'}</span>
+          <span className="nav-label lang-label">{lang === 'ar' ? 'EN' : 'عربي'}</span>
         </div>
       </div>
     </aside>

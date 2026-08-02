@@ -371,7 +371,7 @@ textarea {
 .nav-container {
   height: calc(100vh - 48px);
   overflow-y: auto;
-  padding: 10px 0;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -402,6 +402,7 @@ textarea {
 .nav-link.active .nav-label {
   color: var(--pulse-accent);
 }
+
 .nav-label {
   font-size: 13px;
   letter-spacing: 2px;
@@ -409,9 +410,10 @@ textarea {
   color: white;
   font-weight: 400;
   text-align: center;
-  margin-bottom: 16px;
+  margin: 8px 0;
   transition: 0.15s;
 }
+
 .dividerstyle {
   background: linear-gradient(180deg, #d9d9d9, transparent);
   flex-grow: 1;
@@ -1771,7 +1773,7 @@ textarea {
   }
   .nav-container {
     height: calc(100vh - 48px);
-    padding: 6px 0;
+    padding-top: 6px;
     flex-direction: column;
     overflow-y: auto;
     display: flex;
@@ -1953,10 +1955,7 @@ textarea {
     margin-right: 64px;
   }
 }
-[dir="rtl"] .nav-label {
-  margin-bottom: 0;
-  margin-top: 16px;
-}
+
 [dir="rtl"] .project-thumb-container {
   right: auto;
   left: 0;
@@ -2014,4 +2013,31 @@ textarea {
 [dir="rtl"] .project-pulsing-dot {
   margin-right: 0;
   margin-left: 8px;
+}
+
+/* ========== LTR (English) Overrides ========== */
+[dir="ltr"] .hero-bg-left {
+  right: auto;
+  left: 0;
+}
+[dir="ltr"] .hero-bg-right {
+  right: 0;
+  left: auto;
+}
+
+[dir="ltr"] .nav-label {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+[dir="ltr"] .about-title-col .section-title {
+  text-wrap: wrap;
+  white-space: normal;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.35;
+}
+
+[dir="ltr"] .blog-card svg,
+[dir="ltr"] .btn-primary svg {
+  transform: scaleX(-1);
 }
