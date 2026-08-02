@@ -131,6 +131,8 @@ function AboutSection() {
                 className="img-offset"
                 src="https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2022/11/workspace.jpg"
                 alt=""
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="about-moving-text-wrap" ref={wrapRef}>
@@ -327,7 +329,7 @@ function SkillsSection() {
   const tab = skillTabs[activeTab];
 
   return (
-    <section style={{ background: 'var(--pulse-primary)', padding: '80px 0' }}>
+    <section className="skills-section" style={{ background: 'var(--pulse-primary)', padding: '80px 0' }}>
       <div className="section-inner" style={{ padding: '0 30px' }}>
         <div style={{ display: 'flex', flexDirection: 'column' }} className="lg:flex-row">
           {/* Left column */}
@@ -519,7 +521,7 @@ function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
   const articles = dict.blog.articles;
 
   return (
-    <section style={{ padding: '80px 0'}}>
+    <section className="blog-section" style={{ padding: '80px 0'}}>
       <div className="section-inner" style={{ maxWidth: '1140px', margin: '0 auto' }}>
         <div className="why-title" style={{ marginBottom: '32px' }}>
           <span className="section-title">{dict.blog.title}</span>
@@ -578,7 +580,7 @@ function JobsSection() {
   };
 
   return (
-    <section style={{ padding: '80px 0' }}>
+    <section className="jobs-section" style={{ padding: '80px 0' }}>
       <div className="section-inner jobs-inner" style={{ maxWidth: '1140px', margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }} className="lg:flex-row">
           <div style={{ flex: 1 }}>
@@ -625,8 +627,8 @@ function JobsSection() {
 /* Footer */
 function FooterSection() {
   return (
-    <footer style={{ background: 'var(--pulse-b1)', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '60px 30px' }}>
-      <img src="./asset-2.svg" alt="HATZ" style={{ width: 'clamp(300px, 30vw, 400px)', height: 'auto' }} />
+    <footer className="site-footer" style={{ background: 'var(--pulse-b1)', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '60px 30px' }}>
+      <img src="./asset-2.svg" alt="HATZ" style={{ width: 'clamp(300px, 30vw, 400px)', height: 'auto' }} loading="lazy" decoding="async" />
     </footer>
   );
 }
