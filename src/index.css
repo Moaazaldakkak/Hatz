@@ -2084,7 +2084,30 @@ textarea {
   line-height: 1.35;
 }
 
+[dir="ltr"] .project-left {
+  padding-left: 0;
+  padding-right: 40px;
+}
+@media (min-width: 1200px) {
+  [dir="ltr"] .project-left {
+    padding-right: 80px;
+  }
+}
+
 [dir="ltr"] .blog-card svg,
 [dir="ltr"] .btn-primary svg {
   transform: scaleX(-1);
+}
+
+[dir="ltr"] .about-moving-text {
+  left: auto;
+  right: 0;
+}
+
+[dir="ltr"] .about-item-divider {
+  background: linear-gradient(90deg, var(--pulse-primary), transparent);
+}
+
+[dir="ltr"] .titlebloc-cc-pattern {
+  background-position: center left;
 }

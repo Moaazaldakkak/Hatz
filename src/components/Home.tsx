@@ -317,7 +317,7 @@ function ProjectsSection() {
 
 /* Skills */
 function SkillsSection() {
-  const { dict } = useLanguage();
+  const { lang, dict } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
 
   const skillTabs = dict.skills.tabs;
@@ -358,7 +358,8 @@ function SkillsSection() {
                     <button
                       onClick={() => setActiveTab(i)}
                       style={{
-                        display: 'block', width: '100%', textAlign: 'right',
+                        display: 'block', width: '100%',
+                        textAlign: lang === 'ar' ? 'right' : 'left',
                         fontSize: '13px', fontWeight: 400,
                         background: i === activeTab ? 'var(--pulse-primary)' : 'var(--pulse-d3)',
                         color: 'white', padding: '20px 24px',
