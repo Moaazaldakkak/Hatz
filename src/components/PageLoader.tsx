@@ -24,7 +24,7 @@ export default function PageLoader() {
             <polygon points="500,499.1 288.21,499.1 463.39,300.22 0.93,300.22 0.93,283.68 500,283.68 324.83,482.55 500,482.55 500,499.1"/>
           </svg>
         </div>
-        <img src="/logo-hatz.svg" alt="HATZ" style={{ width: '600px', height: 'auto', display: 'block', margin: '0 auto 2rem' }} />
+        <img src="logo-hatz.svg" alt="HATZ" style={{ width: '600px', height: 'auto', display: 'block', margin: '0 auto 2rem' }} />
         <h1 style={{ marginTop: '2rem' }}>
           <span id="sub-title">{dict.loader.subtitle}</span>
         </h1>

@@ -1,26 +1,40 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '../i18n';
-
-const FORM_ENDPOINT = 'https://formsubmit.co/moaazaldakak1997@gmail.com';
 
 export default function ContactPopup({ onClose }: { onClose: () => void }) {
   const { dict } = useLanguage();
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [contact, setContact] = useState({ email: 'info@hatz.com', phone: '+963 11 234 5678' });
+
+  useEffect(() => {
+    let alive = true;
+    fetch('data/settings.json', { cache: 'no-store' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (alive && data) {
+          setContact({
+            email: data.displayEmail || 'info@hatz.com',
+            phone: data.displayPhone || '+963 11 234 5678',
+          });
+        }
+      })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
     const fd = new FormData(e.currentTarget);
-    fd.append('_subject', 'HATZ — Contact Form');
-    fd.append('_template', 'table');
-    fd.append('_captcha', 'false');
+    fd.append('type', 'contact');
     try {
-      const res = await fetch(FORM_ENDPOINT, {
+      const res = await fetch('api/contact.php', {
         method: 'POST',
         body: fd,
         headers: { Accept: 'application/json' },
       });
-      setStatus(res.ok ? 'success' : 'error');
+      const data = await res.json().catch(() => null);
+      setStatus(res.ok && data?.ok ? 'success' : 'error');
     } catch {
       setStatus('error');
     }
@@ -31,10 +45,10 @@ export default function ContactPopup({ onClose }: { onClose: () => void }) {
       <div className="contact-popup-header">{dict.contact.header}</div>
       <div style={{ marginBottom: '24px', padding: '16px', background: 'var(--pulse-b3)', borderRadius: 0 }}>
         <div style={{ fontSize: '15px', fontWeight: 300, color: 'var(--pulse-primary)', marginBottom: '8px' }}>
-          <strong>{dict.contact.email}</strong> info@hatz.com
+          <strong>{dict.contact.email}</strong> {contact.email}
         </div>
         <div style={{ fontSize: '15px', fontWeight: 300, color: 'var(--pulse-primary)' }}>
-          <strong>{dict.contact.phone}</strong> +963 11 234 5678
+          <strong>{dict.contact.phone}</strong> {contact.phone}
         </div>
       </div>
       <form onSubmit={handleSubmit}>

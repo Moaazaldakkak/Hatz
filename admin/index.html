@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HATZ — Admin</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <div id="login-view" class="login-view hidden">
+    <form id="login-form" class="login-card">
+      <img src="../logo-hatz.svg" alt="HATZ" width="120" />
+      <h1>Admin Dashboard</h1>
+      <p class="muted">Sign in to manage the HATZ website</p>
+      <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" required />
+      <button type="submit" class="btn btn-primary">Sign in</button>
+      <p id="login-error" class="error-text hidden"></p>
+    </form>
+  </div>
+
+  <div id="app-view" class="app-view hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="../logo-hatz.svg" alt="HATZ" width="110" />
+        <span class="brand-label">Admin</span>
+      </div>
+      <nav class="tabs">
+        <button class="tab active" data-tab="posts">Posts</button>
+        <button class="tab" data-tab="settings">Settings</button>
+        <button class="tab" data-tab="messages">Messages <span id="msg-count" class="badge hidden"></span></button>
+      </nav>
+      <div class="sidebar-footer">
+        <a class="link" href="../" target="_blank">View site ↗</a>
+        <button id="logout-btn" class="btn btn-ghost">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h2 id="tab-title">Posts</h2>
+      </header>
+
+      <!-- Posts -->
+      <section id="tab-posts" class="tab-panel">
+        <div class="panel-toolbar">
+          <button id="new-post-btn" class="btn btn-primary">+ New post</button>
+        </div>
+        <div id="posts-list" class="cards"></div>
+      </section>
+
+      <!-- Settings -->
+      <section id="tab-settings" class="tab-panel hidden">
+        <div class="card">
+          <h3>Email &amp; contact</h3>
+          <p class="muted">Contact form submissions are sent to the receiver email below.</p>
+          <label>Contact form receiver email</label>
+          <input type="email" id="set-contactEmail" />
+          <label>Careers form receiver email</label>
+          <input type="email" id="set-jobsEmail" />
+          <label>Email shown on the site</label>
+          <input type="email" id="set-displayEmail" />
+          <label>Phone shown on the site</label>
+          <input type="text" id="set-displayPhone" />
+          <button id="save-settings-btn" class="btn btn-primary">Save settings</button>
+          <p id="settings-status" class="status hidden"></p>
+        </div>
+        <div class="card">
+          <h3>Change password</h3>
+          <label>Current password</label>
+          <input type="password" id="pw-current" autocomplete="current-password" />
+          <label>New password (min 8 characters)</label>
+          <input type="password" id="pw-new" autocomplete="new-password" />
+          <button id="change-pw-btn" class="btn btn-primary">Change password</button>
+          <p id="pw-status" class="status hidden"></p>
+        </div>
+      </section>
+
+      <!-- Messages -->
+      <section id="tab-messages" class="tab-panel hidden">
+        <div id="messages-list" class="cards"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Post editor -->
+  <div id="editor-overlay" class="overlay hidden">
+    <div class="editor">
+      <div class="editor-head">
+        <h3 id="editor-title">New post</h3>
+        <button id="editor-close" class="btn btn-ghost">×</button>
+      </div>
+      <form id="post-form">
+        <div class="editor-grid">
+          <div class="editor-col">
+            <h4>Arabic (العربية)</h4>
+            <label>Date</label><input type="text" name="ar-date" placeholder="يوليو 2026" />
+            <label>Category</label><input type="text" name="ar-category" placeholder="شراكات" />
+            <label>Title *</label><input type="text" name="ar-title" required />
+            <label>Excerpt</label><textarea name="ar-excerpt" rows="4"></textarea>
+          </div>
+          <div class="editor-col">
+            <h4>English</h4>
+            <label>Date</label><input type="text" name="en-date" placeholder="July 2026" />
+            <label>Category</label><input type="text" name="en-category" placeholder="Partnership" />
+            <label>Title *</label><input type="text" name="en-title" required />
+            <label>Excerpt</label><textarea name="en-excerpt" rows="4"></textarea>
+          </div>
+        </div>
+        <label>Image URL</label>
+        <input type="url" name="imageUrl" placeholder="https://picsum.photos/seed/x/400/300" />
+        <div class="editor-foot">
+          <button type="button" id="editor-cancel" class="btn btn-ghost">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save post</button>
+          <button type="button" id="editor-delete" class="btn btn-danger hidden">Delete</button>
+          <p id="editor-status" class="status hidden"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

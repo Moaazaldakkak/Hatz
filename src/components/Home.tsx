@@ -517,8 +517,30 @@ function SkillsSection() {
 
 /* Blog */
 function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
-  const { dict } = useLanguage();
-  const articles = dict.blog.articles;
+  const { lang, dict } = useLanguage();
+  const [remotePosts, setRemotePosts] = useState<any[] | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    fetch('data/blogs.json', { cache: 'no-store' })
+      .then((res) => { if (!res.ok) throw new Error('no data'); return res.json(); })
+      .then((data) => {
+        if (alive && Array.isArray(data.posts)) {
+          setRemotePosts(data.posts.map((p: any) => ({
+            id: p.id,
+            date: p[lang]?.date ?? '',
+            category: p[lang]?.category ?? '',
+            title: p[lang]?.title ?? '',
+            excerpt: p[lang]?.excerpt ?? '',
+            imageUrl: p.imageUrl ?? '',
+          })));
+        }
+      })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, [lang]);
+
+  const articles = remotePosts ?? dict.blog.articles;
 
   return (
     <section className="blog-section" style={{ padding: '80px 0'}}>
@@ -549,8 +571,6 @@ function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
 }
 
 /* Jobs */
-const JOBS_FORM_ENDPOINT = 'https://formsubmit.co/moaazaldakak1997@gmail.com';
-
 function JobsSection() {
   const { dict } = useLanguage();
   const [name, setName] = useState('');
@@ -564,16 +584,15 @@ function JobsSection() {
     e.preventDefault();
     setStatus('sending');
     const fd = new FormData(e.currentTarget);
-    fd.append('_subject', 'HATZ — Job Application');
-    fd.append('_template', 'table');
-    fd.append('_captcha', 'false');
+    fd.append('type', 'jobs');
     try {
-      const res = await fetch(JOBS_FORM_ENDPOINT, {
+      const res = await fetch('api/contact.php', {
         method: 'POST',
         body: fd,
         headers: { Accept: 'application/json' },
       });
-      setStatus(res.ok ? 'success' : 'error');
+      const data = await res.json().catch(() => null);
+      setStatus(res.ok && data?.ok ? 'success' : 'error');
     } catch {
       setStatus('error');
     }

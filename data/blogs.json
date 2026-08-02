@@ -1,0 +1,84 @@
+{
+    "posts": [
+        {
+            "id": 5,
+            "imageUrl": "https:\/\/picsum.photos\/seed\/future\/400\/300",
+            "ar": {
+                "date": "مايو 2026",
+                "category": "رؤية",
+                "title": "مستقبل قطاع التجزئة في سورية",
+                "excerpt": "يشهد قطاع التجزئة في سورية تحولاً تدريجياً نحو مزيد من التنظيم والاحترافية. HATZ تقود هذا التغيير من خلال استقطاب علامات تجارية عالمية، وتطوير بنية تحتية متكاملة، وبناء كوادر محلية مؤهلة. المستقبل واعد، ونحن في بداية الطريق."
+            },
+            "en": {
+                "date": "May 2026",
+                "category": "Vision",
+                "title": "The future of the retail sector in Syria",
+                "excerpt": "The retail sector in Syria is gradually shifting towards greater organization and professionalism. HATZ is leading this change by attracting global brands, developing integrated infrastructure, and building qualified local talent. The future is promising, and we are only at the beginning."
+            }
+        },
+        {
+            "id": 4,
+            "imageUrl": "https:\/\/picsum.photos\/seed\/team\/400\/300",
+            "ar": {
+                "date": "يونيو 2026",
+                "category": "فريق",
+                "title": "كيف نختار فريقنا",
+                "excerpt": "فريق HATZ هو جوهر نجاحنا. نعتمد في اختيار كوادرنا على معايير دقيقة تجمع بين الكفاءة المهنية والقيم الشخصية. نبحث عن الموهبة والطموح، ونؤمن بالاستثمار في تدريب وتطوير مهارات فريقنا ليصبحوا قادة المستقبل في قطاع التجزئة."
+            },
+            "en": {
+                "date": "June 2026",
+                "category": "Team",
+                "title": "How we choose our team",
+                "excerpt": "The HATZ team is the core of our success. We select our people based on precise criteria that combine professional competence with personal values. We look for talent and ambition, and we believe in investing in training and developing our team’s skills so they become the future leaders of the retail sector."
+            }
+        },
+        {
+            "id": 3,
+            "imageUrl": "https:\/\/picsum.photos\/seed\/partners\/400\/300",
+            "ar": {
+                "date": "يونيو 2026",
+                "category": "محلي",
+                "title": "شراكاتنا المحلية tt",
+                "excerpt": "تؤمن HATZ بأهمية بناء شراكات محلية قوية تساهم في دعم الاقتصاد الوطني وتطوير بيئة الأعمال. نعمل مع شركائنا المحليين على خلق قيمة مضافة للمستهلك السوري، مع الحرص على تطبيق أعلى معايير الجودة والشفافية في جميع عملياتنا."
+            },
+            "en": {
+                "date": "June 2026",
+                "category": "Local",
+                "title": "Our local partnerships",
+                "excerpt": "HATZ believes in the importance of building strong local partnerships that support the national economy and develop the business environment. We work with our local partners to create added value for the Syrian consumer, while applying the highest standards of quality and transparency across all our operations."
+            }
+        },
+        {
+            "id": 2,
+            "imageUrl": "https:\/\/picsum.photos\/seed\/lcw2\/400\/300",
+            "ar": {
+                "date": "يوليو 2026",
+                "category": "افتتاح",
+                "title": "افتتاح اول فرع رسمي ل LCW في سورية",
+                "excerpt": "بعد أشهر من التحضير والتجهيز، تم افتتاح أول فرع رسمي لعلامة LC Waikiki في سورية بحضور رسمي وإعلامي واسع. يمثل هذا الافتتاح بداية مرحلة جديدة لقطاع التجزئة في سورية، ويعكس التزام HATZ بتقديم علامات تجارية عالمية بمعايير دولية."
+            },
+            "en": {
+                "date": "July 2026",
+                "category": "Launch",
+                "title": "Opening of the first official LCW branch in Syria",
+                "excerpt": "After months of preparation, the first official LC Waikiki branch opened in Syria with wide official and media attendance. This opening marks the beginning of a new phase for the Syrian retail sector and reflects HATZ’s commitment to bringing global brands with international standards."
+            }
+        },
+        {
+            "id": 1,
+            "imageUrl": "https:\/\/picsum.photos\/seed\/lcw1\/400\/300",
+            "ar": {
+                "date": "يوليو 2026",
+                "category": "شراكات",
+                "title": "توقيع اتفاق مع ال LCW في سورية",
+                "excerpt": "تم اليوم توقيع اتفاقية شراكة استراتيجية بين HATZ وعلامة LC Waikiki العالمية، تمهيداً لافتتاح أول فرع رسمي في سورية. تأتي هذه الخطوة في إطار استراتيجية HATZ الهادفة إلى استقطاب أبرز العلامات التجارية الدولية وتوفير تجارب تسوق عالمية للمستهلك السوري."
+            },
+            "en": {
+                "date": "July 2026",
+                "category": "Partnership",
+                "title": "Signing an agreement with LCW in Syria",
+                "excerpt": "Today, HATZ and the global brand LC Waikiki signed a strategic partnership agreement, paving the way for the opening of the first official branch in Syria. This step is part of HATZ’s strategy to attract leading international brands and deliver world-class shopping experiences to the Syrian consumer."
+            }
+        }
+    ]
+}
