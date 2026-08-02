@@ -141,12 +141,25 @@ function openEditor(post) {
   $('#editor-delete').classList.toggle('hidden', !post);
   $('#editor-status').classList.add('hidden');
   $('#editor-overlay').classList.remove('hidden');
+  updatePreview();
   f.elements['ar-title'].focus();
 }
 
 function closeEditor() {
   $('#editor-overlay').classList.add('hidden');
   editingPost = null;
+}
+
+function updatePreview() {
+  const url = $('#post-form').elements['imageUrl'].value.trim();
+  const preview = $('#image-preview');
+  if (!url) {
+    preview.classList.add('hidden');
+    preview.removeAttribute('src');
+    return;
+  }
+  preview.src = url;
+  preview.classList.remove('hidden');
 }
 
 $('#new-post-btn').addEventListener('click', () => openEditor(null));
@@ -196,6 +209,34 @@ $('#editor-delete').addEventListener('click', async () => {
     closeEditor();
     loadPosts();
   } catch (err) { show($('#editor-status'), err.message, false); }
+});
+
+$('#post-form').elements['imageUrl'].addEventListener('input', updatePreview);
+
+/* ---------- Image upload ---------- */
+$('#upload-image-btn').addEventListener('click', () => $('#image-file').click());
+$('#image-file').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const btn = $('#upload-image-btn');
+  const label = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Uploading…';
+  try {
+    const fd = new FormData();
+    fd.append('image', file);
+    const res = await fetch(`${API}?action=upload_image`, { method: 'POST', body: fd });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) throw new Error(data.error || 'Upload failed');
+    $('#post-form').elements['imageUrl'].value = data.url;
+    updatePreview();
+  } catch (err) {
+    alert(err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = label;
+    e.target.value = '';
+  }
 });
 
 /* ---------- Settings ---------- */

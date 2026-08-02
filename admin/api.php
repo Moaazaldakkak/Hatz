@@ -193,6 +193,40 @@ switch ($action) {
         ok();
         break;
 
+    case 'upload_image':
+        if (empty($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+            fail('No image received');
+        }
+        $file = $_FILES['image'];
+        if ($file['size'] > 5 * 1024 * 1024) {
+            fail('Image too large (max 5MB)');
+        }
+        $ext = strtolower(pathinfo((string) $file['name'], PATHINFO_EXTENSION));
+        $allowed = [
+            'jpg' => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'png' => 'image/png',
+            'webp' => 'image/webp',
+            'gif' => 'image/gif',
+        ];
+        if (!isset($allowed[$ext])) {
+            fail('Only JPG, PNG, WEBP or GIF images are allowed');
+        }
+        $mime = function_exists('mime_content_type') ? (string) mime_content_type((string) $file['tmp_name']) : '';
+        if (!in_array($mime, $allowed, true)) {
+            fail('File type does not match its extension');
+        }
+        $dir = DATA_DIR . '/uploads';
+        if (!is_dir($dir)) {
+            mkdir($dir, 0755, true);
+        }
+        $name = date('Ymd') . '-' . bin2hex(random_bytes(6)) . '.' . $ext;
+        if (!move_uploaded_file((string) $file['tmp_name'], "$dir/$name")) {
+            fail('Could not save the image', 500);
+        }
+        ok(['url' => 'data/uploads/' . $name]);
+        break;
+
     default:
         fail('Unknown action', 404);
 }

@@ -207,6 +207,17 @@ textarea { resize: vertical; }
 }
 .editor-foot .btn-danger { margin-left: auto; }
 .editor-foot .status { flex-basis: 100%; margin: 4px 0 0; }
+.img-url-row { display: flex; gap: 10px; }
+.img-url-row input { flex: 1; }
+.image-preview {
+  margin-top: 12px;
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--primary-light);
+  display: block;
+}
 
 @media (max-width: 720px) {
   .sidebar { width: 72px; }
