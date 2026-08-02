@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { projects } from '../data';
+import { useLanguage } from '../i18n';
 
 export default function Home({ onContact, onOpenBlog }: { onContact: () => void; onOpenBlog: (post: any) => void }) {
   return (
@@ -35,6 +36,7 @@ export default function Home({ onContact, onOpenBlog }: { onContact: () => void;
 
 /* Hero */
 function HeroSection() {
+  const { dict } = useLanguage();
   return (
     <div className="hero-section">
       <div className="hero-bg-left" />
@@ -47,8 +49,7 @@ function HeroSection() {
           </div>
           <div className="hero-subtitle hidden"><span>B</span><span>r</span><span>i</span><span>n</span><span>g</span><span>i</span><span>n</span><span>g</span><span> </span><span> </span><span>G</span><span>l</span><span>o</span><span>b</span><span>a</span><span>l</span><span> </span><span> </span><span>R</span><span>e</span><span>t</span><span>a</span><span>i</span><span>l</span><span> </span><span> </span><span>H</span><span>o</span><span>m</span><span>e</span></div>
           <img src="./asset-2.svg" alt="about-hatz" />
-          <p className="hero-tagline">نقود مستقبل قطاع التجزئة في سورية من خالل استقطاب العالمات التجارية العالمية، وتطوير تجارب تسوق بمعايير دولية، وبناء بيئة
-عمل تستقطب الكفاءات وتصنع المهارات وتخلق قيمة حقيقية للمستهلك والسوق السوري</p>
+          <p className="hero-tagline">{dict.hero.tagline}</p>
         </div>
       </div>
     </div>
@@ -57,15 +58,12 @@ function HeroSection() {
 
 /* About */
 function AboutSection() {
-  const [movingText, setMovingText] = useState('GREAT');
+  const { dict } = useLanguage();
+  const items = dict.about.items;
+  const [movingText, setMovingText] = useState(items[0].moving);
   const [movingTop, setMovingTop] = useState(0);
   const h2Refs = useRef<(HTMLHeadingElement | null)[]>([]);
   const wrapRef = useRef<HTMLDivElement>(null);
-  const items = [
-    { title: 'رؤيتنا', text: 'أن تصبح HATZ الشركة الرائدة والأكثر تأثيراً في قطاع التجزئة (Retail) في سورية.', moving: 'رؤيتنا' },
-    { title: 'مهمتنا', text: 'نربط بين الخبرة العالمية واحتياجات السوق السوري، لنقدم تجارب تجزئة حديثة، ترفع مستوى الخدمة، وتوفر فرصاً للنمو والتطوير للأفراد والشركاء والمجتمع.', moving: 'مهمتنا' },
-    { title: 'قيمنا', text: '● المسؤولية\n● الإنسان محور النجاح\n● الاحترافية\n● الشراكة طويلة الأمد\n● الابتكار المستمر', moving: 'قيمنا' },
-  ];
 
   useEffect(() => {
     const onScroll = () => {
@@ -95,7 +93,7 @@ function AboutSection() {
     window.addEventListener('scroll', onScroll);
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [items]);
   return (
     <section className="about-section">
       <div className="about-container">
@@ -116,11 +114,11 @@ function AboutSection() {
         <div className="about-row-title">
           <div className="about-title-col">
             
-            <span className="section-title">عن هاتز</span>
+            <span className="section-title">{dict.about.title}</span>
           </div>
           <div className="about-desc-col">
             <div className="why-description">
-              وصلنا إلى HATZ بعد سنوات من الخبرة وقصص النجاح في الخليج، وتركيا، وشمال أفريقيا، والولايات المتحدة الأمريكية. واليوم نبدأ مرحلة جديدة، ننقل فيها هذه الخبرات إلى سورية، من خلال تطوير قطاع التجزئة واستقطاب علامات تجارية عالمية تضيف قيمة حقيقية للمستهلك السوري
+              {dict.about.description}
             </div>
           </div>
         </div>
@@ -146,7 +144,7 @@ function AboutSection() {
                   <div className="about-item-divider" />
                   <div data-movingtext={item.moving} className="why-item" style={{ marginBottom: '36px' }}>
                     <h2 ref={el => { h2Refs.current[i] = el; }} className="about-item-title-hidden">{item.title}</h2>
-                    <p style={item.moving === 'قيمنا' ? { whiteSpace: 'pre-line' } : {}}>{item.text}</p>
+                    <p style={item.multiline ? { whiteSpace: 'pre-line' } : {}}>{item.text}</p>
                   </div>
                 </div>
               ))}
@@ -160,6 +158,7 @@ function AboutSection() {
 
 /* Timeline */
 function TimelineSection() {
+  const { dict } = useLanguage();
   const [active, setActive] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -168,13 +167,7 @@ function TimelineSection() {
     if (scrollRef.current) scrollRef.current.scrollBy({ left: (isRtl ? -dir : dir) * 250, behavior: 'smooth' });
   };
 
-  const whatWeDo = [
-    { title: 'استقطاب العلامات التجارية', text: 'إدخال علامات عالمية تتناسب مع السوق السوري بهدف إرضاء احتياج الزبون والسوق إلخ.' },
-    { title: 'إدارة وتشغيل قطاع التجزئة', text: 'إدارة وتشغيل المتاجر وفق أفضل الممارسات والمعايير العالمية.' },
-    { title: 'تطوير تجربة العميل', text: 'بناء تجربة شراء متكاملة داخل المتاجر.' },
-    { title: 'تطوير الموارد البشرية', text: 'رفع مستوى بيئة العمل، وتطوير الكفاءات، وبناء فرق عمل احترافية.' },
-    { title: 'تطوير السوق', text: 'المساهمة في رفع معايير قطاع التجزئة في سورية.' },
-  ];
+  const whatWeDo = dict.whatWeDo.items;
 
   return (
     <section>
@@ -182,7 +175,7 @@ function TimelineSection() {
         <div className="timeline-wrapper">
           <div className="timeline-header">
             <div className="why-title">
-              <span className="section-title">ماذا نفعل</span>
+              <span className="section-title">{dict.whatWeDo.title}</span>
               <div className="titlebloc-cc-pattern" />
             </div>
           </div>
@@ -226,6 +219,7 @@ function TimelineSection() {
 
 /* Projects */
 function ProjectsSection() {
+  const { dict } = useLanguage();
   const [current, setCurrent] = useState(0);
   const [progress, setProgress] = useState(0);
   const [hovering, setHovering] = useState(false);
@@ -261,12 +255,12 @@ function ProjectsSection() {
           <div className="project-layout">
             <div className="project-left">
               <div className="project-title">
-              <span className="section-title">قصتنا</span>
+              <span className="section-title">{dict.story.title}</span>
               </div>
               <div className="project-desc">
                 <p>
-               افتتاح أول فرع رسمي لـ<strong>LC Waikiki</strong> في سورية شكّل البداية الفعلية لرحلة <strong>HATZ</strong>. <br /> نجاح هذه التجربة لم يكن مجرد اففتاح متجر، بل انطلاقة لرؤية طويلة الأمد تهدف إلى تطوير قطاع التجزئة في سورية وبناء شراكات مع علامات تجارية عالمية.
-               </p>
+                {dict.story.descPre}<strong>{dict.story.descBrand1}</strong>{dict.story.descMid}<strong>{dict.story.descBrand2}</strong>{dict.story.descPost}
+                </p>
               </div>
             </div>
             <div className="project-right">
@@ -286,7 +280,7 @@ function ProjectsSection() {
                 <div className="project-thumb-container">
                   <div className="project-thumb-slide" style={{ backgroundImage: `url(${next.image})` }}>
                     <div className="project-thumb-overlay">
-                      <div className="project-thumb-next">التالي</div>
+                      <div className="project-thumb-next">{dict.story.next}</div>
                       <div className="project-thumb-title hidden">{next.title}</div>
                     </div>
                   </div>
@@ -309,7 +303,7 @@ function ProjectsSection() {
                   <span className="project-count-total">{total}</span>
                   <div className="project-status">
                     <span className="project-pulsing-dot" />
-                    <span className="project-status-text">افتتاح أول فرع رسمي لـ <strong style={{ fontFamily: 'Montserrat' }}>Waikiki LC</strong> في سورية</span>
+                    <span className="project-status-text">{dict.story.statusPre}<strong style={{ fontFamily: 'Montserrat' }}>{dict.story.statusBrand}</strong>{dict.story.statusPost}</span>
                   </div>
                 </div>
               </div>
@@ -323,34 +317,10 @@ function ProjectsSection() {
 
 /* Skills */
 function SkillsSection() {
+  const { dict } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
 
-  const skillTabs = [
-    {
-      name: 'LC Waikiki',
-      percent: 80,
-      level: 'متقدم',
-      experience: '٣ سنوات',
-      tags: ['تحالف', 'توسع', 'دخول سوق'],
-      description: 'نبني شراكات استراتيجية قوية تربط العلامات التجارية الدولية بالأسواق الناشئة، مع التركيز على نماذج التعاون المتينة والتكامل المحلي.',
-    },
-    {
-      name: 'توسع السوق',
-      percent: 70,
-      level: 'متوسط',
-      experience: '٤ سنوات',
-      tags: ['تحليل سوق', 'توسع إقليمي'],
-      description: 'نحدد ونتابع فرص التوسع في الأسواق الناشئة من خلال تحليل شامل لمشهد التجزئة، وتطوير استراتيجيات دخول مخصصة لكل سوق.',
-    },
-    {
-      name: 'تطوير الأعمال',
-      percent: 95,
-      level: 'متقدم',
-      experience: '٥ سنوات',
-      tags: ['علاقات شركاء', 'تفاوض'],
-      description: 'نطور علاقات شراكة دائمة مع الموزعين المحليين وأصحاب الامتياز، مما يخلق منظومات تجارية مستدامة تدفع النمو المتبادل للجميع.',
-    },
-  ];
+  const skillTabs = dict.skills.tabs;
 
   const tab = skillTabs[activeTab];
 
@@ -364,13 +334,13 @@ function SkillsSection() {
               fontSize: 'clamp(28px,4vw,48px)', lineHeight: 1.25,
               marginBottom: '32px', marginTop: 0
             }}>
-              <span className="section-title" style={{ color: 'white' }}>خبرات ومهارات</span>
+              <span className="section-title" style={{ color: 'white' }}>{dict.skills.title}</span>
             </div>
             <div style={{
               fontSize: 'clamp(18px,2vw,24px)', fontWeight: 300,
               marginBottom: 0, color: 'white'
             }} className="lg:mb-6">
-              نمتلك خبرة عميقة في الشراكات الاستراتيجية، وحل المشكلات بكفاءة، مثالية لتحديات التوسع المعقدة.
+              {dict.skills.subtitle}
             </div>
           </div>
 
@@ -418,11 +388,11 @@ function SkillsSection() {
                   <div style={{ marginRight: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                          <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>المستوى</span>
+                          <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>{dict.skills.level}</span>
                           <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{tab.level}</span>
                         </span>
                         <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                          <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>الخبرة</span>
+                          <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>{dict.skills.experience}</span>
                           <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{tab.experience}</span>
                         </span>
                     </div>
@@ -500,11 +470,11 @@ function SkillsSection() {
                           gap: '10px'
                         }} className="min-[530px]:flex-row min-[530px]:gap-0">
                           <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }} className="md:w-auto">
-                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>المستوى</span>
+                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>{dict.skills.level}</span>
                             <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{t.level}</span>
                           </span>
                           <span style={{ color: 'white', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }} className="md:w-auto">
-                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>الخبرة</span>
+                            <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingRight: '8px' }}>{dict.skills.experience}</span>
                             <span style={{ background: 'var(--pulse-d1)', zIndex: 10, paddingLeft: '8px' }}>{t.experience}</span>
                           </span>
                         </div>
@@ -542,19 +512,14 @@ function SkillsSection() {
 
 /* Blog */
 function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
-  const articles = [
-    { id: 1, date: 'يوليو 2026', category: 'شراكات', title: 'توقيع اتفاق مع ال LCW في سورية', excerpt: 'تم اليوم توقيع اتفاقية شراكة استراتيجية بين HATZ وعلامة LC Waikiki العالمية، تمهيداً لافتتاح أول فرع رسمي في سورية. تأتي هذه الخطوة في إطار استراتيجية HATZ الهادفة إلى استقطاب أبرز العلامات التجارية الدولية وتوفير تجارب تسوق عالمية للمستهلك السوري.', imageUrl: 'https://picsum.photos/seed/lcw1/400/300' },
-    { id: 2, date: 'يوليو 2026', category: 'افتتاح', title: 'افتتاح اول فرع رسمي ل LCW في سورية', excerpt: 'بعد أشهر من التحضير والتجهيز، تم افتتاح أول فرع رسمي لعلامة LC Waikiki في سورية بحضور رسمي وإعلامي واسع. يمثل هذا الافتتاح بداية مرحلة جديدة لقطاع التجزئة في سورية، ويعكس التزام HATZ بتقديم علامات تجارية عالمية بمعايير دولية.', imageUrl: 'https://picsum.photos/seed/lcw2/400/300' },
-    { id: 3, date: 'يونيو 2026', category: 'محلي', title: 'شراكاتنا المحلية', excerpt: 'تؤمن HATZ بأهمية بناء شراكات محلية قوية تساهم في دعم الاقتصاد الوطني وتطوير بيئة الأعمال. نعمل مع شركائنا المحليين على خلق قيمة مضافة للمستهلك السوري، مع الحرص على تطبيق أعلى معايير الجودة والشفافية في جميع عملياتنا.', imageUrl: 'https://picsum.photos/seed/partners/400/300' },
-    { id: 4, date: 'يونيو 2026', category: 'فريق', title: 'كيف نختار فريقنا', excerpt: 'فريق HATZ هو جوهر نجاحنا. نعتمد في اختيار كوادرنا على معايير دقيقة تجمع بين الكفاءة المهنية والقيم الشخصية. نبحث عن الموهبة والطموح، ونؤمن بالاستثمار في تدريب وتطوير مهارات فريقنا ليصبحوا قادة المستقبل في قطاع التجزئة.', imageUrl: 'https://picsum.photos/seed/team/400/300' },
-    { id: 5, date: 'مايو 2026', category: 'رؤية', title: 'مستقبل قطاع التجزئة في سورية', excerpt: 'يشهد قطاع التجزئة في سورية تحولاً تدريجياً نحو مزيد من التنظيم والاحترافية. HATZ تقود هذا التغيير من خلال استقطاب علامات تجارية عالمية، وتطوير بنية تحتية متكاملة، وبناء كوادر محلية مؤهلة. المستقبل واعد، ونحن في بداية الطريق.', imageUrl: 'https://picsum.photos/seed/future/400/300' },
-  ];
+  const { dict } = useLanguage();
+  const articles = dict.blog.articles;
 
   return (
     <section style={{ padding: '80px 0'}}>
       <div className="section-inner" style={{ maxWidth: '1140px', margin: '0 auto' }}>
         <div className="why-title" style={{ marginBottom: '32px' }}>
-          <span className="section-title">مقالات</span>
+          <span className="section-title">{dict.blog.title}</span>
         </div>
 
         <div className="blog-grid">
@@ -563,7 +528,7 @@ function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
               <div className="meta">{post.date} — {post.category}</div>
               <h3>{post.title}</h3>
               <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(0,0,0,0.05)', height: '45px', padding: '0 12px' }}>
-                <span style={{ fontSize: 12, fontWeight: 500 }}>اقرأ المزيد</span>
+                <span style={{ fontSize: 12, fontWeight: 500 }}>{dict.blog.readMore}</span>
                 <div style={{ width: 45, height: 45, background: 'var(--pulse-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" width="18" height="18">
                     <path d="M19 12H5M12 5l-7 7 7 7" />
@@ -580,6 +545,7 @@ function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
 
 /* Jobs */
 function JobsSection() {
+  const { dict } = useLanguage();
   const [name, setName] = useState('');
   const [expertise, setExpertise] = useState('');
   const [cvLink, setCvLink] = useState('');
@@ -595,31 +561,31 @@ function JobsSection() {
       <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }} className="lg:flex-row">
           <div style={{ flex: 1 }}>
-            <span className="section-title" style={{ marginBottom: '16px', display: 'inline-block' }}>اعمل معنا</span>
+            <span className="section-title" style={{ marginBottom: '16px', display: 'inline-block' }}>{dict.jobs.title}</span>
             <p style={{ fontSize: 'clamp(16px,2vw,18px)', fontWeight: 300, lineHeight: 1.8, opacity: 0.9 }}>
-              لأنك في HATZ لا تعمل في شركة محلية فقط...<br />
-              بل تعمل وفق معايير عالمية، في بيئة تؤمن بالتطوير المستمر، وتمكنك من بناء مستقبل مهني حقيقي
+              {dict.jobs.intro1}<br />
+              {dict.jobs.intro2}
             </p>
           </div>
           <div style={{ flex: 1 }}>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <input type="text" placeholder="الاسم" value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="text" placeholder={dict.jobs.name} value={name} onChange={(e) => setName(e.target.value)} />
               </div>
               <div className="form-group">
-                <input type="text" placeholder="مجال خبرتي" value={expertise} onChange={(e) => setExpertise(e.target.value)} />
+                <input type="text" placeholder={dict.jobs.expertise} value={expertise} onChange={(e) => setExpertise(e.target.value)} />
               </div>
               <div className="form-group">
-                <input type="url" placeholder="رابط سيرتي الذاتية" value={cvLink} onChange={(e) => setCvLink(e.target.value)} />
+                <input type="url" placeholder={dict.jobs.cv} value={cvLink} onChange={(e) => setCvLink(e.target.value)} />
               </div>
               <div className="form-group">
-                <input type="email" placeholder="البريد الإلكتروني" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" placeholder={dict.jobs.email} value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className="form-group">
-                <textarea placeholder="رسالتي لكم" value={message} onChange={(e) => setMessage(e.target.value)} rows={4} />
+                <textarea placeholder={dict.jobs.message} value={message} onChange={(e) => setMessage(e.target.value)} rows={4} />
               </div>
               <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                إرسال
+                {dict.jobs.submit}
               </button>
             </form>
           </div>

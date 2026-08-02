@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useLanguage } from '../i18n';
 
 export default function PageLoader() {
+  const { dict } = useLanguage();
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -24,7 +26,7 @@ export default function PageLoader() {
         </div>
         <img src="/logo-hatz.svg" alt="HATZ" style={{ width: '600px', height: 'auto', display: 'block', margin: '0 auto 2rem' }} />
         <h1 style={{ marginTop: '2rem' }}>
-          <span id="sub-title">نكتب فصلاً جديداً في قطاع التجزئة السوري</span>
+          <span id="sub-title">{dict.loader.subtitle}</span>
         </h1>
       </div>
     </div>

@@ -419,6 +419,31 @@ textarea {
   width: 1px;
 }
 
+/* Language toggle */
+.lang-toggle {
+  background: var(--pulse-d1);
+  flex-shrink: 0;
+}
+.lang-toggle:hover {
+  background: var(--pulse-d2);
+}
+.lang-toggle .nav-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+}
+.lang-toggle:hover .nav-label,
+.lang-toggle.active .nav-label {
+  color: var(--pulse-accent);
+}
+@media (max-width: 639px) {
+  .lang-toggle {
+    min-height: 40px;
+  }
+  .lang-toggle .nav-label {
+    font-size: 10px;
+  }
+}
+
 
 
 /* Social Bar */

@@ -1,20 +1,23 @@
+import { useLanguage } from '../i18n';
+
 interface SocialBarProps {
   open: boolean;
   onContact: () => void;
 }
 
 export default function SocialBar({ open, onContact }: SocialBarProps) {
+  const { dict } = useLanguage();
   return (
     <div className={`social-bar${open ? ' show' : ''}`}>
       <div className="social-bar-label">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 12H7.5L9 6L13 18L15 9L16.5 12H21" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-        <span>آخر أخبار هاتز</span>
+        <span>{dict.socialBar.label}</span>
       </div>
       <div className="marquee-container">
         <div className="marquee-text">
-           <p>هاتز تعيد تعريف التجزئة في الأسواق الناشئة — من خلال شراكات استراتيجية تربط الابتكار العالمي بالفرص المحلية. اكتشف كيف نكتب فصلاً جديداً في قطاع التجزئة السوري.</p>
+           <p>{dict.socialBar.marquee}</p>
         </div>
       </div>
       <div className="social-icons">

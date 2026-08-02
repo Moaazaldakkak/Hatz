@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useLanguage } from '../i18n';
 
 export default function Navigation({ onContact }: {
   onContact: () => void;
 }) {
+  const { lang, setLang, dict } = useLanguage();
   const [activeSection, setActiveSection] = useState('section-home');
 
   useEffect(() => {
@@ -25,12 +27,12 @@ export default function Navigation({ onContact }: {
   };
 
   const pages = [
-    { id: 'section-home', label: 'الرئيسية' },
-    { id: 'section-about', label: 'عن هاتز' },
-    { id: 'section-whatwedo', label: 'ماذا نفعل' },
-    { id: 'section-story', label: 'قصتنا' },
-    { id: 'section-blog', label: 'مقالات' },
-    { id: 'section-jobs', label: 'الوظائف' },
+    { id: 'section-home', label: dict.nav.home },
+    { id: 'section-about', label: dict.nav.about },
+    { id: 'section-whatwedo', label: dict.nav.whatWeDo },
+    { id: 'section-story', label: dict.nav.ourStory },
+    { id: 'section-blog', label: dict.nav.news },
+    { id: 'section-jobs', label: dict.nav.careers },
   ];
 
   return (
@@ -62,10 +64,13 @@ export default function Navigation({ onContact }: {
             ))}
           </nav>
           <div className="nav-link" onClick={onContact}>
-            <span className="nav-label">تواصل معنا</span>
+            <span className="nav-label">{dict.nav.contact}</span>
           </div>
         </div>
         <div className="dividerstyle" />
+        <div className="nav-link lang-toggle" onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')} title={lang === 'ar' ? 'English' : 'العربية'}>
+          <span className="nav-label">{lang === 'ar' ? 'EN' : 'عربي'}</span>
+        </div>
       </div>
     </aside>
   );

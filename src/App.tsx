@@ -6,8 +6,10 @@ import Home from './components/Home';
 import Popup from './components/Popup';
 import ContactPopup from './components/ContactPopup';
 import { BlogPost } from './data';
+import { useLanguage } from './i18n';
 
 export default function App() {
+  const { dict } = useLanguage();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [popupType, setPopupType] = useState<'contact' | null>(null);
@@ -49,7 +51,7 @@ export default function App() {
       <Popup
         open={popupType === 'contact'}
         onClose={closePopup}
-        title="اتصل بنا"
+        title={dict.contact.title}
         imageUrl="https://seashell-seal-546316.hostingersite.com/wp-content/uploads/2023/09/markus-winkler-q3QPw37J6Xs-unsplash-1-scaled.jpg"
       >
         <ContactPopup onClose={closePopup} />
