@@ -2111,3 +2111,12 @@ textarea {
 [dir="ltr"] .titlebloc-cc-pattern {
   background-position: center left;
 }
+
+[dir="ltr"] .popup-panel {
+  left: auto;
+  right: 0;
+  transform: translate3d(100%, 0, 0);
+}
+[dir="ltr"] .popup-panel.active {
+  transform: none;
+}
