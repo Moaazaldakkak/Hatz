@@ -163,8 +163,10 @@ function TimelineSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: number) => {
-    const isRtl = document.dir === 'rtl';
-    if (scrollRef.current) scrollRef.current.scrollBy({ left: (isRtl ? -dir : dir) * 250, behavior: 'smooth' });
+    const next = Math.max(0, Math.min(whatWeDo.length - 1, active + dir));
+    setActive(next);
+    const el = scrollRef.current?.children[next];
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
   };
 
   const whatWeDo = dict.whatWeDo.items;
