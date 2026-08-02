@@ -70,6 +70,8 @@ export interface Dict {
     email: string;
     message: string;
     submit: string;
+    success: string;
+    error: string;
   };
   contact: {
     title: string;
@@ -81,6 +83,8 @@ export interface Dict {
     subject: string;
     message: string;
     submit: string;
+    success: string;
+    error: string;
   };
   loader: { subtitle: string };
 }
@@ -199,6 +203,8 @@ const ar: Dict = {
     email: 'البريد الإلكتروني',
     message: 'رسالتي لكم',
     submit: 'إرسال',
+    success: 'تم إرسال طلبك بنجاح، سنتواصل معك قريباً',
+    error: 'حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى',
   },
   contact: {
     title: 'اتصل بنا',
@@ -210,6 +216,8 @@ const ar: Dict = {
     subject: 'استفسار عن شراكة',
     message: 'أخبرنا عن مشروعك...',
     submit: 'إرسال',
+    success: 'تم إرسال رسالتك بنجاح، سنتواصل معك قريباً',
+    error: 'حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى',
   },
   loader: {
     subtitle: 'نكتب فصلاً جديداً في قطاع التجزئة السوري',
@@ -322,6 +330,8 @@ const en: Dict = {
     email: 'Email Address',
     message: 'My Message to You',
     submit: 'Send',
+    success: 'Your application has been sent successfully. We will get back to you soon.',
+    error: 'Something went wrong while sending. Please try again.',
   },
   contact: {
     title: 'Contact Us',
@@ -333,6 +343,8 @@ const en: Dict = {
     subject: 'Partnership Inquiry',
     message: 'Tell us about your project...',
     submit: 'Send',
+    success: 'Your message has been sent successfully. We will get back to you soon.',
+    error: 'Something went wrong while sending. Please try again.',
   },
   loader: {
     subtitle: 'Writing a new chapter in the Syrian retail sector',

@@ -545,6 +545,8 @@ function BlogSection({ onOpen }: { onOpen: (post: any) => void }) {
 }
 
 /* Jobs */
+const JOBS_FORM_ENDPOINT = 'https://formsubmit.co/moaazaldakak1997@gmail.com';
+
 function JobsSection() {
   const { dict } = useLanguage();
   const [name, setName] = useState('');
@@ -552,9 +554,25 @@ function JobsSection() {
   const [cvLink, setCvLink] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setStatus('sending');
+    const fd = new FormData(e.currentTarget);
+    fd.append('_subject', 'HATZ — Job Application');
+    fd.append('_template', 'table');
+    fd.append('_captcha', 'false');
+    try {
+      const res = await fetch(JOBS_FORM_ENDPOINT, {
+        method: 'POST',
+        body: fd,
+        headers: { Accept: 'application/json' },
+      });
+      setStatus(res.ok ? 'success' : 'error');
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -571,23 +589,29 @@ function JobsSection() {
           <div style={{ flex: 1 }}>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <input type="text" placeholder={dict.jobs.name} value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="text" name="name" placeholder={dict.jobs.name} value={name} onChange={(e) => setName(e.target.value)} required />
               </div>
               <div className="form-group">
-                <input type="text" placeholder={dict.jobs.expertise} value={expertise} onChange={(e) => setExpertise(e.target.value)} />
+                <input type="text" name="expertise" placeholder={dict.jobs.expertise} value={expertise} onChange={(e) => setExpertise(e.target.value)} required />
               </div>
               <div className="form-group">
-                <input type="url" placeholder={dict.jobs.cv} value={cvLink} onChange={(e) => setCvLink(e.target.value)} />
+                <input type="url" name="cv_link" placeholder={dict.jobs.cv} value={cvLink} onChange={(e) => setCvLink(e.target.value)} />
               </div>
               <div className="form-group">
-                <input type="email" placeholder={dict.jobs.email} value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" name="email" placeholder={dict.jobs.email} value={email} onChange={(e) => setEmail(e.target.value)} required />
               </div>
               <div className="form-group">
-                <textarea placeholder={dict.jobs.message} value={message} onChange={(e) => setMessage(e.target.value)} rows={4} />
+                <textarea name="message" placeholder={dict.jobs.message} value={message} onChange={(e) => setMessage(e.target.value)} rows={4} required />
               </div>
-              <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                {dict.jobs.submit}
+              <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }} disabled={status === 'sending'}>
+                {status === 'sending' ? '...' : dict.jobs.submit}
               </button>
+              {status === 'success' && (
+                <p style={{ marginTop: '16px', fontSize: '14px', color: '#16a34a' }}>{dict.jobs.success}</p>
+              )}
+              {status === 'error' && (
+                <p style={{ marginTop: '16px', fontSize: '14px', color: '#dc2626' }}>{dict.jobs.error}</p>
+              )}
             </form>
           </div>
         </div>
