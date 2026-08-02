@@ -181,7 +181,7 @@ function TimelineSection() {
           </div>
 
           <div className="timeline-slider-row">
-            <button className="timeline-btn" onClick={() => scroll(-1)} style={{ marginLeft: '16px' }}>
+            <button className="timeline-btn left" onClick={() => scroll(-1)} >
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.25 15L25 14.9998" stroke="#FEFEFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M11.2499 8.75L5.88379 14.1161C5.46711 14.5328 5.25879 14.7411 5.25879 15C5.25879 15.2589 5.46711 15.4672 5.88379 15.8839L11.2499 21.25" stroke="#FEFEFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -199,7 +199,7 @@ function TimelineSection() {
                 </div>
               ))}
             </div>
-            <button className="timeline-btn" onClick={() => scroll(1)} style={{ marginRight: '16px' }}>
+            <button className="timeline-btn right" onClick={() => scroll(1)} >
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M23.75 15H5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M18.75 8.75L24.1161 14.1161C24.5328 14.5328 24.7411 14.7411 24.7411 15C24.7411 15.2589 24.5328 15.4672 24.1161 15.8839L18.75 21.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -558,7 +558,7 @@ function JobsSection() {
 
   return (
     <section style={{ padding: '80px 0' }}>
-      <div className="section-inner" style={{ padding: '0 30px', maxWidth: '1140px', margin: '0 auto' }}>
+      <div className="section-inner jobs-inner" style={{ maxWidth: '1140px', margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }} className="lg:flex-row">
           <div style={{ flex: 1 }}>
             <span className="section-title" style={{ marginBottom: '16px', display: 'inline-block' }}>{dict.jobs.title}</span>

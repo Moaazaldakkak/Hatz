@@ -712,13 +712,37 @@ textarea {
   max-width: 1140px;
   margin: 0 auto;
   width: 100%;
+  padding: 0 16px;
+}
+@media (min-width: 768px) {
+  .section-inner {
+    padding: 0 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .section-inner {
+    padding: 0;
+  }
+}
+.jobs-inner {
+  padding: 0 16px;
+}
+@media (min-width: 768px) {
+  .jobs-inner {
+    padding: 0 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .jobs-inner {
+    padding: 0 30px;
+  }
 }
 .titletext {
   color: var(--pulse-primary);
 }
 .section-title {
   font-size: clamp(28px, 4vw, 36px);
-  line-height: 1.25;
+  line-height: 1;
   font-weight: 400;
   text-wrap: nowrap;
   color: var(--pulse-primary);
@@ -735,10 +759,10 @@ textarea {
 .titlebloc-cc-pattern {
   background-image: url("/pattern-line.svg");
   width: 100%;
-  padding: 25px;
-  background-position: center right;
-  background-repeat: no-repeat;
-  background-size: cover;
+  padding: 22px;
+  background-position: center left;
+  background-repeat: repeat-x;
+  background-size: contain;
 }
 
 /* About */
@@ -830,13 +854,13 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 0 30px;
+  padding: 0 16px;
 }
 .about-row-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 30px 30px 0;
+  padding: 30px 16px 0;
 }
 @media (min-width: 768px) {
   .about-row-title {
@@ -947,20 +971,20 @@ textarea {
 .timeline-wrapper {
   background: var(--pulse-b3);
   position: relative;
-  min-height: 316px;
+  min-height: 245px;
 }
 @media (min-width: 768px) {
   .timeline-wrapper {
-    min-height: 338px;
+    min-height: 262px;
   }
 }
 @media (min-width: 1024px) {
   .timeline-wrapper {
-    min-height: 338px;
+    min-height: 332px;
   }
 }
 .timeline-header {
-  padding: 40px 30px 50px;
+  padding: 40px 16px 50px;
 }
 @media (min-width: 768px) {
   .timeline-header {
@@ -981,17 +1005,19 @@ textarea {
   align-items: center;
   position: absolute;
   bottom: 0;
-  right: 0;
-  width: calc(100% - 30px);
+  right: 16px;
+  width: calc(100% - 32px);
   padding: 24px;
 }
 @media (min-width: 768px) {
   .timeline-slider-row {
-    width: calc(100% - 50px);
+    right: 16px;
+    width: calc(100% - 66px);
   }
 }
 @media (min-width: 1024px) {
   .timeline-slider-row {
+    right: 0;
     width: calc(100% - 64px);
     padding: 32px;
   }
@@ -999,7 +1025,7 @@ textarea {
 .timeline-item {
   flex-shrink: 0;
   min-width: 200px;
-  padding: 16px;
+  padding: 12px 16px;
   color: white;
   cursor: pointer;
   background: var(--pulse-d1);
@@ -1023,9 +1049,9 @@ textarea {
   margin-top: 4px;
 }
 .timeline-desc-row {
-  padding: 32px 30px;
+  padding: 32px 16px;
   background: var(--pulse-b3);
-  margin-left: 30px;
+  margin-left: 16px;
 }
 @media (min-width: 768px) {
   .timeline-desc-row {
@@ -1062,12 +1088,15 @@ textarea {
   flex-shrink: 0;
   outline: none;
 }
-@media (min-width: 1024px) {
-  .timeline-btn {
-    width: 64px;
-    height: 64px;
-  }
+
+.timeline-btn.left {
+  margin-right: 16px;
 }
+
+.timeline-btn.right {
+  margin-left: 16px;
+}
+
 .timeline-btn:hover {
   background: var(--pulse-d2);
 }
@@ -1085,6 +1114,7 @@ textarea {
 
 .project-inner {
   position: relative;
+  padding: 0 16px;
 }
 @media (min-width: 768px) {
   .project-inner {
@@ -1498,7 +1528,7 @@ textarea {
 .blog-grid {
   display: grid;
   gap: 24px;
-  padding: 0 24px;
+  padding: 0;
 }
 @media (min-width: 768px) {
   .blog-grid {
@@ -1930,6 +1960,18 @@ textarea {
   }
 }
 
+[dir="rtl"]  .titlebloc-cc-pattern {
+  background-position: center right;
+}
+
+[dir="rtl"] .timeline-btn.left {
+  margin-left: 16px;
+}
+
+[dir="rtl"] .timeline-btn.right {
+  margin-right: 16px;
+}
+
 [dir="rtl"] .scrolltowhy {
   float: left;
 }
@@ -1939,11 +1981,16 @@ textarea {
 }
 [dir="rtl"] .timeline-slider-row {
   right: auto;
-  left: 0;
+  left: 16px;
+}
+@media (min-width: 1024px) {
+  [dir="rtl"] .timeline-slider-row {
+    left: 0;
+  }
 }
 [dir="rtl"] .timeline-desc-row {
   margin-left: 0;
-  margin-right: 30px;
+  margin-right: 16px;
 }
 @media (min-width: 768px) {
   [dir="rtl"] .timeline-desc-row {
