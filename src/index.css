@@ -1165,6 +1165,7 @@ textarea {
     margin-right: 80px;
   }
 }
+
 .project-card {
   height: 320px;
   position: relative;
@@ -1221,7 +1222,7 @@ textarea {
 }
 .project-thumb-slide {
   width: 200px;
-  height: 100px;
+  height: 100%;
   background-size: cover;
   background-position: center;
   float: left;
@@ -1255,7 +1256,7 @@ textarea {
 }
 .project-btn {
   width: 64px;
-  height: 100px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2032,6 +2033,38 @@ textarea {
   margin-right: 0;
   margin-left: 80px;
 }
+
+@media (max-width: 768px) {
+  [dir="rtl"] .project-card-wrap {
+    margin-left: 0;
+  }
+
+  .project-card-wrap {
+    margin-right: 0;
+  }
+
+  .project-status {
+    margin-right: 0;
+  }
+
+  .project-bottom-bar {
+    margin-left: 0;
+  }
+
+  [dir="rtl"]  .project-status {
+    margin-left: 0;
+  }
+
+  [dir="rtl"] .project-bottom-bar {
+    margin-right: 0;
+  }
+
+  .project-thumb-container {
+    height: 60px;
+  }
+}
+
+
 [dir="rtl"] .project-pulsing-dot {
   margin-right: 0;
   margin-left: 8px;
