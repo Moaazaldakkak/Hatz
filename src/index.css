@@ -435,6 +435,7 @@ textarea {
 .lang-toggle .nav-label {
   color: rgba(255, 255, 255, 0.85);
   font-size: 12px;
+
 }
 .lang-toggle:hover .nav-label,
 .lang-toggle.active .nav-label {
@@ -446,6 +447,10 @@ textarea {
   }
   .lang-toggle .nav-label {
     font-size: 10px;
+  }
+  .lang-toggle .nav-label {
+    margin-bottom: 7px;
+    margin-top: 7px;
   }
 }
 
