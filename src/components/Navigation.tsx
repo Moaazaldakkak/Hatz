@@ -27,7 +27,6 @@ export default function Navigation({ onContact }: {
   };
 
   const pages = [
-    { id: 'section-home', label: dict.nav.home },
     { id: 'section-about', label: dict.nav.about },
     { id: 'section-whatwedo', label: dict.nav.whatWeDo },
     { id: 'section-story', label: dict.nav.ourStory },
@@ -35,9 +34,13 @@ export default function Navigation({ onContact }: {
     { id: 'section-jobs', label: dict.nav.careers },
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <aside className="sidebar">
-      <div className="sidebar-toggle">
+      <div className="sidebar-toggle" onClick={scrollToTop} title="HATZ">
         <svg width="50" height="50" viewBox="0 0 500 499.1" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g fill="#fff">
             <rect x="0" y="0" width="16.55" height="215.24"/>
