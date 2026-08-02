@@ -330,6 +330,7 @@ textarea {
 .sidebar {
   width: 48px;
   height: 100vh;
+  height: 100dvh;
   background: var(--pulse-d3);
   position: sticky;
   top: 0;
@@ -370,6 +371,7 @@ textarea {
 
 .nav-container {
   height: calc(100vh - 48px);
+  height: calc(100dvh - 48px);
   overflow-y: auto;
   padding-top: 10px;
   display: flex;
@@ -379,6 +381,7 @@ textarea {
 @media (min-width: 1024px) {
   .nav-container {
     height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
   }
 }
 .nav-link {
@@ -1759,6 +1762,7 @@ textarea {
   .sidebar {
     width: 44px;
     height: 100vh;
+    height: 100dvh;
     flex-direction: column;
     position: fixed;
     top: 0;
@@ -1777,6 +1781,7 @@ textarea {
   }
   .nav-container {
     height: calc(100vh - 44px);
+    height: calc(100dvh - 44px);
     padding-top: 4px;
     flex-direction: column;
     overflow-y: auto;
