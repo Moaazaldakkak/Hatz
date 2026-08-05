@@ -661,7 +661,7 @@ textarea {
   width: 100%;
   padding: 22px;
   background-position: center left;
-  background-repeat: repeat-x;
+  background-repeat: no-repeat;
   background-size: contain;
 }
 
@@ -907,6 +907,7 @@ textarea {
 .timeline-item .label {
   text-transform: uppercase;
   color: var(--pulse-b2);
+  position: relative;
 }
 .timeline-desc-row {
   padding: 32px 16px;
@@ -1675,7 +1676,7 @@ textarea {
 }
 
 [dir="rtl"]  .titlebloc-cc-pattern {
-  background-position: center left;
+  background-position: center right;
 }
 
 [dir="rtl"] .timeline-btn.left {
@@ -1815,6 +1816,10 @@ textarea {
 [dir="ltr"] .nav-label {
   font-size: 10px;
   letter-spacing: 1px;
+}
+
+[dir="rtl"] .nav-label {
+  transform: rotate(180deg);
 }
 
 [dir="ltr"] .about-title-col .section-title {
